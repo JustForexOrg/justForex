@@ -5,7 +5,7 @@ import {Component} from '@angular/core'
   templateUrl: './top-header.component.html',
   styleUrls: [
     './top-header.component.css',
-    '../../../node_modules/font-awesome/css/font-awesome.min.css'
+    '../../../../node_modules/font-awesome/css/font-awesome.min.css'
   ]
 })
 

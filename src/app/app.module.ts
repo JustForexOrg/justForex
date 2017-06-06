@@ -5,22 +5,25 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AceEditorModule } from 'ng2-ace-editor';
+import { Ng2HighchartsModule } from 'ng2-highcharts';
 
 import { AppComponent } from './app.component';
-import { TopHeaderComponent } from './top-header/top-header.component'
-import { SideBarComponent } from './side-bar/side-bar.component'
-import { DashboardComponent }  from './dashboard/dashboard.component';
-import { ProjectsComponent } from './projects/projects.component'
+import { TopHeaderComponent } from './fixed/top-header/top-header.component'
+import { SideBarComponent } from './fixed/side-bar/side-bar.component'
+import { DashboardComponent }  from './users/dashboard/dashboard.component';
+import { ProjectsComponent } from './projectsFolder/projects/projects.component'
 import { MyProfileComponent } from './myprofile/myprofile.component'
-import { CommunityComponent } from './community/community.component'
-import { LeaderboardsComponent } from './leaderboards/leaderboards.component'
+import { CommunityComponent } from './users/community/community.component'
 import { TutorialsComponent } from './tutorials/tutorials.component'
-import { EditorComponent } from './editor/editor.component'
-import { MyprojectComponent } from './myproject/myproject.component'
-import { GraphsComponent } from './graphs/graphs.component'
+import { EditorComponent } from './projectsFolder/editor/editor.component'
+import { MyprojectComponent } from './projectsFolder/myproject/myproject.component'
+import { GraphsComponent } from './projectsFolder/graphs/graphs.component'
+import { LeaderboardsComponent } from './users/leaderboards/leaderboards.component';
+import { AuthenticationComponent } from './users/authentication/authentication.component'
 
-import { EditorService } from './editor/editor.service';
-import { ProjectsService } from './projects/projects.service';
+import { EditorService } from './projectsFolder/editor/editor.service';
+import { ProjectsService } from './projectsFolder/projects/projects.service';
+import { UsersService } from './users/users.service'
 
 export const appRoutes: Routes = [
   {
@@ -40,10 +43,6 @@ export const appRoutes: Routes = [
     component: CommunityComponent
   },
   {
-    path: 'leaderboards',
-    component: LeaderboardsComponent
-  },
-  {
     path: 'tutorials',
     component: TutorialsComponent
   },
@@ -56,8 +55,12 @@ export const appRoutes: Routes = [
     component: GraphsComponent
   },
   {
-    path: '**',
-    redirectTo: '/'
+    path: 'leaderboards',
+    component: LeaderboardsComponent
+  },
+  {
+    path: 'authentication',
+    component: AuthenticationComponent
   }
 ];
 
@@ -69,12 +72,13 @@ export const appRoutes: Routes = [
     DashboardComponent,
     ProjectsComponent,
     MyProfileComponent,
-    LeaderboardsComponent,
     TutorialsComponent,
     CommunityComponent,
     EditorComponent,
     MyprojectComponent,
-    GraphsComponent
+    GraphsComponent,
+    LeaderboardsComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,11 +86,13 @@ export const appRoutes: Routes = [
     HttpModule,
     AceEditorModule,
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2HighchartsModule
   ],
   providers: [
     EditorService,
-    ProjectsService
+    ProjectsService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

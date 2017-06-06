@@ -7,11 +7,6 @@
   position: fixed;
 }
 
-.code-editor {
-  margin-top:-33%;
-  height: 100vh;
-}
-
 nav {
   width: 100vw;
   border: none;
@@ -33,7 +28,9 @@ nav {
 }
 
 .navbar-fixed-top {
-  margin-top: 8.3%;
+  margin-top: 5%;
+  border-top: none;
+  border-bottom: 1px solid lightgrey;
 }
 
 .navbar-center button {

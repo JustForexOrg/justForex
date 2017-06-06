@@ -4,11 +4,12 @@
   position: fixed;
   float: left;
   margin-left: 0px;
-  margin-top: 1%;
+  margin-top: -1.8%;
+  border-top: 2px solid #bdc3c7;
   font-family: 'Montserrat', sans-serif;
   left: 0px;
   width: 20vw;
-  height: 75vh;
+  height: 100vh;
   z-index: 999;
 }
 
