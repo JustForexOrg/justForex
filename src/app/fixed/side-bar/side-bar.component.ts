@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core'
+import { Component } from '@angular/core'
 import { trigger, state, style, animate, transition } from '@angular/animations'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
   templateUrl: './side-bar.component.html',
   styleUrls: [
     './side-bar.component.css',
-    '../../../node_modules/font-awesome/css/font-awesome.min.css'
+    '../../../../node_modules/font-awesome/css/font-awesome.min.css'
   ],
   animations: [
     trigger('slideInOut', [

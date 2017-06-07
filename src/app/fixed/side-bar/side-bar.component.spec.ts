@@ -1,8 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
+import { SideBarComponent } from './side-bar.component';
 import { By } from '@angular/platform-browser';
 import { Location, CommonModule } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SideBarComponent } from './side-bar.component';
 
 describe('SideBarComponent', () => {
   beforeEach(async(() => {

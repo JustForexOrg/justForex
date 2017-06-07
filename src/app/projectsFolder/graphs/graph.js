@@ -1,24 +1,4 @@
-//  $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
-//  // Create the chart
-//    Highcharts.stockChart('bot', {
-//
-//        rangeSelector: {
-//            selected: 1
-//        },
-//
-//        title: {
-//            text: 'Balance Over Time'
-//        },
-//
-//        series: [{
-//            name: 'BOT',
-//            data: data,
-//            tooltip: {
-//                valueDecimals: 2
-//            }
-//        }]
-//    });
-//   });
+
 var seriesOptions = [],
   seriesCounter = 0,
   names = ['MSFT', 'AAPL', 'GOOG'];

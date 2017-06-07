@@ -11,7 +11,7 @@ import { AceEditorComponent } from 'ng2-ace-editor';
     templateUrl: './editor.component.html',
     styleUrls: [
       './editor.component.css',
-      '../../../node_modules/font-awesome/css/font-awesome.min.css']
+      '../../../../node_modules/font-awesome/css/font-awesome.min.css']
 })
 
 export class EditorComponent {

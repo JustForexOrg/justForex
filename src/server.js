@@ -2,8 +2,10 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index')
+var index = require('./routes/index');
 var tasks = require('./routes/tasks');
+var users = require('./routes/users');
+var data  = require('./routes/data');
 var port = 4200;
 
 var app = express();
@@ -22,6 +24,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/api', tasks);
+app.use('/data', data);
+app.use('/api/users', users);
 app.use('*', index);
 
 app.listen(port, function(){

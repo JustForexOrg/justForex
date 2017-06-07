@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 .topnav {
-  height: 15vh;
+  height: 10vh;
   width: 100vw;
-  box-shadow: 0 10px 6px -6px #d3d3d3;
+  border-bottom: 1px solid lightgrey;
   top: 0;
   position: fixed;
   background-color: white;
-  padding-top: 5vh;
+  padding-top: 3vh;
 }
 
 .topnav a {

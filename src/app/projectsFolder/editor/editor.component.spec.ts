@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 
-import { SideBarComponent } from '../side-bar/side-bar.component';
+import { SideBarComponent } from '../../fixed/side-bar/side-bar.component';
 
 describe('SideBarComponent', () => {
   beforeEach(async(() => {

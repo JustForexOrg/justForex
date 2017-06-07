@@ -26,7 +26,8 @@
         "../node_modules/ace-builds/src-noconflict/theme-github.js",
         "../node_modules/ace-builds/src-noconflict/mode-javascript.js",
         "../node_modules/ace-builds/src-noconflict/mode-ruby.js",
-        "../node_modules/ace-builds/src-noconflict/mode-python.js"
+        "../node_modules/ace-builds/src-noconflict/mode-python.js",
+        "../node_modules/highcharts/highcharts.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
