@@ -1,0 +1,5 @@
+<h1 *ngFor="let t of text">{{t}}</h1>
+<form (keydown)="keyDownFunction($event)">
+  <input  placeholder="Type your message here" [(ngModel)]="typed" >
+  <button (click)="bid()">Send Message</button>
+</form>

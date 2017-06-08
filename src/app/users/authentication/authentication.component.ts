@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../users.service';
-import { User } from '../users'
+import { Router } from '@angular/router';
+
+import { AuthenticationService } from './services/authentication.service';
+import { UserService } from './services/user.service'
 
 @Component({
   selector: 'app-authentication',
@@ -8,7 +10,6 @@ import { User } from '../users'
   styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent implements OnInit {
-  users: User[];
   isRegister:boolean = false;
   isActive: boolean = true;
 
@@ -16,9 +17,17 @@ export class AuthenticationComponent implements OnInit {
   username: string;
   password: string;
 
-  constructor(private userService:UsersService) { }
+  //for logging in
+  loading = false;
+  error = '';
+
+  constructor(private router: Router,
+              private authenticationService: AuthenticationService,
+              private userService: UserService) { }
 
   ngOnInit() {
+    // reset login status
+       this.authenticationService.logout();
   }
 
   switchPage(toLogin: boolean) {
@@ -28,18 +37,36 @@ export class AuthenticationComponent implements OnInit {
     }
   }
 
-  addUser() {
-    event.preventDefault();
-    var u = {
+  register() {
+    this.loading = true;
+    var model = {
       id: 1,
       email: this.email,
       username: this.username,
       password: this.password
     }
-
-    this.userService.addUser(u)
-        .subscribe(user => {
-            this.users.push(user);
-        });
+    this.userService.create(model)
+        .subscribe(
+            data => {
+                this.router.navigate(['/login']);
+            },
+            error => {
+                this.loading = false;
+            });
   }
+
+  login() {
+        this.loading = true;
+        this.authenticationService.login(this.username, this.password)
+            .subscribe(result => {
+                if (result === true) {
+                    // login successful
+                    this.router.navigate(['/']);
+                } else {
+                    // login failed
+                    this.error = 'Username or password is incorrect';
+                    this.loading = false;
+                }
+            });
+    }
 }

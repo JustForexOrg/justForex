@@ -23,7 +23,10 @@ import { AuthenticationComponent } from './users/authentication/authentication.c
 
 import { EditorService } from './projectsFolder/editor/editor.service';
 import { ProjectsService } from './projectsFolder/projects/projects.service';
-import { UsersService } from './users/users.service'
+import { UserService } from './users/authentication/services/user.service';
+import { AuthenticationService } from './users/authentication/services/authentication.service'
+import { ChatComponent } from './users/chat/chat.component'
+import { AuthGuard } from './users/authentication/guards/auth.guard'
 
 export const appRoutes: Routes = [
   {
@@ -61,7 +64,16 @@ export const appRoutes: Routes = [
   {
     path: 'authentication',
     component: AuthenticationComponent
-  }
+  },
+  {
+    path: 'chat',
+    component: ChatComponent
+  },
+  // {
+  //   path: 'home',
+  //   component: HomeComponent,
+  //   canActivate: [AuthGuard]
+  // }
 ];
 
 @NgModule({
@@ -79,6 +91,7 @@ export const appRoutes: Routes = [
     GraphsComponent,
     LeaderboardsComponent,
     AuthenticationComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,7 +105,8 @@ export const appRoutes: Routes = [
   providers: [
     EditorService,
     ProjectsService,
-    UsersService
+    UserService,
+    AuthenticationService,
   ],
   bootstrap: [AppComponent]
 })

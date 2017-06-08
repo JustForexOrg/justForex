@@ -5,7 +5,6 @@
   float: left;
   margin-left: 0px;
   margin-top: -1.8%;
-  border-top: 2px solid #bdc3c7;
   font-family: 'Montserrat', sans-serif;
   left: 0px;
   width: 20vw;
@@ -23,7 +22,7 @@ button {
 
 button span {
   margin-left: -14px;
-  color: #00cc00;
+  color: #7530E5;
 }
 
 #sidebar-wrapper {
@@ -104,11 +103,12 @@ ul.sidebar .sidebar-main .menu-icon {
   line-height: 60px;
 }
 ul.sidebar .sidebar-title {
-  color: #00cc00;
-  font-size: 1em;
+  color: #A33888;
+  font-size: 1.1em;
   height: 35px;
   margin-top: 5%;
   line-height: 40px;
+  font-weight: bold;
   text-transform: uppercase;
   transition: all .6s ease 0s;
 }
