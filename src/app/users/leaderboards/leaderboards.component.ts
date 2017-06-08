@@ -24,6 +24,8 @@ export class LeaderboardsComponent implements OnInit {
         title: 'Password',
       },
     },
+    actions: false,
+    hideSubHeader: true
   };
 
   source: ServerDataSource;
