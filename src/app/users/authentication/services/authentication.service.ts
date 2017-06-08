@@ -13,6 +13,10 @@ export class AuthenticationService {
     this.token = currentUser && currentUser.token;
   }
 
+  isLoggedIn(): boolean {
+    return this.token != null;
+  }
+
   login(username: string, password: string): Observable<boolean> {
     return this.http.post('/api/authenticate', JSON.stringify({
       username: username, password: password

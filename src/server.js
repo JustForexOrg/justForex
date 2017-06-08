@@ -8,7 +8,6 @@ var users = require('./routes/users');
 var data  = require('./routes/data');
 
 var port = 4200;
-
 var app = express();
 
 //View Engine
@@ -36,11 +35,13 @@ app.listen(port, function(){
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
+let clientListNames = [];
 server.listen(8000);
 io.set("origins", "*:*");
 
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
+    // io.to(1).emit('chat message', msg);
     io.emit('chat message', msg);
   });
 });
