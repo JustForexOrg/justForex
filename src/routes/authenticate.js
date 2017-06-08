@@ -7,9 +7,8 @@ var db = mongojs('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justfo
 
 router.post('/', function(req, res, next) {
   var u = req.body;
-  console.log("hi " + u.username + " " + u.password);
 
-  db.users.findOne({username: u.username, password: u.password}, function(err, user){
+  db.users.findOne({ $and: [ { username: { $eq: u.username} }, {password: { $eq: u.password} } ] }, function(err, user){
       if(err){
           res.send(err);
       }
