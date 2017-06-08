@@ -2,27 +2,31 @@
 
 
 <div id="topnav">
-  <nav class="navbar-default navbar navbar-fixed-top">
-    <div class="container">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="topnav">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <div class="navbar-header">
-        <a href="#">justForex</a>
-      </div>
-
-      <div class="collapse navbar-collapse">
-        <i class="fa fa-inbox" aria-hidden="true" routerLink="/chat"></i>
-        <i class="fa fa-bell" aria-hidden="true" routerLink="/authentication"></i>
-        <i class="fa fa-info" aria-hidden="true"></i> <!-- info -->
-        <i class="fa fa-cog" aria-hidden="true"></i> <!-- settings -->
-        <i class="fa fa-user" aria-hidden="true" routerLink="/myprofile"></i> <!-- account -->
-      </div>
-    </div>
-  </nav>
+  <nav class="navbar navbar-default navbar-toggleable-md navbar-light bg-faded navbar-fixed-top">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">justForex</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <i class="nav-link fa fa-inbox" aria-hidden="true" routerLink="/chat"></i>
+      </li>
+      <li class="nav-item">
+        <i class="nav-link fa fa-bell" aria-hidden="true" routerLink="/authentication"></i>
+      </li>
+      <li class="nav-item">
+        <i class="nav-link fa fa-info" aria-hidden="true"></i>
+      </li>
+      <li class="nav-item">
+        <i class="nav-link fa fa-cog" aria-hidden="true"></i>
+      </li>
+      <li class="nav-item">
+        <i class="nav-link fa fa-user" aria-hidden="true" routerLink="/myprofile"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
 </div>
+
 <!-- </div> -->
