@@ -15,6 +15,10 @@ export class UserService {
         return this.http.get('/api/users/get' + id, this.jwt()).map((response: Response) => response.json());
     }
 
+    getByUsername(username: string) {
+        return this.http.get('/api/users/get' + username, this.jwt()).map((response: Response) => response.json());
+    }
+
     create(user: User) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');

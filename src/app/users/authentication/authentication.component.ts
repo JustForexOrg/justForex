@@ -39,8 +39,9 @@ export class AuthenticationComponent implements OnInit {
 
   register() {
     this.loading = true;
+    event.preventDefault();
     var model = {
-      id: 1,
+      id: "1",
       email: this.email,
       username: this.username,
       password: this.password
@@ -48,7 +49,7 @@ export class AuthenticationComponent implements OnInit {
     this.userService.create(model)
         .subscribe(
             data => {
-                this.router.navigate(['/login']);
+                this.router.navigate(['/dashboard']);
             },
             error => {
                 this.loading = false;
@@ -57,11 +58,12 @@ export class AuthenticationComponent implements OnInit {
 
   login() {
         this.loading = true;
+
         this.authenticationService.login(this.username, this.password)
             .subscribe(result => {
                 if (result === true) {
                     // login successful
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/dashboard']);
                 } else {
                     // login failed
                     this.error = 'Username or password is incorrect';

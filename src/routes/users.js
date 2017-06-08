@@ -3,7 +3,7 @@ const router = express.Router();
 
 // declare axios for making http requests
 const mongojs = require('mongojs');
-var db = mongojs('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', ['users'])
+var db = mongojs('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', ['users']);
 
 // Get All Users
 router.get('/getall', function(req, res, next){
@@ -28,20 +28,12 @@ router.get('/get/:id', function(req, res, next){
 //Save User
 router.post('/save', function(req, res, next) {
     var user = req.body;
-
-    if(!user.text) {
-        res.status(400);
-        res.json({
-            "error": "Bad Data"
-        });
-    } else {
-        db.users.save(user, function(err, user) {
-            if(err){
-                res.send(err);
-            }
-            res.json(user);
-        })
-    }
+    db.users.insert(user, function(err, user) {
+      if(err){
+        res.send(err);
+      }
+      res.json(user);
+    })
 });
 
 //Delete users
