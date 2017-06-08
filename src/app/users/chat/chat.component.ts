@@ -23,10 +23,11 @@ export class ChatComponent {
     constructor(public messagesService: MessagesService,
               public threadsService: ThreadsService,
               public usersService: UsersService) {
-    this.socket = io('http://localhost:8000');
-    this.socket.on('chat message', function(msg){
-       this.text.push(msg);
-   }.bind(this));
+  //   this.socket = io('http://localhost:8000');
+  //   this.socket.on('chat message', function(msg){
+  //      this.text.push(msg);
+  //  }.bind(this));
+  ChatExampleData.init(messagesService, threadsService, usersService);
 
   //  globalVars.socket = io({ query: "userName=" + this.nickname });
   }
