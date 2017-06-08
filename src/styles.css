@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
+:root {
+  --white: #FAFBFC;
+  --lightgrey: #DCE2E9;
+  --dark: #363E4D;
+  --grey: #A9AAAE;
+  --darkgreen: #6F978A;
+  --green: #65D292;
+  --greygreen: #B4CFC8;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   padding-top: 10px;
@@ -10,7 +20,7 @@ body {
 }
 
 #loading {
-  color: #00cc00;
+  color: #65D292;
   font-family: 'Source Code Pro', monospace;
   font-size: 40px;
   margin: 10px 0 0 10px;

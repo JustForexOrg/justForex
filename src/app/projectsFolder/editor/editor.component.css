@@ -1,39 +1,40 @@
 .ace {
   width:50vw;
   height: 67.1vh;
-  margin-top: 5.4%;
-  margin-left: 5%;
+  margin-top: -1%;
   overflow: auto;
   position: fixed;
 }
 
-nav {
+.code-editor nav {
   width: 100vw;
+  margin-left: -15%;
+  margin-top:-2%;
+  /*border: none;*/
+  /*background-color: white;
+  border: 0.3px solid #e6e6e6;*/
+  /*z-index: -1;*/
+}
+
+.navbar-fixed-bottom {
+  border: 1px solid green;
+}
+
+.form-inline {
+  margin-left: 1%;
+  margin-top: 0.8%;
+}
+
+button {
+  color: var(--green);
+}
+
+button:hover {
+  color: white;
   border: none;
-  background-color: white;
-  border: 0.3px solid #e6e6e6;
-  z-index: -1;
+  background-color: var(--green);
 }
 
-.navbar-center {
-  position: absolute;
-   width: 100%;
-   left: 0;
-   text-align: center;
-   margin-top: 1%;
-  top: 25%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.navbar-fixed-top {
-  margin-top: 6.5%;
-  border-top: none;
-  border-bottom: 1px solid lightgrey;
-}
-
-.navbar-center button {
-  margin-left: 3%;
-  width:12%;
+.navbar-brand {
+  text-transform: uppercase;
 }

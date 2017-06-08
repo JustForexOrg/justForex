@@ -23,7 +23,7 @@ button {
 
 button span {
   margin-left: -14px;
-  color: #7530E5;
+  color: #363E4D;
 }
 
 #sidebar-wrapper {
@@ -65,8 +65,9 @@ ul.sidebar .sidebar-main a,
 ul.sidebar .sidebar-list a:hover,
 #page-wrapper:not(.open) ul.sidebar .sidebar-title.separator {
   /* Sidebar header and footer color */
-  background: lightgray;
+  background: var(--greygreen);
 }
+
 ul.sidebar {
   position: absolute;
   top: 0;
@@ -105,10 +106,9 @@ ul.sidebar .sidebar-main .menu-icon {
   line-height: 60px;
 }
 ul.sidebar .sidebar-title {
-  color: #A33888;
-  /*font-size: 1.1em;
-  font-size: 2.5vw;*/
   font-size: calc(7px + 1.2vw);
+  color: #6F978A;
+  font-size: 1.1em;
   height: 35px;
   margin-top: 3.5vh;
   line-height: 40px;
@@ -121,17 +121,16 @@ ul.sidebar .sidebar-list {
 }
 ul.sidebar .sidebar-list a {
   text-indent: 25px;
-  /*font-size: 1.1em;
-  font-size: 1.5vw;*/
   font-size: calc(7px + 0.8vw);
-  color: #a6a6a6;
+  font-size: 1.1em;
+  color: #6F978A;
   line-height: 40px;
   width: 19vw;
 }
 
 ul.sidebar .sidebar-list a:hover {
   color: #fff;
-  border-left: 3px solid #00cc00;
+  border-left: 3px solid #65D292;
   text-indent: 22px;
 }
 ul.sidebar .sidebar-list a:hover .menu-icon {
@@ -142,6 +141,7 @@ ul.sidebar .sidebar-list .menu-icon {
   padding-right: 29px;
   line-height: 40px;
   width: 20%;
+  color: #363E4D;
 }
 #page-wrapper:not(.open) ul.sidebar {
   bottom: 0;

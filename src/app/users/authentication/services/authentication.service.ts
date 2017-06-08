@@ -1,40 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
+import { UserService } from './user.service'
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
   public token: string;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private userService:UserService) {
     //set token if saved in local storage
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
-  }
-
-  isLoggedIn(): boolean {
-    return this.token != null;
+    // find if any user matches login credentials
   }
 
   login(username: string, password: string): Observable<boolean> {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
     return this.http.post('/api/authenticate', JSON.stringify({
       username: username, password: password
-    })).map((response: Response) => {
-      //login successfu; if there's a jwt in the response
+    }), {headers: headers}).map((response: Response) => {
+      //login successful if there's a jwt in the response
       let token = response.json() && response.json().token;
       if (token) {
-         // set token property
-         this.token = token;
+        // set token property
+        this.token = token;
 
-         // store username and jwt token in local storage to keep user logged in between page refreshes
-         localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+        // store username and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
 
-         // return true to indicate successful login
-         return true;
-   } else {
-       // return false to indicate failed login
-       return false;
+        // return true to indicate successful login
+        return true;
+      } else {
+        console.log("hi");
+        // return false to indicate failed login
+        return false;
    }
   })
   }
