@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { ServerDataSource } from './../../../../node_modules/ng2-smart-table'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-leaderboards',
@@ -23,6 +24,9 @@ export class LeaderboardsComponent implements OnInit {
       password: {
         title: 'Password',
       },
+      score: {
+        title: 'Score',
+      },
     },
     actions: false,
     hideSubHeader: true
@@ -30,8 +34,12 @@ export class LeaderboardsComponent implements OnInit {
 
   source: ServerDataSource;
 
-  constructor(http: Http) {
+  constructor(http: Http, private router: Router) {
     this.source = new ServerDataSource(http, { endPoint: '/api/users/getall' });
+  }
+
+  onUserRowSelect(event): void {
+    this.router.navigate(['/chat']);
   }
 
   ngOnInit() {}
