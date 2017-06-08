@@ -4,7 +4,7 @@
   width: 100%;
   height: 12%;
   border-bottom:none;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 0.3vh solid lightgrey;
   padding-top: 3.5vh;
   background-color: rgba(255, 255, 255, 0.9);
   display: block;
@@ -12,9 +12,11 @@
 
 #topnav .navbar a {
   margin-left: 2vw;
+  vertical-align: middle;
   text-decoration: none;
   font-family: 'Space Mono', monospace;
-  font-size: 35px;
+  font-size: 3vh;
+  font-size: 3vw;
   color: 	#44107A;
 	line-height: 30px;
   /*background: #00cc00;*/
@@ -22,7 +24,9 @@
 
 #topnav .navbar i {
   margin-right: 5vw;
-  font-size: 180%;
+  /*font-size: 180%;*/
+  font-size: 2vh;
+  font-size: 2vw;
   color: #913D88;
 
 }
