@@ -160,7 +160,9 @@ export class GraphsComponent implements OnInit {
 		}, 3000);
 
 		//Stock
-		 this.http.get('../../../assets/aapl-c.json').subscribe(
+		//  this.http.get('../../../assets/aapl-c.json').subscribe(
+      // this.http.get('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?').subscribe(
+			this.http.get('www.doc.ic.ac.uk/~dsg115/test.php?callback=?').subscribe(
 			(aaplc: any) => {
 				this.chartStock = {
 					rangeSelector: {
