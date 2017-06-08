@@ -1,30 +1,30 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:700');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:400');
 
-.topnav {
+#topnav .navbar {
   width: 100%;
-  height: 10%;
+  height: 12%;
   border-bottom:none;
-  top: 0;
-  position: fixed;
-  padding-top: 3vh;
-  background: white;
-
+  border-bottom: 1px solid lightgrey;
+  padding-top: 3.5vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: block;
 }
 
-.topnav a {
+#topnav .navbar a {
   margin-left: 2vw;
   text-decoration: none;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Space Mono', monospace;
   font-size: 35px;
-  color: 	#7530E5;
+  color: 	#44107A;
 	line-height: 30px;
   /*background: #00cc00;*/
 }
 
-.topnav i {
+#topnav .navbar i {
   margin-right: 5vw;
   font-size: 180%;
-  color: #A33888;
+  color: #913D88;
+
 }
 
 i:hover {

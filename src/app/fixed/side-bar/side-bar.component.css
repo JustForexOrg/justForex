@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 #sidebar-wrapper {
+  background-color: white;
   position: fixed;
   float: left;
   margin-left: 0px;
@@ -58,9 +59,7 @@ div.input-mask {
 /**
  * Sidebar
  */
-#sidebar-wrapper {
-  background: white;
-}
+
 ul.sidebar .sidebar-main a,
 .sidebar-footer,
 ul.sidebar .sidebar-list a:hover,
