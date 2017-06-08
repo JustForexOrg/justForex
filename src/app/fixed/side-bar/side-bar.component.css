@@ -5,11 +5,11 @@
   position: fixed;
   float: left;
   margin-left: 0px;
-  margin-top: -1.8%;
+  margin-top: 0%;
   font-family: 'Montserrat', sans-serif;
   left: 0px;
   width: 20vw;
-  height: 100vh;
+  height: 100%;
   z-index: 999;
 }
 
@@ -85,9 +85,12 @@ ul.sidebar li a {
   float: left;
   text-decoration: none;
   width: 250px;
+  width: 4vw;
 }
 ul.sidebar .sidebar-main {
-  height: 65px;
+  /*height: 65px;
+  height: 10vh;*/
+  height: 100%;
 }
 ul.sidebar .sidebar-main a {
   font-size: 18px;
@@ -103,10 +106,11 @@ ul.sidebar .sidebar-main .menu-icon {
   line-height: 60px;
 }
 ul.sidebar .sidebar-title {
+  font-size: calc(7px + 1.2vw);
   color: #6F978A;
   font-size: 1.1em;
   height: 35px;
-  margin-top: 5%;
+  margin-top: 3.5vh;
   line-height: 40px;
   font-weight: bold;
   text-transform: uppercase;
@@ -117,6 +121,7 @@ ul.sidebar .sidebar-list {
 }
 ul.sidebar .sidebar-list a {
   text-indent: 25px;
+  font-size: calc(7px + 0.8vw);
   font-size: 1.1em;
   color: #6F978A;
   line-height: 40px;
