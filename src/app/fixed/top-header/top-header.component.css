@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Space+Mono:400');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono:700');
 
 #topnav .navbar {
   width: 100%;
@@ -6,7 +6,7 @@
   border-bottom:none;
   border-bottom: 1px solid lightgrey;
   padding-top: 3.5vh;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #FAFBFC;
   display: block;
 }
 
@@ -15,7 +15,8 @@
   text-decoration: none;
   font-family: 'Space Mono', monospace;
   font-size: 35px;
-  color: 	#44107A;
+  color: 	#65D292;
+  font-weight: 6em;
 	line-height: 30px;
   /*background: #00cc00;*/
 }
@@ -23,7 +24,7 @@
 #topnav .navbar i {
   margin-right: 5vw;
   font-size: 180%;
-  color: #913D88;
+  color: #363E4D;
 
 }
 
