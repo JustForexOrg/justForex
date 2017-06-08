@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 #sidebar-wrapper {
-  background-color: white;
+  background-color: var(--white);
   position: fixed;
   float: left;
   margin-left: 0px;
-  margin-top: 0%;
+  margin-top: -2vh;
   font-family: 'Montserrat', sans-serif;
   left: 0px;
   width: 20vw;
