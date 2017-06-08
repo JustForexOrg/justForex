@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { ServerDataSource } from './../../../../node_modules/ng2-smart-table'
 
 @Component({
   selector: 'app-leaderboards',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaderboardsComponent implements OnInit {
 
-  constructor() { }
+  settings = {
+    columns: {
+      id: {
+        title: 'ID',
+      },
+      username: {
+        title: 'Username',
+      },
+      email: {
+        title: 'Email',
+      },
+      password: {
+        title: 'Password',
+      },
+    },
+  };
 
-  ngOnInit() {
+  source: ServerDataSource;
+
+  constructor(http: Http) {
+    this.source = new ServerDataSource(http, { endPoint: '/api/users/getall' });
   }
+
+  ngOnInit() {}
 
 }
