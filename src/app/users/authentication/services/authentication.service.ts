@@ -32,7 +32,6 @@ export class AuthenticationService {
         // return true to indicate successful login
         return true;
       } else {
-        console.log("hi");
         // return false to indicate failed login
         return false;
    }
