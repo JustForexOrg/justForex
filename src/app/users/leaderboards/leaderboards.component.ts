@@ -13,21 +13,45 @@ export class LeaderboardsComponent implements OnInit {
   settings = {
     columns: {
       id: {
-        title: 'ID',
+        title: 'Rank',
       },
-      username: {
-        title: 'Username',
+      title: {
+        title: 'User',
       },
-      email: {
-        title: 'Email',
+      albumId: {
+        title: 'Risk Rating',
       },
-      password: {
-        title: 'Password',
+      split: {
+        title: 'Split',
       },
-      score: {
-        title: 'Score',
+      url: {
+        title: 'Graphs',
       },
+      nationality: {
+        title: 'Nationality'
+      }
     },
+    //   id: {
+    //     title: 'ID',
+    //     filter: false
+    //   },
+    //   username: {
+    //     title: 'Username',
+    //     filter: false
+    //   },
+    //   email: {
+    //     title: 'Email',
+    //     filter: false
+    //   },
+    //   password: {
+    //     title: 'Password',
+    //     filter: false
+    //   },
+    //   score: {
+    //     title: 'Score',
+    //     filter: false
+    //   },
+    // },
     actions: false,
     hideSubHeader: true
   };
@@ -35,12 +59,37 @@ export class LeaderboardsComponent implements OnInit {
   source: ServerDataSource;
 
   constructor(http: Http, private router: Router) {
-    this.source = new ServerDataSource(http, { endPoint: '/api/users/getall' });
+    this.source = new ServerDataSource(http, { endPoint: 'https://jsonplaceholder.typicode.com/photos' });
   }
 
   onUserRowSelect(event): void {
     this.router.navigate(['/chat']);
   }
+
+  onSearch(query: string = '') {
+  this.source.setFilter([
+    // fields we want to include in the search
+    {
+      field: 'id',
+      search: query
+    },
+    {
+      field: 'username',
+      search: query
+    },
+    {
+      field: 'email',
+      search: query
+    },
+    {
+      field: 'score',
+      search: query
+    }
+  ], false);
+  // second parameter specifying whether to perform 'AND' or 'OR' search
+  // (meaning all columns should contain search query or at least one)
+  // 'AND' by default, so changing to 'OR' by setting false here
+}
 
   ngOnInit() {}
 
