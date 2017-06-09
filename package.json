@@ -25,8 +25,8 @@
     "@angular/router": "^4.0.0",
     "@types/highcharts": "^4.2.55",
     "ace-builds": "^1.2.6",
-    "angular-2-data-table": "^0.1.2",
     "angular-bootstrap": "^0.12.2",
+    "angular2-datatable": "^0.6.0",
     "core-js": "^2.4.1",
     "ejs": "^2.5.6",
     "font-awesome": "^4.7.0",
@@ -36,7 +36,6 @@
     "mongoose": "^4.10.5",
     "ng2-ace-editor": "^0.2.2",
     "ng2-highcharts": "^1.0.0",
-    "ng2-smart-table": "^1.2.1",
     "rxjs": "^5.1.0",
     "socket-io": "^1.0.0",
     "zone.js": "^0.8.12"

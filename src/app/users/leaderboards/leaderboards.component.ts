@@ -1,47 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
-import { ServerDataSource } from './../../../../node_modules/ng2-smart-table'
 import { Router } from '@angular/router';
+
+import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
+import { films } from './leaderboard.data';
 
 @Component({
   selector: 'app-leaderboards',
   templateUrl: './leaderboards.component.html',
   styleUrls: ['./leaderboards.component.css']
 })
-export class LeaderboardsComponent implements OnInit {
+export class LeaderboardsComponent {
+  public data;
+   public filterQuery = "";
+   public rowsOnPage = 10;
+   public sortBy = "email";
+   public sortOrder = "asc";
 
-  settings = {
-    columns: {
-      id: {
-        title: 'ID',
-      },
-      username: {
-        title: 'Username',
-      },
-      email: {
-        title: 'Email',
-      },
-      password: {
-        title: 'Password',
-      },
-      score: {
-        title: 'Score',
-      },
-    },
-    actions: false,
-    hideSubHeader: true
-  };
+   constructor(private http: Http) {
+   }
 
-  source: ServerDataSource;
+   ngOnInit(): void {
+       this.http.get("https://jsonplaceholder.typicode.com/users")
+           .subscribe((data)=> {
+               setTimeout(()=> {
+                   this.data = data.json();
+               }, 1000);
+           });
+   }
 
-  constructor(http: Http, private router: Router) {
-    this.source = new ServerDataSource(http, { endPoint: '/api/users/getall' });
-  }
+   public toInt(num: string) {
+       return +num;
+   }
 
-  onUserRowSelect(event): void {
-    this.router.navigate(['/chat']);
-  }
-
-  ngOnInit() {}
-
+   public sortByWordLength = (a: any) => {
+       return a.city.length;
+   }
 }

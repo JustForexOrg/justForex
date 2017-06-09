@@ -15,7 +15,6 @@ body {
   height: 12%;
   margin-bottom: 0;
   border-bottom:none;
-  border-bottom: 0.3vh solid lightgrey;
   padding-top: 1.5vh;
   background-color: var(--white);
   display: block;

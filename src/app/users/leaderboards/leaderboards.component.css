@@ -1,8 +1,10 @@
-table {
-  width: 50%;
-  margin: 0 auto;
+#data td {
+  background-color: white;
+  color: var(--dark);
+  border: none;
 }
 
-th {
-  width: 40%;
+table {
+  border-collapse: separate;
+  border-spacing: 10px 5px;
 }

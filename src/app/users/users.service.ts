@@ -10,7 +10,7 @@ export class UsersService{
         console.log('User Service Initialized...');
     }
 
-    getUser(){
+    getUsers(){
         return this.http.get('/api/users/getall')
             .map(res => res.json());
     }
