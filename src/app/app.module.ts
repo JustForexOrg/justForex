@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AceEditorModule } from 'ng2-ace-editor';
 import { Ng2HighchartsModule } from 'ng2-highcharts';
-import {DataTableModule} from "angular2-datatable";
 
 import { AppComponent } from './app.component';
 import { TopHeaderComponent } from './fixed/top-header/top-header.component'
@@ -121,7 +120,6 @@ export const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     Ng2HighchartsModule,
-    DataTableModule
   ],
   providers: [
     EditorService,
