@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { DataTable, DataTableTranslations, DataTableResource } from 'angular-2-data-table';
-import { films } from './leaderboard.data';
+import { films } from './leaderboards.data';
 
 @Component({
   selector: 'app-leaderboards',

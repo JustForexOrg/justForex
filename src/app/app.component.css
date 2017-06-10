@@ -1,5 +1,5 @@
 .background {
-  background-color: #F6F6F6;;
+  background-color: var(--white);;
   width: 80%;
   height: 100%;
   margin-top: 85px;

@@ -1,10 +1,48 @@
-#data td {
+@import url('https://fonts.googleapis.com/css?family=Cabin:600');
+/*#data td {
   background-color: white;
   color: var(--dark);
-  border: none;
-}
+  border: 1px solid var(--lightgrey);
+}*/
 
 table {
-  border-collapse: separate;
-  border-spacing: 10px 5px;
+    border-collapse: separate;
+    text-align: center;
+    margin-left: -10%;
+    width: 94vw;
+    border-spacing:0 1rem;
+}
+
+th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+thead tr {
+    text-transform: uppercase;
+    font-family: 'Cabin', sans-serif;
+    color: var(--dark);
+
+}
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+img {
+    float:left;
+    border-radius: 50%;
+    border: 1px solid grey;
+    height:8vh;
+    clip-path: circle(4vh at center);
+}
+
+td {
+    background-color: white;
+    color: var(--dark);
+    height: 10vh;
+}
+
+button {
+    background-color: var(--green);
 }

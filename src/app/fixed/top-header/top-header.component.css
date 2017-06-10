@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Space+Mono:700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700i');
 
 @media screen and (max-width: 770px) {
   .navbar-right {
@@ -16,7 +16,9 @@ body {
   margin-bottom: 0;
   border-bottom:none;
   padding-top: 1.5vh;
-  background-color: var(--white);
+  background-color: white;
+  opacity: 0.9;
+  border-bottom: 0.5px solid var(--lightgrey);
   display: block;
 }
 
@@ -24,21 +26,22 @@ body {
   margin-left: 2vw;
   vertical-align: middle;
   text-decoration: none;
-  font-family: 'Space Mono', monospace;
-  color: 	#65D292;
+  font-family: 'Montserrat', sans-serif;
+  color: 	var(--dark);
   font-weight: 6em;
-  font-size: 3vh;
-  font-size: 3vw;
+  font-size: 2.8vh;
+  font-size: 2.8vw;
 	line-height: 30px;
   /*background: #00cc00;*/
+  vertical-align: middle;
 }
 
 #topnav .navbar i {
   padding-top: 2.5vh;
-  margin-right: 5vw;
-  color: #363E4D;
-  font-size: 2vh;
-  font-size: 2vw;
+  margin-right: 4vw;
+  color: #285943;
+  font-size: 1.5vh;
+  font-size: 1.5vw;
 }
 
 #topnav .navbar i .collapse {
