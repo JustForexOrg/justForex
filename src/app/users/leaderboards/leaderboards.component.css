@@ -1,10 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin:600');
-/*#data td {
-  background-color: white;
-  color: var(--dark);
-  border: 1px solid var(--lightgrey);
-}*/
-
 table {
     border-collapse: separate;
     text-align: center;
