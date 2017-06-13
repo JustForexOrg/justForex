@@ -19,6 +19,10 @@ thead tr {
 
 }
 
+#c3 {
+  z-index: 1151;
+}
+
 .borderless td, .borderless th {
     border: none;
 }

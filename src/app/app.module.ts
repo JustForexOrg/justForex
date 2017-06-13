@@ -28,18 +28,8 @@ import { UserService } from './users/authentication/services/user.service';
 import { AuthenticationService } from './users/authentication/services/authentication.service'
 import { ChatComponent } from './users/chat/chat.component'
 import { AuthGuard } from './users/authentication/guards/auth.guard';
-
-//Components for Chat Service
-import { UsersService } from './users/chat/user/users.service';
-import { ThreadsService } from './users/chat/thread/threads.service';
-import { MessagesService } from './users/chat/message/messages.service';
-import { ChatMessageComponent } from './users/chat/chat-message/chat-message.component';
-import { ChatThreadComponent } from './users/chat/chat-thread/chat-thread.component';
-import { ChatNavBarComponent } from './users/chat/chat-nav-bar/chat-nav-bar.component';
-import { ChatThreadsComponent } from './users/chat/chat-threads/chat-threads.component';
-import { ChatWindowComponent } from './users/chat/chat-window/chat-window.component';
-import { ChatPageComponent } from './users/chat/chat-page/chat-page.component';
-import { FromNowPipe } from './users/chat/pipes/from-now.pipe';
+import { MessageComponent } from './users/chat/message/message.component';
+import { MessageService } from './users/chat/message.service';
 
 export const appRoutes: Routes = [
   {
@@ -105,13 +95,7 @@ export const appRoutes: Routes = [
     LeaderboardsComponent,
     AuthenticationComponent,
     ChatComponent,
-    ChatMessageComponent,
-    ChatThreadComponent,
-    ChatNavBarComponent,
-    ChatThreadsComponent,
-    ChatWindowComponent,
-    ChatPageComponent,
-    FromNowPipe
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -128,9 +112,7 @@ export const appRoutes: Routes = [
     ProjectsService,
     UserService,
     AuthenticationService,
-    MessagesService,
-    ThreadsService,
-    UsersService
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
