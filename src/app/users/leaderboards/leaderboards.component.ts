@@ -39,8 +39,20 @@ export class LeaderboardsComponent {
    }
 
    public makeSplit(num: number) {
-       var n1 = Number(num %= 100).toFixed(2);
-       var n2 = Number(100 - num).toFixed(2);
+       var n1 = this.roundToTwo(num %= 100);
+       var n2 = this.roundToTwo(100 - num);
        return String(n1) + " : " + String(n2);
+   }
+
+   public makeRisk(n: number) {
+       var NewMax = 10;
+       var NewMin = 1;
+       var OldMax = 90;
+       var OldMin = -90;
+       return this.roundToTwo((((n - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin);
+   }
+
+   public roundToTwo(n: number) {
+       return n.toFixed(2);
    }
 }
