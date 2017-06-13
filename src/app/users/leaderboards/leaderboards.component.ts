@@ -33,4 +33,14 @@ export class LeaderboardsComponent {
    public sortByWordLength = (a: any) => {
        return a.city.length;
    }
+
+   public abs(num: number) {
+       return Math.abs(num);
+   }
+
+   public makeSplit(num: number) {
+       var n1 = Number(num %= 100).toFixed(2);
+       var n2 = Number(100 - num).toFixed(2);
+       return String(n1) + " : " + String(n2);
+   }
 }
