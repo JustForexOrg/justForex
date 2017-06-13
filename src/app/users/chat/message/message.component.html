@@ -1,0 +1,30 @@
+<div class="row card col-md-12 container" data-toggle="modal" data-target="#exampleModalLong">
+  <div class="col-md-2">
+    <img class="lib-img-show" src="http://images.all-free-download.com/images/graphiclarge/harry_potter_icon_6825007.jpg">
+  </div>
+  <h1 class="col-md-10">John Smith</h1>
+</div>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">YOU HAVE AN OFFER FROM JOHN SMITH</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>Algorithm Name</h4>
+        <h4>Proposed Split {{ message.proposed_split }}</h4>
+        <h4>Proposed Investment Amount {{ message.proposed_amount }}</h4>
+        <h4>Proposed End Date</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success">Accept</button>
+        <button type="button" class="btn btn-outline-danger">Decline</button>
+        <button type="button" class="btn btn-outline-info">Counter offer</button>
+      </div>
+    </div>
+  </div>
+</div>

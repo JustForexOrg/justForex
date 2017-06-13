@@ -1,3 +1,6 @@
-<div>
-  <chat-page></chat-page>
+<div class="inbox">
+  <app-message *ngFor="let message of messages"
+    [message]="message">
+  </app-message>
+
 </div>

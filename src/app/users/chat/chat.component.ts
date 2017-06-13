@@ -1,11 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { ChatExampleData } from './data/chat-example-data';
-
-import { UsersService } from './user/users.service';
-import { ThreadsService } from './thread/threads.service';
-import { MessagesService } from './message/messages.service';
-
-// import * as globalVars from './service/global';
+import { Message } from './message/message';
+import { MessageService } from './message.service'
 
 declare const io;
 declare const ENTER = 13;
@@ -16,30 +11,12 @@ declare const ENTER = 13;
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-  socket = null;
-  text: string[] = [];
-  typed = "";
+  messages: Message[];
 
-    constructor(public messagesService: MessagesService,
-              public threadsService: ThreadsService,
-              public usersService: UsersService) {
-  //   this.socket = io('http://localhost:8000');
-  //   this.socket.on('chat message', function(msg){
-  //      this.text.push(msg);
-  //  }.bind(this));
-  ChatExampleData.init(messagesService, threadsService, usersService);
-
-  //  globalVars.socket = io({ query: "userName=" + this.nickname });
-  }
-
-  bid(){
-     this.socket.emit('chat message', this.typed);
-     this.typed = '';
- }
-
- keyDownFunction(event) {
-   if(event.keyCode == ENTER) {
-     this.bid();
-   }
- }
+    constructor(private messageService: MessageService) {
+      // Retrieve posts from the API
+      this.messageService.getMessages().subscribe(messages => {
+        this.messages = messages;
+      });
+    }
 }
