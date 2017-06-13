@@ -25,9 +25,9 @@
     <tr *ngFor="let item of mf.data" id="data">
         <td class="align-middle"><img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" />{{item.name}}</td>
         <td class="align-middle">{{item.email}}</td>
-        <td class="align-middle text-right">{{item.age}}</td>
-        <td class="align-middle">{{item.city | uppercase}}</td>
-        <td class="align-middle">{{item.city | uppercase}}</td>
+        <td class="align-middle text-right">{{makeSplit(abs(item.address.geo.lng))}}</td>
+        <td class="align-middle">{{item.address.city}}</td>
+        <td class="align-middle">{{makeRisk(abs(item.address.geo.lat))}}</td>
         <td class="align-middle">
           <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Invest Now</button>
         </td>
