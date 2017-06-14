@@ -5,10 +5,27 @@
 
 .card {
   height: 80vh;
+  width: 90%;
+  margin-left: 5%;
+  background-color: #363E4D;
 }
 
 .carousel-control .icon-prev, .carousel-control .icon-next {
     font-size: 100px;
     margin-top: -50px;
-    color: #fff;
+}
+
+.btn-info {
+  width: 24%;
+  background-color: #65D292;
+  color: #363E4D;
+  border-color: #6F978A;
+}
+
+.text-container {
+  background-color: transparent;
+  width: 76%;
+  margin-left: 12%;
+  color: #FAFBFC;
+  font-size: 15pt;
 }
