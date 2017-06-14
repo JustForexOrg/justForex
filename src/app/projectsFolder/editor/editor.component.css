@@ -38,3 +38,7 @@ button:hover {
 .navbar-brand {
   text-transform: uppercase;
 }
+
+textarea {
+  display: none;
+}

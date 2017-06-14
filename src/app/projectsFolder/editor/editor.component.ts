@@ -19,8 +19,8 @@ export class EditorComponent {
   options:any = {minLines: 31, maxLines:1000, printMargin: false};
   tasks: string[];
   title: string;
-  text: string = "";
-  lang: string = "javascript"
+  text: string = "print('hello world')";
+  lang: string = "python"
 
     constructor(private editorService:EditorService){
         this.editorService.getTasks()
