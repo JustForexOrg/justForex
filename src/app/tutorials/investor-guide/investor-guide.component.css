@@ -29,3 +29,8 @@
   color: #FAFBFC;
   font-size: 15pt;
 }
+
+#leaderboard-item {
+  width: 90%;
+  margin-left: 5%;
+}
