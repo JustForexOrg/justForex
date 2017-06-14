@@ -1,7 +1,7 @@
 <div class="container background">
-  <top-header></top-header>
+  <router-outlet name="topheader"></router-outlet>
   <div class="body">
-    <side-bar></side-bar>
+    <router-outlet name="sidebar"></router-outlet>
 
     <span class="template">
         <h1 *ngFor="let t of text">hi {{t}}</h1>

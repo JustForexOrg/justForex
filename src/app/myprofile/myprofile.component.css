@@ -1,0 +1,49 @@
+.profile {
+  clip-path: inset(30% 20px 20% 40px);
+  margin-top: -10%;
+  margin-bottom: -5%;
+  width: 20%;
+  height: 20%;
+}
+
+h2 {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+}
+
+h4 {
+  line-height: 200%;
+  vertical-align: middle;
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+  text-align: center;
+  color: var(--dark);
+}
+
+.card {
+  /*height: 99%;*/
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+td {
+    background-color: white;
+    color: var(--dark);
+    height: 10vh;
+}
+
+table {
+    border-collapse: separate;
+    text-align: center;
+    border-spacing:0 1rem;
+}
+
+.borderless td, .borderless th {
+    border: none;
+}

@@ -20,7 +20,7 @@ import { EditorComponent } from './projectsFolder/editor/editor.component'
 import { MyprojectComponent } from './projectsFolder/myproject/myproject.component'
 import { GraphsComponent } from './projectsFolder/graphs/graphs.component'
 import { LeaderboardsComponent } from './users/leaderboards/leaderboards.component';
-// import { AuthenticationModule, authenticationRouting } from './users/authentication/authentication.module'
+import { AuthenticationComponent } from './users/authentication/authentication.component'
 import { InvestorGuideComponent } from './tutorials/investor-guide/investor-guide.component';
 import { ProgrammerGuideComponent } from './tutorials/programmer-guide/programmer-guide.component';
 
@@ -35,52 +35,96 @@ import { MessageService } from './users/chat/message.service';
 
 export const appRoutes: Routes = [
   {
+    path: 'authentication',
+    component: AuthenticationComponent
+  },
+  {
     path: 'myprojects',
-    component: ProjectsComponent
+    children: [
+      { path: '', component: ProjectsComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: 'myprofile',
-    component: MyProfileComponent
+    children: [
+      { path: '', component: MyProfileComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: 'community',
-    component: CommunityComponent
+    children: [
+      { path: '', component: CommunityComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: 'tutorials',
-    component: TutorialsComponent
+    children: [
+      { path: '', component: TutorialsComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
-  // {
-  //   path: 'authentication',
-  //   loadChildren: 'app/users/authentication/authentication.module#AuthenticationModule'
-  // },
   {
     path: 'investor-guide',
-    component: InvestorGuideComponent
+    children: [
+      { path: '', component: InvestorGuideComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: 'programmer-guide',
-    component: ProgrammerGuideComponent
+    children: [
+      { path: '', component: ProgrammerGuideComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: 'editor',
-    component: EditorComponent
+    children: [
+      { path: '', component: EditorComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: 'graphs',
-    component: GraphsComponent
+    children: [
+      { path: '', component: GraphsComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: 'leaderboards',
-    component: LeaderboardsComponent
+    children: [
+      { path: '', component: LeaderboardsComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: 'chat',
-    component: ChatComponent
+    children: [
+      { path: '', component: ChatComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
   {
     path: '',
-    component: DashboardComponent,
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
   },
 ];
 
@@ -101,7 +145,8 @@ export const appRoutes: Routes = [
     ChatComponent,
     MessageComponent,
     InvestorGuideComponent,
-    ProgrammerGuideComponent
+    ProgrammerGuideComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
