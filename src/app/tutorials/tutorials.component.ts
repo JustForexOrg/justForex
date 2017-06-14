@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  template: '<h1>Welcome to tutorials</h1>'
+  templateUrl: './tutorials.component.html',
+  styleUrls: [
+    './tutorials.component.css'
+  ]
 })
 
 export class TutorialsComponent {

@@ -1,8 +1,14 @@
-<div class="row card col-md-12 container" data-toggle="modal" data-target="#exampleModalLong">
+<div class="row card col-md-12 container" data-toggle="modal" data-target="#exampleModalLong" (click)="hasRead()">
   <div class="col-md-2">
     <img class="lib-img-show" src="http://images.all-free-download.com/images/graphiclarge/harry_potter_icon_6825007.jpg">
   </div>
   <h1 class="col-md-10">John Smith</h1>
+  <div *ngIf="tick">
+    <i class="fa fa-check" aria-hidden="true"></i>
+  </div>
+  <div *ngIf="pending">
+    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+  </div>
 </div>
 
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -21,9 +27,9 @@
         <h4>Proposed End Date</h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-success">Accept</button>
-        <button type="button" class="btn btn-outline-danger">Decline</button>
-        <button type="button" class="btn btn-outline-info">Counter offer</button>
+        <button type="button" class="btn btn-outline-success" data-dismiss="modal" (click)="choose('accept')">Accept</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="choose('decline')">Decline</button>
+        <button type="button" class="btn btn-outline-info" data-dismiss="modal" (click)="choose('counter')">Counter offer</button>
       </div>
     </div>
   </div>

@@ -20,7 +20,8 @@ import { EditorComponent } from './projectsFolder/editor/editor.component'
 import { MyprojectComponent } from './projectsFolder/myproject/myproject.component'
 import { GraphsComponent } from './projectsFolder/graphs/graphs.component'
 import { LeaderboardsComponent } from './users/leaderboards/leaderboards.component';
-import { AuthenticationComponent } from './users/authentication/authentication.component'
+// import { AuthenticationModule, authenticationRouting } from './users/authentication/authentication.module'
+import { InvestorGuideComponent } from './tutorials/investor-guide/investor-guide.component';
 
 import { EditorService } from './projectsFolder/editor/editor.service';
 import { ProjectsService } from './projectsFolder/projects/projects.service';
@@ -48,6 +49,14 @@ export const appRoutes: Routes = [
     path: 'tutorials',
     component: TutorialsComponent
   },
+  // {
+  //   path: 'authentication',
+  //   loadChildren: 'app/users/authentication/authentication.module#AuthenticationModule'
+  // },
+  {
+    path: 'investor-guide',
+    component: InvestorGuideComponent
+  },
   {
     path: 'editor',
     component: EditorComponent
@@ -61,22 +70,13 @@ export const appRoutes: Routes = [
     component: LeaderboardsComponent
   },
   {
-    path: 'authentication',
-    component: AuthenticationComponent
-  },
-  {
     path: 'chat',
     component: ChatComponent
   },
   {
     path: '',
-    component: DashboardComponent
+    component: DashboardComponent,
   },
-  // {
-  //   path: 'home',
-  //   component: HomeComponent,
-  //   canActivate: [AuthGuard]
-  // }
 ];
 
 @NgModule({
@@ -93,9 +93,9 @@ export const appRoutes: Routes = [
     MyprojectComponent,
     GraphsComponent,
     LeaderboardsComponent,
-    AuthenticationComponent,
     ChatComponent,
     MessageComponent,
+    InvestorGuideComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +105,8 @@ export const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     Ng2HighchartsModule,
-    DataTableModule
+    DataTableModule,
+    // authenticationRouting
   ],
   providers: [
     EditorService,

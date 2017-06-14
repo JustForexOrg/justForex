@@ -3,10 +3,10 @@ const router = express.Router();
 
 // declare axios for making http requests
 const mongojs = require('mongojs');
-var db = mongojs('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', ['chat'])
+var db = mongojs('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', ['chat']);
 
 // Get All Chat
-router.get('/getall', function(req, res, next){
+router.get('/all', function(req, res, next){
     db.chat.find(function(err, chat){
         if(err){
             res.send(err);
@@ -17,7 +17,7 @@ router.get('/getall', function(req, res, next){
 
 // Get Single Chat
 router.get('/:id', function(req, res, next){
-    db.chat.findOne({_id: mongojs.ObjectsId(req.params.id)}, function(err, chat){
+db.chat.findOne({_id: mongojs.ObjectsId(req.params.id)}, function(err, chat){
         if(err){
             res.send(err);
         }

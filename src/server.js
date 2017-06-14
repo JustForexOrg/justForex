@@ -7,7 +7,7 @@ var tasks = require('./routes/tasks');
 var users = require('./routes/users');
 var data  = require('./routes/data');
 // var authenticate = require('./routes/authenticate');
-var chat = require
+var chat = require('./routes/chat');
 
 var port = 4200;
 var app = express();

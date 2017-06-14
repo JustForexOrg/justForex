@@ -6,6 +6,8 @@ import { Message } from '../chat/message/message'
 
 import { films } from './leaderboards.data';
 
+declare var $:any;
+
 @Component({
   selector: 'app-leaderboards',
   templateUrl: './leaderboards.component.html',
@@ -18,9 +20,11 @@ export class LeaderboardsComponent {
    public sortBy = "email";
    public sortOrder = "asc";
 
+   isSent: boolean = false;
+
    sender_id: number;
    recipient_id: number;
-   proposed_split: 50;
+   proposed_split:number = 50;
    proposed_amount: number;
 
    constructor(private http: Http, private messageService: MessageService) {
@@ -43,14 +47,20 @@ export class LeaderboardsComponent {
    }
 
    public saveMessage() {
-     var m: Message = {
-       sender_id: 1,
-       recipient_id: this.recipient_id,
-       proposed_split: this.proposed_split,
-       proposed_amount: this.proposed_amount
+     if(!this.isSent) {
+       var m: Message = {
+         sender_id: 1,
+         recipient_id: this.recipient_id,
+         proposed_split: this.proposed_split,
+         proposed_amount: this.proposed_amount
+       }
+       this.messageService.saveMessage(m);
+       this.isSent = true;
      }
+   }
 
-     this.messageService.saveMessage(m);
+   public resetSentData() {
+     this.isSent = false;
    }
 
    public abs(num: number) {

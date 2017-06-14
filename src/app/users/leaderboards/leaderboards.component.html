@@ -29,17 +29,14 @@
         <td class="align-middle">{{item.address.city}}</td>
         <td class="align-middle">{{makeRisk(abs(item.address.geo.lat))}}</td>
         <td class="align-middle">
-          <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg">Invest Now</button>
+          <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Invest Now</button>
         </td>
     </tr>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
             <div class="modal-body">
               <div class="form-group row">
@@ -48,7 +45,7 @@
                       <input class="form-control" type="number" id="example-number-input" max="100" min="0" [(ngModel)]="proposed_split"/>
                   </div>
                   <div class="col-4">
-                      : {{ 100 - split }}
+                      : {{ 100 - proposed_split }}
                   </div>
               </div>
               <div class="form-group row">
@@ -67,7 +64,9 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <div *ngIf="isSent"><h5>Your request has been sent</h5></div>
+              <button type="button" *ngIf="!isSent" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" *ngIf="isSent" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary" (click)="saveMessage()">Send offer</button>
             </div>
           </div>

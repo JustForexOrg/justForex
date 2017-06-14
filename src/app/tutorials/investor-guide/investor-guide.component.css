@@ -1,0 +1,14 @@
+.carousel {
+  height: 80vh;
+  /*border: 1px solid black;*/
+}
+
+.card {
+  height: 80vh;
+}
+
+.carousel-control .icon-prev, .carousel-control .icon-next {
+    font-size: 100px;
+    margin-top: -50px;
+    color: #fff;
+}
