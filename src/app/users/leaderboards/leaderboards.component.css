@@ -23,8 +23,13 @@ thead tr {
   z-index: 1151;
 }
 
-.borderless td, .borderless th {
-    border: none;
+.borderless td {
+    border-top: 3px solid #4F607F;
+    border-bottom: 3px solid #4F607F;
+}
+
+.borderless th {
+  border: none;
 }
 
 img {
@@ -36,11 +41,32 @@ img {
 }
 
 td {
-    background-color: white;
-    color: var(--dark);
+    background-color: var(--dark);
+    color: white;
     height: 10vh;
 }
 
-button {
+.btn-success {
     background-color: var(--green);
+}
+
+.btn {
+  height: 40%;
+  margin-top: 5%;
+  width: 6vw;
+  font-size: 0.9em;
+}
+
+#nav {
+  background-color: var(--white);
+  border: none;
+}
+
+.pos {
+  background-color: white;
+  color: var(--dark)
+}
+
+.information {
+  background-color: #4F607F;
 }

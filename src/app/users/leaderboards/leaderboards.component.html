@@ -1,35 +1,37 @@
 <table class="table table-striped borderless" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
     <thead>
     <tr>
+        <th style="width: 10%">
+            <mfDefaultSorter by="position">Position</mfDefaultSorter>
+        </th>
         <th style="width: 20%">
             <mfDefaultSorter by="name">Name</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter by="email">Email</mfDefaultSorter>
+            <mfDefaultSorter by="email">Author</mfDefaultSorter>
         </th>
         <th style="width: 20%">
             <mfDefaultSorter by="age">Split</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter by="city">City</mfDefaultSorter>
+            <mfDefaultSorter by="city">Lifetime Returns</mfDefaultSorter>
         </th>
         <th style="width: 10%">
             <mfDefaultSorter by="city">Risk</mfDefaultSorter>
         </th>
-        <th style="width: 10%">
-
-        </th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of mf.data" id="data">
-        <td class="align-middle"><img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" />{{item.name}}</td>
-        <td class="align-middle">{{item.email}}</td>
-        <td class="align-middle text-right">{{makeSplit(abs(item.address.geo.lng))}}</td>
+    <tr *ngFor="let item of mf.data; let i = index" id="data">
+        <td class="pos align-middle">{{i + 1}}</td>
+        <td class="information align-middle"><img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" />{{item.name}}</td>
+        <td class="information align-middle">{{item.email}}</td>
+        <td class="information align-middle text-right">{{makeSplit(abs(item.address.geo.lng))}}</td>
         <td class="align-middle">{{item.address.city}}</td>
         <td class="align-middle">{{makeRisk(abs(item.address.geo.lat))}}</td>
         <td class="align-middle">
-          <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Invest Now</button>
+          <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Make offer</button>
+            <button class="btn btn-info"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Results</button>
         </td>
     </tr>
     <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -75,7 +77,7 @@
     </tbody>
     <tfoot>
     <tr>
-        <td colspan="5">
+        <td id="nav" colspan="6">
             <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
         </td>
     </tr>

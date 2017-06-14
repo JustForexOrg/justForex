@@ -12,6 +12,12 @@
 
 }
 
+h5 {
+  color: var(--dark);
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
 .container {
   margin-top: 8vh;
 }
@@ -105,7 +111,7 @@ table {
 }
 
 .carousel-indicators li {
-  background-color: black;
+  background-color: var(--grey);
   border: none;
 }
 /*Table to display which programmers are connected with + suggestion*/

@@ -21,7 +21,8 @@ export class LeaderboardsComponent {
    public sortOrder = "asc";
 
    isSent: boolean = false;
-
+   risk;
+   
    sender_id: number;
    recipient_id: number;
    proposed_split:number = 50;
@@ -29,6 +30,7 @@ export class LeaderboardsComponent {
 
    constructor(private http: Http, private messageService: MessageService) {
    }
+
    ngOnInit(): void {
        this.http.get("https://jsonplaceholder.typicode.com/users")
            .subscribe((data)=> {
@@ -40,6 +42,14 @@ export class LeaderboardsComponent {
 
    public toInt(num: string) {
        return +num;
+   }
+
+   public createRange(number) {
+     var items: number[] = [];
+     for (var i = 1; i <= number; i++) {
+       items.push(i);
+     }
+     return items;
    }
 
    public sortByWordLength = (a: any) => {
@@ -78,7 +88,8 @@ export class LeaderboardsComponent {
        var NewMin = 1;
        var OldMax = 90;
        var OldMin = -90;
-       return this.roundToTwo((((n - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin);
+       this.risk = this.roundToTwo((((n - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin);
+       return this.risk;
    }
 
    public roundToTwo(n: number) {
