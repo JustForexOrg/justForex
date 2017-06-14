@@ -22,6 +22,7 @@ import { GraphsComponent } from './projectsFolder/graphs/graphs.component'
 import { LeaderboardsComponent } from './users/leaderboards/leaderboards.component';
 // import { AuthenticationModule, authenticationRouting } from './users/authentication/authentication.module'
 import { InvestorGuideComponent } from './tutorials/investor-guide/investor-guide.component';
+import { ProgrammerGuideComponent } from './tutorials/programmer-guide/programmer-guide.component';
 
 import { EditorService } from './projectsFolder/editor/editor.service';
 import { ProjectsService } from './projectsFolder/projects/projects.service';
@@ -56,6 +57,10 @@ export const appRoutes: Routes = [
   {
     path: 'investor-guide',
     component: InvestorGuideComponent
+  },
+  {
+    path: 'programmer-guide',
+    component: ProgrammerGuideComponent
   },
   {
     path: 'editor',
@@ -95,7 +100,8 @@ export const appRoutes: Routes = [
     LeaderboardsComponent,
     ChatComponent,
     MessageComponent,
-    InvestorGuideComponent
+    InvestorGuideComponent,
+    ProgrammerGuideComponent
   ],
   imports: [
     BrowserModule,
