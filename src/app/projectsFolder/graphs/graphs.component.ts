@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from "@angular/http";
+import { Http, Headers } from "@angular/http";
 import { Ng2Highstocks } from 'ng2-highcharts';
+import { EditorService } from '../editor/editor.service';
 
 @Component({
   selector: 'graphs',
@@ -130,7 +131,7 @@ export class GraphsComponent implements OnInit {
 	];
 	chartStock = {};
 
-	constructor(private http: Http) { }
+	constructor(private http: Http, private editorService: EditorService) { }
 
 	ngOnInit(): any {
 		setInterval(() => {
@@ -398,4 +399,21 @@ export class GraphsComponent implements OnInit {
               }]
       }]
     }
+
+    sendFileBacktest(id:string) {
+      var code:string = JSON.stringify(this.editorService.getSpecificTask(id));
+
+			// send to python backtester
+			var headers = new Headers();
+			headers.append('Content-Type', 'application/json');
+			console.log("sending to backtester...")
+			//respose from the result of a post is the data needed for the graph
+			var data = this.http.post('http://www.justforex.xyz/pythonbacktester', code, {headers: headers})
+		           .map(res => res.json());
+			console.log(JSON.stringify(data) + " sent to backtester...")
+			//send this data to graphsData DB
+			this.http.post('/data', JSON.stringify(data), {headers: headers})
+							.map(res => res.json());
+    }
+
 }

@@ -15,6 +15,11 @@ export class EditorService{
             .map(res => res.json());
     }
 
+    getSpecificTask(id) {
+      return this.http.get('/pi/task/'+id)
+              .map(res => res.json());
+    }
+
     addTask(newTask){
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');

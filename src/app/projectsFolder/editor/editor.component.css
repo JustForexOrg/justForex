@@ -1,9 +1,9 @@
 .ace {
-  width:50vw;
-  height: 67.1vh;
-  margin-top: -1%;
+  width:80vw;
+  height: 80vh;
+  /*margin-top: -1%;
   overflow: auto;
-  position: fixed;
+  position: fixed;*/
 }
 
 .code-editor nav {

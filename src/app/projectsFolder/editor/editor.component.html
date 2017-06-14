@@ -25,7 +25,7 @@
     </div>
   </nav>
     <!-- The ace editor -->
-    <div class="container">
+    <div class="container" id="yourcode">
       <ace-editor class="ace"
        [(text)]="text"
        #editor></ace-editor>
@@ -34,3 +34,15 @@
 
   <!-- Buttons that allow saving and running the tests -->
 </div>
+
+<h3>Try This</h3>
+<form>
+<textarea class="col-md-12" id="yourcode" cols="40" rows="10">
+import turtle
+print "Hello World"
+</textarea><br />
+<button type="button" onclick="runit()">Run</button>
+</form>
+<pre id="output" ></pre>
+<!-- If you want turtle graphics include a canvas -->
+<div id="mycanvas"></div>
