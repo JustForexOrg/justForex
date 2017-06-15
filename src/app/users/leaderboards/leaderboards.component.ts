@@ -75,6 +75,10 @@ export class LeaderboardsComponent {
        return this.makeSplit(this.abs(a.address.geo.lng));
    }
 
+   public sortByTotal = (a: any) => {
+       return Number(this.makeTotal(this.abs(a.address.geo.lng), this.makeRisk(this.abs(a.address.geo.lat))));
+   }
+
    public saveMessage() {
      if(!this.isSent) {
        var m: Message = {
