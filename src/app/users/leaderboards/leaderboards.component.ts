@@ -5,6 +5,9 @@ import { MessageService } from '../chat/message.service'
 import { Message } from '../chat/message/message'
 
 import { films } from './leaderboards.data';
+// import { DataPipe } from '@angular/common';
+// import {DataTableDirectives} from '../../../../node_modules/angular2-datatable';
+
 
 declare var $:any;
 
@@ -12,12 +15,15 @@ declare var $:any;
   selector: 'app-leaderboards',
   templateUrl: './leaderboards.component.html',
   styleUrls: ['./leaderboards.component.css']
+  // providers: [Http],
+  // directives: [DataTableDirectives],
+  // pipes: [DatePipe]
 })
 export class LeaderboardsComponent {
    public data;
    public filterQuery = "";
    public rowsOnPage = 10;
-   public sortBy = "email";
+   public sortBy = "position";
    public sortOrder = "asc";
 
    isSent: boolean = false;
@@ -29,6 +35,11 @@ export class LeaderboardsComponent {
    proposed_amount: number;
 
    constructor(private http: Http, private messageService: MessageService) {
+    //  this.gridOptions = {
+    //    enableColResize: true,
+    //    enableSorting: true,
+    //    enableFilter: true
+    //  }
    }
 
    ngOnInit(): void {
@@ -53,7 +64,11 @@ export class LeaderboardsComponent {
    }
 
    public sortByWordLength = (a: any) => {
-       return a.city.length;
+       return a.address.city.length;
+   }
+
+   public sortByRisk = (a: any) => {
+       return this.makeRisk(this.abs(a.address.geo.lat));
    }
 
    public saveMessage() {
@@ -94,8 +109,7 @@ export class LeaderboardsComponent {
 
    public makeTotal(splitFor: number, risk: number) {
        splitFor %= 100;
-       var rand = 1 + Math.random()*3;
-       return this.roundToTwo(risk/10 * Math.pow(splitFor, rand));
+       return this.roundToTwo((risk*1000)/(100-splitFor) * Math.pow(splitFor, risk/10));
    }
 
    public roundToTwo(n: number) {
