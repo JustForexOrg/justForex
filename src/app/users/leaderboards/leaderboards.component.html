@@ -27,7 +27,7 @@
         <td class="information align-middle"><img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" />{{item.name}}</td>
         <td class="information align-middle">{{item.email}}</td>
         <td class="information align-middle">{{makeSplit(abs(item.address.geo.lng))}}</td>
-        <td class="align-middle">{{item.address.city}}</td>
+        <td class="align-middle">{{makeTotal(abs(item.address.geo.lng), makeRisk(abs(item.address.geo.lat))) | currency:'USD':true:'1.2-2' }}</td>
         <td class="align-middle">{{makeRisk(abs(item.address.geo.lat))}}</td>
         <td class="align-middle">
           <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Make offer</button>
