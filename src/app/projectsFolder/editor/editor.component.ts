@@ -1,7 +1,9 @@
 //add "AceEditorComponent" to your modules list
 import { Component, ViewChild } from '@angular/core';
-import { EditorService } from './editor.service';
+import { ProjectsService } from '../projects/projects.service';
 import { AceEditorComponent } from 'ng2-ace-editor';
+import { ActivatedRoute } from '@angular/router';
+import { Project } from '../myproject/project'
 
 //to use theme eclipse
 //with angular-cli add "../node_modules/ace-builds/src-min/ace.js"
@@ -17,16 +19,25 @@ import { AceEditorComponent } from 'ng2-ace-editor';
 export class EditorComponent {
    @ViewChild('editor') editor;
   options:any = {minLines: 31, maxLines:1000, printMargin: false};
-  tasks: string[];
+  project: Project;
   title: string;
-  text: string = "print('hello world')";
+  text: string = "";
   lang: string = "python"
+  id: string;
 
-    constructor(private editorService:EditorService){
-        this.editorService.getTasks()
-            .subscribe(tasks => {
-                this.tasks = tasks;
-            });
+    constructor(private projectsService:ProjectsService, private route: ActivatedRoute){
+    }
+
+    ngOnInit() {
+      this.route.params.subscribe(params => {
+        this.id = params['id'];
+      });
+      this.projectsService.getProject(this.id).subscribe(
+        project => {
+          this.project = project;
+          this.text = project.text;
+        }
+      )
     }
 
     addTask(event){
@@ -38,11 +49,7 @@ export class EditorComponent {
           text: this.text
         }
 
-        this.editorService.addTask(t)
-            .subscribe(task => {
-                this.tasks.push(task);
-                this.title = '';
-            });
+        this.projectsService.addProject(t);
     }
 
     updateStatus(task){
@@ -52,7 +59,7 @@ export class EditorComponent {
             isDone: !task.isDone
         };
 
-        this.editorService.updateStatus(_task).subscribe(data => {
+        this.projectsService.updateStatus(_task).subscribe(data => {
             task.isDone = !task.isDone;
         });
     }

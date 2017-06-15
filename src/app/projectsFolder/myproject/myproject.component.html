@@ -6,7 +6,7 @@
         <p>{{ project.language }}</p>
         <p>Last modified: {{ project.last_edited }}</p>
         <button class="btn btn-default">Test</button>
-        <button class="btn btn-default">View</button>
+        <button class="btn btn-default" [routerLink]="['../editor', project._id]">Edit</button>
       </div>
     </div>
   </div>

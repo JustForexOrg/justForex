@@ -17,7 +17,8 @@ router.get('/tasks', function(req, res, next){
 
 // Get Single Tasks
 router.get('/tasks/:id', function(req, res, next){
-    db.tasks.findOne({_id: mongojs.ObjectsId(req.params.id)}, function(err, tasks){
+  var ObjectId = require('mongodb').ObjectId;
+    db.tasks.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, tasks){
         if(err){
             res.send(err);
         }

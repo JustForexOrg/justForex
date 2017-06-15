@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
+import { Project } from '../myproject/project'
 
 import 'rxjs/add/operator/map';
 
@@ -14,6 +15,31 @@ export class ProjectsService {
   getProjects() {
     return this.http.get('/api/tasks')
         .map(res => res.json());
+  }
+
+  getProject(id) {
+      console.log(id);
+      return this.http.get('/api/tasks/'+id)
+              .map(res => res.json());
+  }
+
+  addProject(newTask){
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      return this.http.post('/api/task', JSON.stringify(newTask), {headers: headers})
+          .map(res => res.json());
+  }
+
+  deleteProject(id){
+      return this.http.delete('/api/task/'+id)
+          .map(res => res.json());
+  }
+
+  updateStatus(task){
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      return this.http.put('/api/task/'+task._id, JSON.stringify(task), {headers: headers})
+          .map(res => res.json());
   }
 
 }
