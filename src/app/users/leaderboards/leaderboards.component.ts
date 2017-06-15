@@ -22,7 +22,7 @@ export class LeaderboardsComponent {
 
    isSent: boolean = false;
    risk;
-   
+
    sender_id: number;
    recipient_id: number;
    proposed_split:number = 50;
@@ -90,6 +90,12 @@ export class LeaderboardsComponent {
        var OldMin = -90;
        this.risk = this.roundToTwo((((n - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin);
        return this.risk;
+   }
+
+   public makeTotal(splitFor: number, risk: number) {
+       splitFor %= 100;
+       var rand = 1 + Math.random()*3;
+       return this.roundToTwo(risk/10 * Math.pow(splitFor, rand));
    }
 
    public roundToTwo(n: number) {
