@@ -89,7 +89,7 @@ export const appRoutes: Routes = [
   {
     path: 'editor',
     children: [
-      { path: '', component: EditorComponent },
+      { path: ':id', component: EditorComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
       { path: '', component: SideBarComponent, outlet: 'sidebar'}
     ]
