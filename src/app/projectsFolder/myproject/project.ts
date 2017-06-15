@@ -4,4 +4,5 @@ export class Project{
   last_edited: string;
   _id: string;
   text: string;
+  user_id: string;
 }

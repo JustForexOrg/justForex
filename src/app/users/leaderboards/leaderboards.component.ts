@@ -59,7 +59,7 @@ export class LeaderboardsComponent {
    public saveMessage() {
      if(!this.isSent) {
        var m: Message = {
-         sender_id: 1,
+         sender_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id,
          recipient_id: this.recipient_id,
          proposed_split: this.proposed_split,
          proposed_amount: this.proposed_amount

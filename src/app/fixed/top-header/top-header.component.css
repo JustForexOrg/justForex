@@ -44,6 +44,11 @@ body {
   font-size: 1.5vw;
 }
 
+#topnav .navbar p {
+  padding-top: 2.5vh;
+  font-size: 2.5vh;
+}
+
 #topnav .navbar i .collapse {
   color: white;
 }

@@ -35,7 +35,7 @@ import { MessageService } from './users/chat/message.service';
 
 export const appRoutes: Routes = [
   {
-    path: 'authentication',
+    path: '',
     component: AuthenticationComponent
   },
   {
@@ -119,7 +119,7 @@ export const appRoutes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'dashboard',
     children: [
       { path: '', component: DashboardComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },

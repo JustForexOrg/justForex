@@ -10,5 +10,9 @@ import {Component} from '@angular/core'
 })
 
 export class TopHeaderComponent {
+  name: string;
 
+  constructor() {
+    this.name = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).name;
+  }
 }

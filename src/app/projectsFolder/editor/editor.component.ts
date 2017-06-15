@@ -46,7 +46,9 @@ export class EditorComponent {
           language: "python",
           name: "my project 1",
           last_edited: "01/01/17",
-          text: this.text
+          text: this.text,
+          //get the current user's id
+          user_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id
         }
 
         this.projectsService.addProject(t);
