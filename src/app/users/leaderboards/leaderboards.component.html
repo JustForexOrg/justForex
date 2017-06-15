@@ -38,7 +38,7 @@
         <td class="align-middle">{{makeRisk(abs(item.address.geo.lat))}}</td>
         <td class="align-middle">
           <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Make offer</button>
-            <button class="btn btn-info"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Results</button>
+          <button class="btn btn-info"  routerLink="/graphs">Results</button>
         </td>
     </tr>
 
@@ -46,7 +46,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Transaction</h5>
             </div>
             <div class="modal-body">
               <div class="form-group row">
