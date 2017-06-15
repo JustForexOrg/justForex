@@ -7,7 +7,7 @@ router.get('', function(req, res, next){
         if (err) {
             res.status(err.status).end();
         }
-    );
+    )};
 });
 
 module.exports = router;
