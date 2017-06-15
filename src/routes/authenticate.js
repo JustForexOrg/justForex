@@ -16,4 +16,15 @@ router.post('/', function(req, res, next) {
   });
 })
 
+// Get All Users
+router.get('/getall', function(req, res, next){
+    db.users.find(function(err, users){
+        if(err){
+            res.send(err);
+        }
+        res.json(users);
+    });
+});
+
+
 module.exports = router;

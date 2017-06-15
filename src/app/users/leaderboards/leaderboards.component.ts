@@ -5,9 +5,6 @@ import { MessageService } from '../chat/message.service'
 import { Message } from '../chat/message/message'
 
 import { films } from './leaderboards.data';
-// import { DataPipe } from '@angular/common';
-// import {DataTableDirectives} from '../../../../node_modules/angular2-datatable';
-
 
 declare var $:any;
 
@@ -15,10 +12,8 @@ declare var $:any;
   selector: 'app-leaderboards',
   templateUrl: './leaderboards.component.html',
   styleUrls: ['./leaderboards.component.css', '../../../../node_modules/font-awesome/css/font-awesome.min.css']
-  // providers: [Http],
-  // directives: [DataTableDirectives],
-  // pipes: [DatePipe]
 })
+
 export class LeaderboardsComponent {
    public data;
    public filterQuery = "";
@@ -38,7 +33,7 @@ export class LeaderboardsComponent {
    }
 
    ngOnInit(): void {
-       this.http.get("https://jsonplaceholder.typicode.com/users")
+       this.http.get("/api/users/getall")
            .subscribe((data)=> {
                setTimeout(()=> {
                    this.data = data.json();
