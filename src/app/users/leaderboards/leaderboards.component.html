@@ -2,9 +2,10 @@
     <thead>
     <tr>
         <th style="width: 10%">
-            <mfDefaultSorter by="position">Position</mfDefaultSorter>
+            <!-- <mfDefaultSorter by="position">Position</mfDefaultSorter> -->
         </th>
-        <th style="width: 20%">
+        <th style="width: 10%"></th>
+        <th style="width: 10%">
             <mfDefaultSorter by="name">Name</mfDefaultSorter>
         </th>
         <th style="width: 20%">
@@ -23,8 +24,14 @@
     </thead>
     <tbody>
     <tr *ngFor="let item of mf.data; let i = index" id="data">
-        <td class="pos align-middle">{{i + 1}}</td>
-        <td class="information align-middle"><img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" />{{item.name}}</td>
+        <td class="align-middle">{{i + 1}}</td>
+        <td class="align-middle">
+          <i class="fa fa-user big-icon" aria-hidden="true"></i>
+        </td>
+        <td class="information align-middle">
+          <!-- <img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" /> -->
+          {{item.name}}
+        </td>
         <td class="information align-middle">{{item.address.city}}</td>
         <td class="information align-middle">{{makeSplit(abs(item.address.geo.lng))}}</td>
         <td class="align-middle">{{makeTotal(abs(item.address.geo.lng), makeRisk(abs(item.address.geo.lat))) | currency:'USD':true:'1.2-2' }}</td>

@@ -40,6 +40,11 @@ img {
     clip-path: circle(4vh at center);
 }
 
+i.big-icon {
+    font-size: 4vh;
+    padding-right: 2vh;
+}
+
 td {
     background-color: var(--dark);
     color: white;

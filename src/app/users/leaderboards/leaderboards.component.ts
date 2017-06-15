@@ -14,7 +14,7 @@ declare var $:any;
 @Component({
   selector: 'app-leaderboards',
   templateUrl: './leaderboards.component.html',
-  styleUrls: ['./leaderboards.component.css']
+  styleUrls: ['./leaderboards.component.css', '../../../../node_modules/font-awesome/css/font-awesome.min.css']
   // providers: [Http],
   // directives: [DataTableDirectives],
   // pipes: [DatePipe]
