@@ -23,6 +23,12 @@ export class ProjectsService {
               .map(res => res.json());
   }
 
+  public getProjectbyUser() {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('/api/task/user' + JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id).map(res => res.json());
+  }
+
   addProject(newTask){
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');

@@ -4,6 +4,7 @@ const router = express.Router();
 // declare axios for making http requests
 const mongojs = require('mongojs');
 var db = mongojs('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', ['tasks'])
+var ObjectId = require('mongodb').ObjectId;
 
 // Get All Tasks
 router.get('/tasks', function(req, res, next){
@@ -17,7 +18,6 @@ router.get('/tasks', function(req, res, next){
 
 // Get Single Tasks
 router.get('/tasks/:id', function(req, res, next){
-  var ObjectId = require('mongodb').ObjectId;
     db.tasks.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, tasks){
         if(err){
             res.send(err);
@@ -25,6 +25,20 @@ router.get('/tasks/:id', function(req, res, next){
         res.json(tasks);
     });
 });
+
+//Get Task based on user_id
+router.get('/users/:id', function(req, res, next) {
+  var u = req.body;
+
+  db.tasks.find({user_id: mongojs.ObjectId(req.params.id)}, function(err, project) {
+      if(err){
+          res.send(err);
+      }
+
+      // console.log(project.json());
+      res.json(project);
+  });
+})
 
 //Save Tasks
 router.post('/task', function(req, res, next) {

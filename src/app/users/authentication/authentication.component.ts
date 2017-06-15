@@ -56,7 +56,7 @@ export class AuthenticationComponent implements OnInit {
             });
   }
 
-  login() {
+    login() {
         this.loading = true;
 
         this.authenticationService.login(this.username, this.password)

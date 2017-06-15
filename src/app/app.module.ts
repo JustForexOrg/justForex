@@ -32,6 +32,7 @@ import { ChatComponent } from './users/chat/chat.component'
 import { AuthGuard } from './users/authentication/guards/auth.guard';
 import { MessageComponent } from './users/chat/message/message.component';
 import { MessageService } from './users/chat/message.service';
+import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.component';
 
 export const appRoutes: Routes = [
   {
@@ -111,6 +112,14 @@ export const appRoutes: Routes = [
     ]
   },
   {
+    path: 'api-guides',
+    children: [
+      { path: '', component: ApiGuidesComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
+  },
+  {
     path: 'leaderboards',
     children: [
       { path: '', component: LeaderboardsComponent },
@@ -146,7 +155,8 @@ export const appRoutes: Routes = [
     MessageComponent,
     InvestorGuideComponent,
     ProgrammerGuideComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ApiGuidesComponent
   ],
   imports: [
     BrowserModule,
