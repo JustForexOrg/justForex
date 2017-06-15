@@ -35,11 +35,6 @@ export class LeaderboardsComponent {
    proposed_amount: number;
 
    constructor(private http: Http, private messageService: MessageService) {
-    //  this.gridOptions = {
-    //    enableColResize: true,
-    //    enableSorting: true,
-    //    enableFilter: true
-    //  }
    }
 
    ngOnInit(): void {

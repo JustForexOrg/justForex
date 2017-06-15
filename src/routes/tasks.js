@@ -30,12 +30,11 @@ router.get('/tasks/:id', function(req, res, next){
 router.get('/users/:id', function(req, res, next) {
   var u = req.body;
 
-  db.tasks.find({user_id: mongojs.ObjectId(req.params.id)}, function(err, project) {
+  db.tasks.find({user_id: req.params.id}, function(err, project) {
       if(err){
           res.send(err);
       }
 
-      // console.log(project.json());
       res.json(project);
   });
 })
