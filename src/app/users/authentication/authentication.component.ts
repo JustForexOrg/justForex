@@ -49,7 +49,7 @@ export class AuthenticationComponent implements OnInit {
     this.userService.create(model)
         .subscribe(
             data => {
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/']);
             },
             error => {
                 this.loading = false;

@@ -92,8 +92,9 @@ function runit() {
        console.log('success');
    },
        function(err) {
-       console.log(err.toString());
-   });
+         var pre = $('pre');
+         pre.html($('<div/>').text(err.toString()).html());
+    });
 }
 
 function aceToText() {

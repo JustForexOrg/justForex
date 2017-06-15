@@ -20,9 +20,9 @@ export class UserService {
     }
 
     create(user: User) {
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/save', JSON.stringify(user), {headers: headers}).map(response => response.json());
+        // var headers = new Headers();
+        // headers.append('Content-Type', 'application/json');
+        return this.http.post('/api/users/save', user, this.jwt()).map(response => response.json());
     }
 
     update(user: User) {
