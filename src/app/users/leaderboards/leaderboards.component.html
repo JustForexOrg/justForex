@@ -34,6 +34,7 @@
             <button class="btn btn-info"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Results</button>
         </td>
     </tr>
+
     <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -51,11 +52,11 @@
                   </div>
               </div>
               <div class="form-group row">
-                  <label for="c2" class="col-2 col-form-label" [(ngModel)]="proposed_amount">Amount to invest</label>
+                  <label for="split" class="col-2 col-form-label">Amount to invest</label>
                   <div class="input-group col-6">
                       <span class="input-group-addon">$</span>
                       <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2"
-                        data-number-stepfactor="100" class="form-control currency" id="c2" />
+                        data-number-stepfactor="100" class="form-control currency" [(ngModel)]="proposed_amount" id="split" />
                   </div>
               </div>
               <div class="form-group row">

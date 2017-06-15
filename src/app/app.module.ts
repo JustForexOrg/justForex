@@ -103,17 +103,17 @@ export const appRoutes: Routes = [
     ]
   },
   {
-    path: 'leaderboards',
+    path: 'chat',
     children: [
-      { path: '', component: LeaderboardsComponent },
+      { path: '', component: ChatComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
       { path: '', component: SideBarComponent, outlet: 'sidebar'}
     ]
   },
   {
-    path: 'chat',
+    path: 'leaderboards',
     children: [
-      { path: '', component: ChatComponent },
+      { path: '', component: LeaderboardsComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
       { path: '', component: SideBarComponent, outlet: 'sidebar'}
     ]
