@@ -33,6 +33,7 @@ export class AuthenticationService {
         return true;
       } else {
         // return false to indicate failed login
+        alert("Incorrect Login: Please re-enter Login details");
         return false;
       }
 
