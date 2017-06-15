@@ -8,7 +8,7 @@
             <mfDefaultSorter by="name">Name</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter by="email">Author</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortByCity">City</mfDefaultSorter>
         </th>
         <th style="width: 20%">
             <mfDefaultSorter [by]="sortBySplit">Split</mfDefaultSorter>
@@ -25,7 +25,7 @@
     <tr *ngFor="let item of mf.data; let i = index" id="data">
         <td class="pos align-middle">{{i + 1}}</td>
         <td class="information align-middle"><img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" />{{item.name}}</td>
-        <td class="information align-middle">{{item.email}}</td>
+        <td class="information align-middle">{{item.address.city}}</td>
         <td class="information align-middle">{{makeSplit(abs(item.address.geo.lng))}}</td>
         <td class="align-middle">{{makeTotal(abs(item.address.geo.lng), makeRisk(abs(item.address.geo.lat))) | currency:'USD':true:'1.2-2' }}</td>
         <td class="align-middle">{{makeRisk(abs(item.address.geo.lat))}}</td>

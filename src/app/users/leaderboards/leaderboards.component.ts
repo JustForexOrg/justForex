@@ -67,6 +67,10 @@ export class LeaderboardsComponent {
        return a.address.city.length;
    }
 
+   public sortByCity = (a: any) => {
+       return a.address.city;
+   }
+
    public sortByRisk = (a: any) => {
        return this.makeRisk(this.abs(a.address.geo.lat));
    }
