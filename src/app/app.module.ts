@@ -64,7 +64,7 @@ export const appRoutes: Routes = [
     ]
   },
   {
-    path: 'tutorials',
+    path: 'getting-started',
     children: [
       { path: '', component: TutorialsComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },

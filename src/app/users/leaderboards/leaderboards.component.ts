@@ -33,7 +33,7 @@ export class LeaderboardsComponent {
    }
 
    ngOnInit(): void {
-       this.http.get("/api/users/getall")
+       this.http.get("/api/tasks/")
            .subscribe((data)=> {
                setTimeout(()=> {
                    this.data = data.json();
@@ -73,6 +73,10 @@ export class LeaderboardsComponent {
        return Number(this.makeTotal(this.abs(a.address.geo.lng), this.makeRisk(this.abs(a.address.geo.lat))));
    }
 
+   public sortByValue = (a: any) => {
+       return Number(a.risk);
+   }
+
    public saveMessage() {
      if(!this.isSent) {
        var m: Message = {
@@ -88,6 +92,11 @@ export class LeaderboardsComponent {
 
    public resetSentData() {
      this.isSent = false;
+   }
+
+   public sendChat(recipient_id) {
+     this.resetSentData();
+    //  chat = 
    }
 
    public abs(num: number) {

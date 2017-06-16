@@ -8,29 +8,29 @@ export class UserService {
     constructor(private http: Http) { }
 
     getAll() {
-        return this.http.get('/api/users/getall', this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/api/authenticate/getall', this.jwt()).map((response: Response) => response.json());
     }
 
     getById(id: number) {
-        return this.http.get('/api/users/get' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/api/authenticate/get' + id, this.jwt()).map((response: Response) => response.json());
     }
 
     getByUsername(username: string) {
-        return this.http.get('/api/users/get' + username, this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/api/authenticate/get' + username, this.jwt()).map((response: Response) => response.json());
     }
 
-    create(user: User) {
+    create(user) {
         // var headers = new Headers();
         // headers.append('Content-Type', 'application/json');
-        return this.http.post('/api/users/save', user, this.jwt()).map(response => response.json());
+        return this.http.post('/api/authenticate/save', user, this.jwt()).map(response => response.json());
     }
 
-    update(user: User) {
-        return this.http.put('/api/users/update' + user.id, user, this.jwt()).map((response: Response) => response.json());
+    update(user) {
+        return this.http.put('/api/authenticate/update' + user._id, user, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(id: number) {
-        return this.http.delete('/api/users/delete' + id, this.jwt()).map((response: Response) => response.json());
+        return this.http.delete('/api/authenticate/delete' + id, this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods

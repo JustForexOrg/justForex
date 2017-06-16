@@ -26,5 +26,15 @@ router.get('/getall', function(req, res, next){
     });
 });
 
+//Save User
+router.post('/save', function(req, res, next) {
+    var user = req.body;
+    db.users.insert(user, function(err, user) {
+      if(err){
+        res.send(err);
+      }
+      res.json(user);
+    })
+});
 
 module.exports = router;
