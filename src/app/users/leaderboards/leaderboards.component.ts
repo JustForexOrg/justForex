@@ -52,27 +52,39 @@ export class LeaderboardsComponent {
      return items;
    }
 
-   public sortByWordLength = (a: any) => {
-       return a.address.city.length;
-   }
+  //  public sortByWordLength = (a: any) => {
+  //      return a.address.city.length;
+  //  }
+   //
+  //  public sortByCity = (a: any) => {
+  //      return a.address.city;
+  //  }
+   //
+  //  public sortByRisk = (a: any) => {
+  //      return this.makeRisk(this.abs(a.address.geo.lat));
+  //  }
+   //
+  //  public sortBySplit = (a: any) => {
+  //      return this.makeSplit(this.abs(a.address.geo.lng));
+  //  }
+   //
+  //  public sortByTotal = (a: any) => {
+  //      return Number(this.makeTotal(this.abs(a.address.geo.lng), this.makeRisk(this.abs(a.address.geo.lat))));
+  //  }
 
-   public sortByCity = (a: any) => {
-       return a.address.city;
-   }
+  public sortByCountry = (a: any) => {
+      return a.country;
+  }
+
+  public sortBySplit = (a: any) => {
+      return Number(a.split);
+  }
+
+  public sortByReturns = (a: any) => {
+      return Number(a.returns);
+  }
 
    public sortByRisk = (a: any) => {
-       return this.makeRisk(this.abs(a.address.geo.lat));
-   }
-
-   public sortBySplit = (a: any) => {
-       return this.makeSplit(this.abs(a.address.geo.lng));
-   }
-
-   public sortByTotal = (a: any) => {
-       return Number(this.makeTotal(this.abs(a.address.geo.lng), this.makeRisk(this.abs(a.address.geo.lat))));
-   }
-
-   public sortByValue = (a: any) => {
        return Number(a.risk);
    }
 
