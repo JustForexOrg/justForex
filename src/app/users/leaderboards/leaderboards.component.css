@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin:600');
 table {
+    margin-top: 10px;
     border-collapse: separate;
     text-align: center;
     margin-left: -10%;
@@ -16,7 +17,6 @@ thead tr {
     text-transform: uppercase;
     font-family: 'Cabin', sans-serif;
     color: var(--dark);
-
 }
 
 #c3 {
