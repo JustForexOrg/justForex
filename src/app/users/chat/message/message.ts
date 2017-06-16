@@ -1,6 +1,6 @@
 export class Message{
-  sender_id: number;
-  recipient_id: number;
+  sender_id: string;
+  recipient_id: string;
   proposed_split: number;
   proposed_amount: number;
 }

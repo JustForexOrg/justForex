@@ -17,6 +17,7 @@ export class MessageService {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.hasNotRead++;
+
     return this.http.post('/api/chat/save', JSON.stringify(msg), {headers: headers})
         .map(res => res.json());
   }
