@@ -1,24 +1,22 @@
 <table class="table table-striped borderless" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
     <thead>
     <tr>
-        <th style="width: 10%">
-            <!-- <mfDefaultSorter by="position">Position</mfDefaultSorter> -->
-        </th>
+        <th style="width: 10%"></th>
         <th style="width: 10%"></th>
         <th style="width: 10%">
             <mfDefaultSorter by="name">Name</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter [by]="sortByCity">City</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortByValue">Country</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter [by]="sortBySplit">Split</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortByValue">Split</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter [by]="sortByTotal">Lifetime Returns</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortByValue">Lifetime Returns</mfDefaultSorter>
         </th>
         <th style="width: 10%">
-            <mfDefaultSorter [by]="sortByRisk">Risk</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortByValue">Risk</mfDefaultSorter>
         </th>
     </tr>
     </thead>
@@ -29,15 +27,14 @@
           <i class="fa fa-user big-icon" aria-hidden="true"></i>
         </td>
         <td class="information align-middle">
-          <!-- <img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" /> -->
           {{item.name}}
         </td>
-        <td class="information align-middle">{{item.address.city}}</td>
-        <td class="information align-middle">{{makeSplit(abs(item.address.geo.lng))}}</td>
-        <td class="align-middle">{{makeTotal(abs(item.address.geo.lng), makeRisk(abs(item.address.geo.lat))) | currency:'USD':true:'1.2-2' }}</td>
-        <td class="align-middle">{{makeRisk(abs(item.address.geo.lat))}}</td>
+        <td class="information align-middle">{{item.country}}</td>
+        <td class="information align-middle">{{item.split}}</td>
+        <td class="align-middle">{{item.returns | currency:'USD':true:'1.2-2' }}</td>
+        <td class="align-middle">{{item.risk}}</td>
         <td class="align-middle">
-          <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Make offer</button>
+          <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="sendChat()">Make offer</button>
           <button class="btn btn-info"  routerLink="/graphs">Results</button>
         </td>
     </tr>

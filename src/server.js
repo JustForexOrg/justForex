@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var tasks = require('./routes/tasks');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 var data  = require('./routes/data');
 var authenticate = require('./routes/authenticate');
 var chat = require('./routes/chat');
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/api', tasks);
 app.use('/data', data);
-app.use('/api/users', users);
+// app.use('/api/users', users);
 app.use('/api/chat', chat);
 app.use('/api/authenticate', authenticate);
 app.use('*', index);

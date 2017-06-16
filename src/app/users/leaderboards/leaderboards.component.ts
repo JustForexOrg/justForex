@@ -5,9 +5,6 @@ import { MessageService } from '../chat/message.service'
 import { Message } from '../chat/message/message'
 
 import { films } from './leaderboards.data';
-// import { DataPipe } from '@angular/common';
-// import {DataTableDirectives} from '../../../../node_modules/angular2-datatable';
-
 
 declare var $:any;
 
@@ -15,10 +12,8 @@ declare var $:any;
   selector: 'app-leaderboards',
   templateUrl: './leaderboards.component.html',
   styleUrls: ['./leaderboards.component.css', '../../../../node_modules/font-awesome/css/font-awesome.min.css']
-  // providers: [Http],
-  // directives: [DataTableDirectives],
-  // pipes: [DatePipe]
 })
+
 export class LeaderboardsComponent {
    public data;
    public filterQuery = "";
@@ -35,15 +30,10 @@ export class LeaderboardsComponent {
    proposed_amount: number;
 
    constructor(private http: Http, private messageService: MessageService) {
-    //  this.gridOptions = {
-    //    enableColResize: true,
-    //    enableSorting: true,
-    //    enableFilter: true
-    //  }
    }
 
    ngOnInit(): void {
-       this.http.get("https://jsonplaceholder.typicode.com/users")
+       this.http.get("/api/tasks/")
            .subscribe((data)=> {
                setTimeout(()=> {
                    this.data = data.json();
@@ -83,6 +73,10 @@ export class LeaderboardsComponent {
        return Number(this.makeTotal(this.abs(a.address.geo.lng), this.makeRisk(this.abs(a.address.geo.lat))));
    }
 
+   public sortByValue = (a: any) => {
+       return Number(a.risk);
+   }
+
    public saveMessage() {
      if(!this.isSent) {
        var m: Message = {
@@ -98,6 +92,11 @@ export class LeaderboardsComponent {
 
    public resetSentData() {
      this.isSent = false;
+   }
+
+   public sendChat(recipient_id) {
+     this.resetSentData();
+    //  chat = 
    }
 
    public abs(num: number) {

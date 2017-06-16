@@ -11,7 +11,7 @@ export class MessageService {
   getMessages() {
     return this.http.get('/api/chat/all')
         .map(res => res.json(), res => this.hasNotRead = res.length);
-    }
+  }
 
   saveMessage(msg) {
     var headers = new Headers();
@@ -23,6 +23,11 @@ export class MessageService {
 
   hasRead() {
     return this.hasNotRead--;
+  }
+
+  getMessagesFromRecipient() {
+    return this.http.get('/api/chat/recipient/' + JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id)
+            .map(res => res.json());
   }
 
 }
