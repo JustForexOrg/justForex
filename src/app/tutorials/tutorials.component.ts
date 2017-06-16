@@ -20,7 +20,6 @@ export class TutorialsComponent implements OnInit {
   }
 
   public developerClick() {
-    console.log("Hi");
     this.isInvestor = false;
   }
 
