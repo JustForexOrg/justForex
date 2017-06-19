@@ -39,8 +39,7 @@ db.chat.find({recipient_id: req.params.id}, function(err, chat){
 //Save Chat
 router.post('/save', function(req, res, next) {
     var c = req.body;
-
-    if(!c.text) {
+    if(!c.proposed_amount && !c.proposed_split) {
         res.status(400);
         res.json({
             "error": "Bad Data"
@@ -50,7 +49,7 @@ router.post('/save', function(req, res, next) {
             if(err){
                 res.send(err);
             }
-            con
+            console.log(res.json(ch));
             res.json(ch);
         })
     }

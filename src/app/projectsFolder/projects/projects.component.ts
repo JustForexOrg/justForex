@@ -9,25 +9,28 @@ import { Project } from '../myproject/project';
 })
 
 export class ProjectsComponent {
-  projects: Project[] = [];
-  /*  {
-      language: "python",
-      name: "my first project",
-      last_edited: "10/10/10"
-    },
-    {
-      language: "javascript",
-      name: "my second project",
-      last_edited: "01/06/17"
-    }
-  ];*/
+  newProject_id: string;
 
+  projects: Project[] = [];
 
    constructor(private projectsService: ProjectsService) {
      // Retrieve posts from the API
      this.projectsService.getProjectbyUser().subscribe(projects => {
        this.projects = projects;
      });
+   }
+
+   addNewProject() {
+     event.preventDefault();
+     var project = {
+       language: "python",
+       name: "new project",
+       last_edited: "01/01/17",
+       text: "",
+       //get the current user's id
+       user_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id
+     }
+     this.projectsService.addProject(project).map(res => this.newProject_id = res.json()._body._id);
    }
 
 }

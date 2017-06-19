@@ -58,7 +58,17 @@ router.post('/task', function(req, res, next) {
     }
 });
 
-//Delete tasks
+//Delete a task
+router.delete('/tasks/:id', function(req, res, next){
+    db.tasks.remove({_id: mongojs.ObjectsId(req.params.id)}, function(err, tasks){
+        if(err){
+            res.send(err);
+        }
+        res.json(tasks);
+    });
+});
+
+//Update a task
 router.delete('/tasks/:id', function(req, res, next){
     db.tasks.remove({_id: mongojs.ObjectsId(req.params.id)}, function(err, tasks){
         if(err){

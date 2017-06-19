@@ -11,8 +11,8 @@ export class UserService {
         return this.http.get('/api/authenticate/getall', this.jwt()).map((response: Response) => response.json());
     }
 
-    getById(id: number) {
-        return this.http.get('/api/authenticate/get' + id, this.jwt()).map((response: Response) => response.json());
+    getById(id) {
+        return this.http.get('/api/authenticate/get/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
     getByUsername(username: string) {

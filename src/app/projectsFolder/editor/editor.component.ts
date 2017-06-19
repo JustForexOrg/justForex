@@ -24,6 +24,7 @@ export class EditorComponent {
   text: string = "";
   lang: string = "python"
   id: string;
+  isSaved: boolean;
 
     constructor(private projectsService:ProjectsService, private route: ActivatedRoute){
     }
@@ -44,7 +45,7 @@ export class EditorComponent {
         event.preventDefault();
         var t = {
           language: "python",
-          name: "my project 1",
+          name: this.title,
           last_edited: "01/01/17",
           text: this.text,
           //get the current user's id

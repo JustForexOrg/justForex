@@ -1,8 +1,8 @@
-<div class="row card col-md-12 container" data-toggle="modal" data-target="#exampleModalLong" (click)="hasRead()">
+<div class="row card col-md-12 container" (click)="findSender()" data-toggle="modal" data-target="#exampleModalLong" (click)="hasNotRead()">
   <div class="col-md-2">
     <img class="lib-img-show" src="http://images.all-free-download.com/images/graphiclarge/harry_potter_icon_6825007.jpg">
   </div>
-  <h1 class="col-md-10">John Smith</h1>
+  <h1 class="col-md-10">{{sender}}</h1>
   <div *ngIf="tick">
     <i class="fa fa-check" aria-hidden="true"></i>
   </div>
@@ -15,21 +15,56 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">YOU HAVE AN OFFER FROM JOHN SMITH</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">YOU HAVE AN OFFER FROM {{sender}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <h4>Algorithm Name</h4>
-        <h4>Proposed Split {{ message.proposed_split }}</h4>
-        <h4>Proposed Investment Amount {{ message.proposed_amount }}</h4>
-        <h4>Proposed End Date</h4>
+        <div id="normal" *ngIf="!pending">
+          <h4>Algorithm Name: {{message._id}}</h4>
+          <h4>Proposed Split {{ message.proposed_split }}</h4>
+          <h4>Proposed Investment Amount {{ message.proposed_amount }}</h4>
+          <h4>Proposed End Date</h4>
+        </div>
+        <div id="counter" *ngIf="pending">
+          <div class="form-group row">
+              <label for="example-number-input" class="col-2 col-form-label">Split</label>
+              <div class="col-4">
+                  <input class="form-control" type="number" id="example-number-input" max="100" min="0" [(ngModel)]="proposed_split"/>
+              </div>
+              <div class="col-4">
+                  : {{ 100 - proposed_split }}
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="split" class="col-2 col-form-label">Amount to invest</label>
+              <div class="input-group col-6">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2"
+                    data-number-stepfactor="100" class="form-control currency" [(ngModel)]="proposed_amount" id="split" />
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label">Cutoff Date</label>
+            <div class="col-10">
+              <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-success" data-dismiss="modal" (click)="choose('accept')">Accept</button>
-        <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="choose('decline')">Decline</button>
-        <button type="button" class="btn btn-outline-info" data-dismiss="modal" (click)="choose('counter')">Counter offer</button>
+        <div id="normal" *ngIf="!pending">
+          <button type="button" class="btn btn-outline-success" data-dismiss="modal" (click)="choose('accept')">Accept</button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click)="choose('decline')">Decline</button>
+          <button type="button" class="btn btn-outline-info" (click)="choose('counter')">Counter offer</button>
+        </div>
+        <div id="counter" *ngIf="pending">
+          <div *ngIf="isSent"><h5>Your request has been sent</h5></div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveMessage(item.user_id)">Send offer</button>
+        </div>
       </div>
     </div>
   </div>

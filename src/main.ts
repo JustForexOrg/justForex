@@ -2,7 +2,6 @@ import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
-import { AuthenticationModule } from './app/users/authentication/authentication.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {

@@ -19,7 +19,8 @@ export class MessageService {
     this.hasNotRead++;
 
     return this.http.post('/api/chat/save', JSON.stringify(msg), {headers: headers})
-        .map(res => res.json());
+        .map(res => { res.json() })
+        .subscribe(data => console.log(data));
   }
 
   hasRead() {

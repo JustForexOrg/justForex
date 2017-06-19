@@ -159,7 +159,7 @@ export const appRoutes: Routes = [
     ApiGuidesComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'justForex'}),
     FormsModule,
     HttpModule,
     AceEditorModule,
