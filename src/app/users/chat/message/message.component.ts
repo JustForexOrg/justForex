@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Message } from './message';
 import { MessageService } from '../message.service'
+import { UserService } from '../../authentication/services/user.service';
 
 @Component({
   selector: 'app-message',
@@ -14,8 +15,9 @@ export class MessageComponent implements OnInit {
   visibility: boolean = true;
   tick: boolean = false;
   pending: boolean = false;
+  sender: string;
 
-  constructor(private messageService: MessageService) {  }
+  constructor(private messageService: MessageService, private userService: UserService) {  }
 
   ngOnInit() {
   }
@@ -42,5 +44,10 @@ export class MessageComponent implements OnInit {
         this.tick = false;
       }
     }
+  }
+
+  findSender() {
+    // this.sender = JSON.stringify(this.userService.getById(this.message.sender_id));
+    this.userService.getById(this.message.sender_id).subscribe(data => this.sender = data.name);
   }
 }

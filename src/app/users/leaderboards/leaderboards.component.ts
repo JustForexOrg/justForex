@@ -11,20 +11,20 @@ declare var $:any;
 @Component({
   selector: 'app-leaderboards',
   templateUrl: './leaderboards.component.html',
-  styleUrls: ['./leaderboards.component.css']
+  styleUrls: ['./leaderboards.component.css', '../../../../node_modules/font-awesome/css/font-awesome.min.css']
 })
+
 export class LeaderboardsComponent {
    public data;
    public filterQuery = "";
    public rowsOnPage = 10;
-   public sortBy = "email";
+   public sortBy = "position";
    public sortOrder = "asc";
 
    isSent: boolean = false;
    risk;
-   
-   sender_id: number;
-   recipient_id: number;
+
+   recipient_id: string;
    proposed_split:number = 50;
    proposed_amount: number;
 
@@ -32,7 +32,7 @@ export class LeaderboardsComponent {
    }
 
    ngOnInit(): void {
-       this.http.get("https://jsonplaceholder.typicode.com/users")
+       this.http.get("/api/tasks/")
            .subscribe((data)=> {
                setTimeout(()=> {
                    this.data = data.json();
@@ -52,15 +52,47 @@ export class LeaderboardsComponent {
      return items;
    }
 
-   public sortByWordLength = (a: any) => {
-       return a.city.length;
+  //  public sortByWordLength = (a: any) => {
+  //      return a.address.city.length;
+  //  }
+   //
+  //  public sortByCity = (a: any) => {
+  //      return a.address.city;
+  //  }
+   //
+  //  public sortByRisk = (a: any) => {
+  //      return this.makeRisk(this.abs(a.address.geo.lat));
+  //  }
+   //
+  //  public sortBySplit = (a: any) => {
+  //      return this.makeSplit(this.abs(a.address.geo.lng));
+  //  }
+   //
+  //  public sortByTotal = (a: any) => {
+  //      return Number(this.makeTotal(this.abs(a.address.geo.lng), this.makeRisk(this.abs(a.address.geo.lat))));
+  //  }
+
+  public sortByCountry = (a: any) => {
+      return a.country;
+  }
+
+  public sortBySplit = (a: any) => {
+      return Number(a.split);
+  }
+
+  public sortByReturns = (a: any) => {
+      return Number(a.returns);
+  }
+
+   public sortByRisk = (a: any) => {
+       return Number(a.risk);
    }
 
-   public saveMessage() {
+   public saveMessage(id) {
      if(!this.isSent) {
        var m: Message = {
-         sender_id: 1,
-         recipient_id: this.recipient_id,
+         sender_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id,
+         recipient_id: id,
          proposed_split: this.proposed_split,
          proposed_amount: this.proposed_amount
        }
@@ -90,6 +122,11 @@ export class LeaderboardsComponent {
        var OldMin = -90;
        this.risk = this.roundToTwo((((n - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin);
        return this.risk;
+   }
+
+   public makeTotal(splitFor: number, risk: number) {
+       splitFor %= 100;
+       return this.roundToTwo((risk*1000)/(100-splitFor) * Math.pow(splitFor, risk/10));
    }
 
    public roundToTwo(n: number) {

@@ -1,79 +1,85 @@
 <table class="table table-striped borderless" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
     <thead>
     <tr>
+        <th style="width: 10%"></th>
+        <th style="width: 10%"></th>
         <th style="width: 10%">
-            <mfDefaultSorter by="position">Position</mfDefaultSorter>
-        </th>
-        <th style="width: 20%">
             <mfDefaultSorter by="name">Name</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter by="email">Author</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortByCountry">Country</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter by="age">Split</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortBySplit">Split</mfDefaultSorter>
         </th>
         <th style="width: 20%">
-            <mfDefaultSorter by="city">Lifetime Returns</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortByReturns">Lifetime Returns</mfDefaultSorter>
         </th>
         <th style="width: 10%">
-            <mfDefaultSorter by="city">Risk</mfDefaultSorter>
+            <mfDefaultSorter [by]="sortByRisk">Risk</mfDefaultSorter>
         </th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of mf.data; let i = index" id="data">
-        <td class="pos align-middle">{{i + 1}}</td>
-        <td class="information align-middle"><img src="https://cdn.dribbble.com/users/949133/screenshots/2671363/cute-05_1x.png" />{{item.name}}</td>
-        <td class="information align-middle">{{item.email}}</td>
-        <td class="information align-middle text-right">{{makeSplit(abs(item.address.geo.lng))}}</td>
-        <td class="align-middle">{{item.address.city}}</td>
-        <td class="align-middle">{{makeRisk(abs(item.address.geo.lat))}}</td>
+        <td class="align-middle">{{i + 1}}</td>
         <td class="align-middle">
-          <button class="btn btn-success"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Make offer</button>
-            <button class="btn btn-info"  data-toggle="modal" data-target=".bd-example-modal-lg" (click)="resetSentData()">Results</button>
+          <i class="fa fa-user big-icon" aria-hidden="true"></i>
         </td>
-    </tr>
-    <div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            </div>
-            <div class="modal-body">
-              <div class="form-group row">
-                  <label for="example-number-input" class="col-2 col-form-label">Split</label>
-                  <div class="col-4">
-                      <input class="form-control" type="number" id="example-number-input" max="100" min="0" [(ngModel)]="proposed_split"/>
+        <td class="information align-middle">
+          {{item.name}}
+        </td>
+        <td class="information align-middle">{{item.country}}</td>
+        <td class="information align-middle">{{item.split}} : {{100-item.split}}</td>
+        <td class="align-middle">{{item.returns | currency:'USD':true:'1.2-2' }}</td>
+        <td class="align-middle">{{item.risk}}</td>
+        <td class="align-middle">
+          <button class="btn btn-success" data-toggle="modal" [attr.data-target]="'#' + item._id" (click)="resetSentData()">Make offer</button>
+          <button class="btn btn-info"  routerLink="/graphs">Results</button>
+        </td>
+
+        <div id={{item._id}} class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Transaction</h5>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group row">
+                      <label for="example-number-input" class="col-2 col-form-label">Split</label>
+                      <div class="col-4">
+                          <input class="form-control" type="number" id="example-number-input" max="100" min="0" [(ngModel)]="proposed_split"/>
+                      </div>
+                      <div class="col-4">
+                          : {{ 100 - proposed_split }}
+                      </div>
                   </div>
-                  <div class="col-4">
-                      : {{ 100 - proposed_split }}
+                  <div class="form-group row">
+                      <label for="split" class="col-2 col-form-label">Amount to invest</label>
+                      <div class="input-group col-6">
+                          <span class="input-group-addon">$</span>
+                          <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2"
+                            data-number-stepfactor="100" class="form-control currency" [(ngModel)]="proposed_amount" id="split" />
+                      </div>
                   </div>
-              </div>
-              <div class="form-group row">
-                  <label for="c2" class="col-2 col-form-label" [(ngModel)]="proposed_amount">Amount to invest</label>
-                  <div class="input-group col-6">
-                      <span class="input-group-addon">$</span>
-                      <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2"
-                        data-number-stepfactor="100" class="form-control currency" id="c2" />
+                  <div class="form-group row">
+                    <label for="example-date-input" class="col-2 col-form-label">Cutoff Date</label>
+                    <div class="col-10">
+                      <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                    </div>
                   </div>
-              </div>
-              <div class="form-group row">
-                <label for="example-date-input" class="col-2 col-form-label">Cutoff Date</label>
-                <div class="col-10">
-                  <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                </div>
+                <div class="modal-footer">
+                  <div *ngIf="isSent"><h5>Your request has been sent</h5></div>
+                  <button type="button" *ngIf="!isSent" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="button" *ngIf="isSent" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" (click)="saveMessage(item.user_id)">Send offer</button>
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
-              <div *ngIf="isSent"><h5>Your request has been sent</h5></div>
-              <button type="button" *ngIf="!isSent" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="button" *ngIf="isSent" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" (click)="saveMessage()">Send offer</button>
-            </div>
-          </div>
         </div>
-    </div>
+    </tr>
+
     </tbody>
     <tfoot>
     <tr>

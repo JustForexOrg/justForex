@@ -32,10 +32,11 @@ import { ChatComponent } from './users/chat/chat.component'
 import { AuthGuard } from './users/authentication/guards/auth.guard';
 import { MessageComponent } from './users/chat/message/message.component';
 import { MessageService } from './users/chat/message.service';
+import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.component';
 
 export const appRoutes: Routes = [
   {
-    path: 'authentication',
+    path: '',
     component: AuthenticationComponent
   },
   {
@@ -63,7 +64,7 @@ export const appRoutes: Routes = [
     ]
   },
   {
-    path: 'tutorials',
+    path: 'getting-started',
     children: [
       { path: '', component: TutorialsComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
@@ -89,7 +90,7 @@ export const appRoutes: Routes = [
   {
     path: 'editor',
     children: [
-      { path: '', component: EditorComponent },
+      { path: ':id', component: EditorComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
       { path: '', component: SideBarComponent, outlet: 'sidebar'}
     ]
@@ -103,14 +104,6 @@ export const appRoutes: Routes = [
     ]
   },
   {
-    path: 'leaderboards',
-    children: [
-      { path: '', component: LeaderboardsComponent },
-      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
-      { path: '', component: SideBarComponent, outlet: 'sidebar'}
-    ]
-  },
-  {
     path: 'chat',
     children: [
       { path: '', component: ChatComponent },
@@ -119,7 +112,23 @@ export const appRoutes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'api-guides',
+    children: [
+      { path: '', component: ApiGuidesComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
+  },
+  {
+    path: 'leaderboards',
+    children: [
+      { path: '', component: LeaderboardsComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
+  },
+  {
+    path: 'dashboard',
     children: [
       { path: '', component: DashboardComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
@@ -146,10 +155,11 @@ export const appRoutes: Routes = [
     MessageComponent,
     InvestorGuideComponent,
     ProgrammerGuideComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    ApiGuidesComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'justForex'}),
     FormsModule,
     HttpModule,
     AceEditorModule,

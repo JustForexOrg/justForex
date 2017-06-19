@@ -8,22 +8,15 @@ import { MessageService } from './message.service'
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-  messages: Message[] = [
-    // {
-    //   "sender_id": 1,
-    //   "recipient_id": 2,
-    //   "proposed_split": 40,
-    //   "proposed_amount": 200
-    // }
-  ];
+  messages: Message[] = [];
 
   numMsg: number = 0;
 
   constructor(private messageService: MessageService) {
     // Retrieve posts from the API
-    this.messageService.getMessages().subscribe(messages => {
+    this.messageService.getMessagesFromRecipient().subscribe(messages => {
       this.messages = messages;
-      this.numMsg = this.messageService.hasNotRead;
+      // this.numMsg = this.messageService.hasNotRead;
     });
   }
 

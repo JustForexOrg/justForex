@@ -1,3 +1,172 @@
-<h1>Are you a</h1>
-<button class="btn btn-default" routerLink="/investor-guide">Investor</button>
-<button class="btn btn-default" routerLink="/programmer-guide">Programmer</button>
+<div class="type">
+    <input id="tab1" type="radio" name="tabs" checked>
+    <label (click)="investorClick()" id="l1" for="tab1">Investor</label>
+
+    <input id="tab2" type="radio" name="tabs" >
+    <label (click)="developerClick()" for="tab2">Developer</label>
+</div>
+
+<div *ngIf="isInvestor">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <div class="card">
+        <div class="text-container">
+          <br><br>
+          Welcome to justForex! This is a platform to invest in foreign exchange in an easy, stress free way!
+          <br><br>
+          <button class="btn btn-default btn-info" data-toggle="collapse" data-target="#forexinfo">What is forex?
+            <span class="glyphicon glyphicon-chevron-down"></span>
+          </button>
+          <div id="forexinfo" class="collapse">
+            <ul><br>
+              <li>Algorithmic trading is using pre-programmed instructions to automatically conduct trades, based on factors including time, price and other market conditions.</li>
+              <li>The foreign exchange market (Forex), is buying and selling foreign currencies to try to make a profit. For example, if you are trading in Pounds, you could buy Euros when the Euro is weak and so has a low price, then sell them when the Euro is stronger and worth more.</li>
+            </ul>
+          </div>
+          <br><br>
+          Using algorithms to trade forex can be very profitable. However, many people don’t have the time to write algorithms themselves. Our platform connects you with developers who have the time and skills to write these algorithms, but maybe don’t have the money to invest themselves. You can choose somebody’s algorithm and, for a cut of the profits negotiated between the two of you, use it to trade forex. We take care of the hard work, you can just input the money and wait for the profits!
+          <br><br>
+          See the next page to learn about our leaderboard, the starting point for building a partnership!
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="text-container">
+          <br><br>
+          The leaderboard consists of all of the algorithms performing well this week. Each looks like this. When you have chosen one, click 'make an offer'.
+          <br>
+          <img id="leaderboard-item" src="../../../../assets/images/Leaderboard-item.png" />
+          <br>
+          The next page will show you how an offer is made!
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="text-container">
+          <br><br>
+          [Insert screenshot of offer box]
+          <br><br>
+          Here you create your offer. Enter the percentage of the profits you want take, the amount of money you want to invest, and the date you want to end the investment period. If your offer is accepted, the money will be taken from your account and, after the time period ends, your remaining money will be sent back to you along with your cut of the profits!
+          <br><br>
+          The developer may respond with a counter-offer instead of accepting. These will show up in your inbox for you to accept, decline, or respond with another counter.
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<!-- else -->
+<div *ngIf="!isInvestor">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <div class="card">
+        <div class="text-container">
+          <br><br>
+          Welcome to justForex! This is a platform to write and test foreign exchange trading algorithms in an easy, stress free way, and make money by getting investors to trade with your algorithms!
+          <br><br>
+          <button class="btn btn-default btn-info" data-toggle="collapse" data-target="#forexinfo">What is forex?
+            <span class="glyphicon glyphicon-chevron-down"></span>
+          </button>
+          <div id="forexinfo" class="collapse">
+            <ul><br>
+              <li>Algorithmic trading is using pre-programmed instructions to automatically conduct trades, based on factors including time, price and other market conditions.</li>
+              <li>The foreign exchange market (Forex), is buying and selling foreign currencies to try to make a profit. For example, if you are trading in Pounds, you could buy Euros when the Euro is weak and so has a low price, then sell them when the Euro is stronger and worth more.</li>
+            </ul>
+          </div>
+          <br><br>
+          Our site allows you to write algorithms in Python with which to trade forex, and to test the algorithms without using your own money.
+          <br><br>
+          See the next page to learn about writing an algorithm.
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="text-container">
+          <br><br>
+          Click the 'new project' button on the dashboard to get to the editor screen.
+          <br>[picture]
+          <br>
+          Here you can click 'new file' to start a new file and write your python code. The 'run' button attempts to compile the algorithm and puts output in the terminal beneath. When finished, click 'save'. Then you can click 'run backtests' and see how well your algorithm performs!
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="text-container">
+          <br><br>
+          [Insert screenshot of graph page with graphs labelled]
+          <br><br>
+          If your algorithm does well, it may end up on the leaderboard! That is where potential investors can find you!
+          <br><br>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="text-container">
+          <br><br>
+          The leaderboard consists of all of the algorithms performing well this week. Each looks like this:
+          <br>
+          <img id="leaderboard-item" src="../../../../assets/images/Leaderboard-item.png" />
+          <br>
+          If an investor sees your algorithm and likes what they see, they can send you an offer.
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="text-container">
+          Open offers show up here:
+          <br><br>
+          [Insert screenshot of inbox with an offer open and labelled]
+          <br><br>
+          You can accept it in which case the trading will begin. At the end of the time period, any profits will be split according to the split agreed upon and your cut will be credited to your account.
+          <br><br>
+          If you don't like the offer, you may respond with a counter-offer. The investor can respond with another counter and so on until one of you accepts or declines.
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+
+
+<!-- </div>
+<template #elseBlock>
+   Falsy condition
+  <h1>Dev</h1>
+</template> -->

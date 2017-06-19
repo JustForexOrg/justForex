@@ -15,8 +15,8 @@ export class EditorService{
             .map(res => res.json());
     }
 
-    getSpecificTask(id) {
-      return this.http.get('/pi/task/'+id)
+    getTask(id) {
+      return this.http.get('/api/task/'+id)
               .map(res => res.json());
     }
 

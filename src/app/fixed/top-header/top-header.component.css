@@ -17,7 +17,6 @@ body {
   border-bottom:none;
   padding-top: 1.5vh;
   background-color: white;
-  opacity: 0.9;
   border-bottom: 0.5px solid var(--lightgrey);
   display: block;
 }
@@ -42,6 +41,12 @@ body {
   color: #285943;
   font-size: 1.5vh;
   font-size: 1.5vw;
+}
+
+#topnav .navbar p {
+  padding-top: 2.5vh;
+  font-size: 2.5vh;
+  margin-right: 4vw;
 }
 
 #topnav .navbar i .collapse {

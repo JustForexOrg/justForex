@@ -1,14 +1,14 @@
 <div class="row">
   <img src="../../assets/images/neil.jpg" class="profile col-md-4"/>
-  <h2 class="align-middle">Neil95</h2>
+  <h2 class="align-middle">{{currentUser.username}}</h2>
 </div>
 
 <div class="row">
   <div class="col-md-4 card">
     <h4>
-      Total profits made: $1202.43<br />
-      Average risk rating: 5.2/10<br />
-      Average profit split: 23:77<br />
+      Total profits made: {{currentUser.returns}}<br />
+      Average risk rating: {{currentUser.risk}}/10<br />
+      Average profit split: {{currentUser.split}}<br />
       Most profitable algorithm: Reactive<br />
     </h4>
   </div>

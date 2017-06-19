@@ -6,23 +6,26 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">justForex</a>
+  <a class="navbar-brand" routerLink="/dashboard">justForex</a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <p class="align-middle">Welcome {{name}}</p>
+      </li>
       <li class="nav-item active">
         <i class="nav-link fa fa-inbox" aria-hidden="true" routerLink="/chat"></i>
       </li>
       <li class="nav-item">
-        <i class="nav-link fa fa-bell" aria-hidden="true" routerLink="/authentication"></i>
+        <i routerLink="/getting-started" class="nav-link fa fa-info" aria-hidden="true"></i>
       </li>
       <li class="nav-item">
-        <i class="nav-link fa fa-info" aria-hidden="true"></i>
-      </li>
-      <li class="nav-item">
-        <i class="nav-link fa fa-cog" aria-hidden="true"></i>
+        <i routerLink="/authentication" class="nav-link fa fa-cog" aria-hidden="true"></i>
       </li>
       <li class="nav-item">
         <i class="nav-link fa fa-user" aria-hidden="true" routerLink="/myprofile"></i>
+      </li>
+      <li>
+        <i class="nav-link fa fa-sign-out" aria-hidden="true" routerLink=""></i>
       </li>
     </ul>
   </div>

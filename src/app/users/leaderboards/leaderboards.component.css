@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin:600');
 table {
+    margin-top: 10px;
     border-collapse: separate;
     text-align: center;
     margin-left: -10%;
@@ -16,7 +17,6 @@ thead tr {
     text-transform: uppercase;
     font-family: 'Cabin', sans-serif;
     color: var(--dark);
-
 }
 
 #c3 {
@@ -38,6 +38,11 @@ img {
     border: 1px solid grey;
     height:8vh;
     clip-path: circle(4vh at center);
+}
+
+i.big-icon {
+    font-size: 4vh;
+    padding-right: 2vh;
 }
 
 td {

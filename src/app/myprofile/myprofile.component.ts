@@ -8,5 +8,16 @@ import { Component } from '@angular/core';
 })
 
 export class MyProfileComponent {
+  currentUser;
+  isSent: boolean = false;
+
+  ngOnInit() {
+    this.currentUser = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body);
+    // console.log(this.currentUser);
+  }
+
+  public resetSentData() {
+    this.isSent = false;
+  }
 
 }

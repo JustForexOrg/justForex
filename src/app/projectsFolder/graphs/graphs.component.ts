@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from "@angular/http";
 import { Ng2Highstocks } from 'ng2-highcharts';
-import { EditorService } from '../editor/editor.service';
+import { ProjectsService } from '../projects/projects.service';
 
 @Component({
   selector: 'graphs',
@@ -131,7 +131,7 @@ export class GraphsComponent implements OnInit {
 	];
 	chartStock = {};
 
-	constructor(private http: Http, private editorService: EditorService) { }
+	constructor(private http: Http, private projectsService: ProjectsService) { }
 
 	ngOnInit(): any {
 		setInterval(() => {
@@ -401,7 +401,7 @@ export class GraphsComponent implements OnInit {
     }
 
     sendFileBacktest(id:string) {
-      var code:string = JSON.stringify(this.editorService.getSpecificTask(id));
+      var code:string = JSON.stringify(this.projectsService.getProject(id));
 
 			// send to python backtester
 			var headers = new Headers();

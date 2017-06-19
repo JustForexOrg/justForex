@@ -20,6 +20,7 @@ h5 {
 
 .container {
   margin-top: 8vh;
+  /*padding-top: -10px;*/
 }
 
 *, *:before, *:after {
@@ -134,4 +135,72 @@ img {
 .card {
   height: 30%;
   margin-top: 1%;
+}
+
+.footerboxes {
+    font-size: 18px;
+    height:100px;
+}
+
+.footerboxes p {
+    font-size: 52px;
+    height:100px;
+}
+
+@media screen and (max-width: 720px) {
+    .footerboxes p {
+        font-size: 36px;
+        height:100px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .footerboxes p {
+        font-size: 24px;
+        height:100px;
+    }
+}
+
+.mydots {
+    left:0; width:100%; z-index:0; display: inline; bottom:-30px;
+}
+
+.carousel-inner {
+   margin-bottom:30px;
+}
+
+.currentdatapanels {
+    text-align: center;
+}
+
+.currentdatapanels p {
+    font-size: 42px;
+}
+
+@media screen and (max-width: 720px) {
+    .currentdatapanels p {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .currentdatapanels p {
+        font-size: 16px;
+    }
+}
+
+th {
+    text-align: center;
+}
+
+.red {
+    color: #8f1210;
+}
+
+.green {
+    color: #128f10;
+}
+
+.container {
+    width:20000px;
 }

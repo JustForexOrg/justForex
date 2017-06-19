@@ -1,4 +1,5 @@
-import {Component} from '@angular/core'
+import { Component } from '@angular/core'
+import { AuthenticationService } from '../../users/authentication/services/authentication.service'
 
 @Component({
   selector: 'top-header',
@@ -10,5 +11,14 @@ import {Component} from '@angular/core'
 })
 
 export class TopHeaderComponent {
+  name: string;
+  authenticate: AuthenticationService;
 
+  constructor() {
+    this.name = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).name;
+  }
+
+  logout(): void {
+    this.authenticate.logout();
+  }
 }

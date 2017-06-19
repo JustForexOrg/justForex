@@ -26,6 +26,11 @@
   </nav>
     <!-- The ace editor -->
     <div class="container">
+      <div class="form-group" *ngIf="!isSaved">
+        <input type="text" [(ngModel)]="title" class="form-control">
+        <button class="btn btn-default" (click)="isSaved=true">Save</button>
+      </div>
+      <h4 *ngIf="isSaved" (click)="isSaved=false">{{title}}</h4>
       <ace-editor id="editor" class="ace"
        [(text)]="text"
        #editor></ace-editor>
@@ -35,9 +40,9 @@
   <!-- Buttons that allow saving and running the tests -->
 </div>
 <form>
-<textarea id="yourcode">\
+<textarea id="yourcode">
 </textarea><br />
-<button type="button" onclick="aceToText()">Run</button>
+<button class="btn btn-default" type="button" onclick="aceToText()">Run</button>
 </form>
 <pre id="output" ></pre>
 <!-- If you want turtle graphics include a canvas -->

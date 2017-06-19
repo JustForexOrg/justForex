@@ -41,22 +41,26 @@ export class AuthenticationComponent implements OnInit {
     this.loading = true;
     event.preventDefault();
     var model = {
-      id: "1",
       email: this.email,
       username: this.username,
-      password: this.password
+      password: this.password,
+      split: 0,
+      risk: 0,
+      city: "London",
+      returns: 0
     }
     this.userService.create(model)
         .subscribe(
             data => {
-                this.router.navigate(['/dashboard']);
+                this.isRegister = false;
+                this.router.navigate(['/']);
             },
             error => {
                 this.loading = false;
             });
   }
 
-  login() {
+    login() {
         this.loading = true;
 
         this.authenticationService.login(this.username, this.password)

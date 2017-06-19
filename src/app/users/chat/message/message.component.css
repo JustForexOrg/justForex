@@ -15,3 +15,7 @@ img {
 .fa-check{
   color: green;
 }
+
+.modal-title, h1 {
+  text-transform: uppercase;
+}
