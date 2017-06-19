@@ -35,14 +35,3 @@ app.use('*', index);
 app.listen(port, function(){
     console.log('Server started on port '+port);
 });
-
-var io = require('socket.io')(3000),
-MongoClient = require('mongodb').MongoClient,
-mongoAdapter = require('socket.io-mongodb'),
-client;
-
-MongoClient.connect('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', function(err, db) {
-    io.adapter(mongoAdapter({
-        mongoClient: db
-    }))
-})
