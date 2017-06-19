@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-var io = require('socket.io')(3000),
-    mongoAdapter = require('socket.io-mongodb'),
-    adapter;
-
-adapter = mongoAdapter('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', {
-    collectionName: 'chat'
-});
-
-io.adapter(adapter);
+// var io = require('socket.io')(3000),
+//     mongoAdapter = require('socket.io-mongodb'),
+//     adapter;
+//
+// adapter = mongoAdapter('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', {
+//     collectionName: 'chat'
+// });
+//
+// io.adapter(adapter);
 
 // declare axios for making http requests
 const mongojs = require('mongojs');
