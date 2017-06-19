@@ -1,6 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
+var io = require('socket.io')(3000),
+    mongoAdapter = require('socket.io-mongodb'),
+    adapter;
+
+adapter = mongoAdapter('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', {
+    collectionName: 'chat'
+});
+
+io.adapter(adapter);
+
 // declare axios for making http requests
 const mongojs = require('mongojs');
 var db = mongojs('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', ['chat']);
@@ -39,7 +49,7 @@ db.chat.find({recipient_id: req.params.id}, function(err, chat){
 //Save Chat
 router.post('/save', function(req, res, next) {
     var c = req.body;
-    if(!c.proposed_amount && !c.proposed_split) {
+    if(!c.proposed_amount || !c.proposed_split) {
         res.status(400);
         res.json({
             "error": "Bad Data"
@@ -47,9 +57,8 @@ router.post('/save', function(req, res, next) {
     } else {
         db.chat.save(c, function(err, ch) {
             if(err){
-                res.send(err);
+                return res.send(err);
             }
-            console.log(res.json(ch));
             res.json(ch);
         })
     }

@@ -35,26 +35,3 @@ app.use('*', index);
 app.listen(port, function(){
     console.log('Server started on port '+port);
 });
-
-var mongo = require('mongodb').MongoClient;
-var http = require('http');
-var server = http.createServer(app);
-var io = require('socket.io').listen(server);
-let clientListNames = [];
-server.listen(8000);
-io.set("origins", "*:*");
-
-io.on('connection', function (socket) {
-    console.log('a user connected');
-
-    // hook up to the “disconnect” event for each socket
-    socket.on('disconnect', function () {
-        console.log('user disconnected');
-    });
-
-    // any message received on the “chat” channel will be broadcasted it to all the other connections on this socket.
-    // listen to the “chat” channel and call emit with the broadcast flag in the callback for the “connection” event.
-    socket.on('chat', function (msg) {
-        socket.broadcast.emit('chat', msg);
-    });
-});
