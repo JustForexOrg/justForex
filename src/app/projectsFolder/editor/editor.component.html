@@ -30,13 +30,14 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="form-group" *ngIf="!isSaved">
-                  <input type="text" [(ngModel)]="title" class="form-control">
-                  <button class="btn btn-default" (click)="isSaved=true">Save</button>
+                    <label>Enter name:</label>
+                    <input type="text" [(ngModel)]="title" class="form-control">
+                </div>
+                <div class="form-group" *ngIf="!isSaved">
+                    <button class="btn btn-default" (click)="isSaved=true">Save</button>
                 </div>
                 <h4 *ngIf="isSaved" (click)="isSaved=false">{{title}}</h4>
-                <ace-editor id="editor" class="ace"
-                 [(text)]="text"
-                 #editor></ace-editor>
+                <ace-editor id="editor" class="ace" [(text)]="text" #editor></ace-editor>
             </div>
             <div class="col-lg-4">
                 <h3>Python API Reference</h3>
