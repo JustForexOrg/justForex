@@ -10,171 +10,56 @@ import { ProjectsService } from '../projects/projects.service';
 })
 
 export class GraphsComponent implements OnInit {
-	chartOptions = {
-		chart: {
-			type: 'line'
-		},
-		title: {
-			text: 'Fruit Consumption'
-		},
-		xAxis: {
-			categories: ['Apples', 'Bananas', 'Oranges']
-		},
-		yAxis: {
-			title: {
-				text: 'Fruit eaten'
-			}
-		},
-		series: [{
-			name: 'Jane',
-			data: [1, 0, 4]
-		}, {
-				name: 'John',
-				data: [5, 7, 3]
-			}]
-	};
-	chartBar = {
-		chart: {
-			type: 'column'
-		},
-		xAxis: {
-			categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-		},
-		series: [
-			{
-				name: 'NC',
-				data: [7057, 6858, 6643, 6570, 6115, 107, 31, 635, 203, 2, 2]
-			}, {
-				name: 'OK',
-				data: [54047, 52484, 50591, 49479, 46677, 33, 156, 947, 408, 6, 2]
-			}, {
-				name: 'KO',
-				data: [11388, 11115, 10742, 10757, 10290, 973, 914, 4054, 732, 34, 2]
-			}, {
-				name: 'VALID',
-				data: [8836, 8509, 8255, 7760, 7621, 973, 914, 4054, 732, 34, 2]
-			}, {
-				name: 'CHECK',
-				data: [115, 162, 150, 187, 172, 973, 914, 4054, 732, 34, 2]
-			}, {
-				name: 'COR',
-				data: [12566, 12116, 11446, 10749, 10439, 973, 914, 4054, 732, 34, 2]
-			}
-		]
-	};
-	chartMap = {};
-	mapData = [
-		{
-			'code': 'DE.SH',
-			'value': 728
-		},
-		{
-			'code': 'DE.BE',
-			'value': 710
-		},
-		{
-			'code': 'DE.MV',
-			'value': 963
-		},
-		{
-			'code': 'DE.HB',
-			'value': 541
-		},
-		{
-			'code': 'DE.HH',
-			'value': 622
-		},
-		{
-			'code': 'DE.RP',
-			'value': 866
-		},
-		{
-			'code': 'DE.SL',
-			'value': 398
-		},
-		{
-			'code': 'DE.BY',
-			'value': 785
-		},
-		{
-			'code': 'DE.SN',
-			'value': 223
-		},
-		{
-			'code': 'DE.ST',
-			'value': 605
-		},
-		{
-			'code': 'DE.',
-			'value': 361
-		},
-		{
-			'code': 'DE.NW',
-			'value': 237
-		},
-		{
-			'code': 'DE.BW',
-			'value': 157
-		},
-		{
-			'code': 'DE.HE',
-			'value': 134
-		},
-		{
-			'code': 'DE.NI',
-			'value': 136
-		},
-		{
-			'code': 'DE.TH',
-			'value': 704
-		}
-	];
-	chartStock = {};
+
+  // private jData: String[];
+
+	// chartOptions = {
+	// 	chart: {
+	// 		type: 'line'
+	// 	},
+	// 	title: {
+	// 		text: 'Fruit Consumption'
+	// 	},
+	// 	xAxis: {
+	// 		categories: ['Apples', 'Bananas', 'Oranges']
+	// 	},
+	// 	yAxis: {
+	// 		title: {
+	// 			text: 'Fruit eaten'
+	// 		}
+	// 	},
+	// 	series: [{
+	// 		name: 'Jane',
+	// 		data: [1, 0, 4]
+	// 	}, {
+	// 			name: 'John',
+	// 			data: [5, 7, 3]
+	// 		}]
+	// };
+
+  chartStock = {};
+  winLoss = {};
+  vot = {};
 
 	constructor(private http: Http, private projectsService: ProjectsService) { }
 
 	ngOnInit(): any {
-		setInterval(() => {
-			this.chartOptions = {
-				chart: {
-					type: 'line'
-				},
-				title: {
-					text: 'Fruit Consumption'
-				},
-				xAxis: {
-					categories: ['Apples', 'Bananas', 'Oranges']
-				},
-				yAxis: {
-					title: {
-						text: 'Fruit eaten'
-					}
-				},
-				series: [{
-					name: 'Jane',
-					data: [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
-				}, {
-						name: 'John',
-						data: [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
-					}]
-			};
-		}, 3000);
 
-		//Stock
-		//  this.http.get('../../../assets/aapl-c.json').subscribe(
+    //Balance over time
+		 this.http.get('../../../assets/aapl-c.json').subscribe(
       // this.http.get('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?').subscribe(
-			this.http.get('www.doc.ic.ac.uk/~dsg115/test.php?callback=?').subscribe(
-			(aaplc: any) => {
+			// this.jsonp.request('https://www.doc.ic.ac.uk/~dsg115/test.php?callback=?').subscribe(
+			(bot: any) => {
 				this.chartStock = {
 					rangeSelector: {
 						selected: 1
 					},
 					title: {
-						text: 'AAPL Stock Price'
+						text: 'Balance'
 					},
 					series: [{
-						name: 'AAPL',
-						data: aaplc.json(),
+						name: 'Balance',
+						data: bot.json(),
 						tooltip: {
 							valueDecimals: 2
 						}
@@ -182,91 +67,81 @@ export class GraphsComponent implements OnInit {
 				};
 			},
 			(err: any) => {
-				console.error('Somethin went wrong', err);
+				console.error('BOT broken', err);
 			}
 		);
 
-		//Map
-		this.http.get('./assets/geojson.json').subscribe(
-			(geojson: any) => {
-				this.chartMap = {
-					title: {
-						text: 'GeoJSON in Highmaps'
-					},
-					mapNavigation: {
-						enabled: true,
-						buttonOptions: {
-							verticalAlign: 'bottom'
-						}
-					},
-					colorAxis: {
-					},
-					series: [{
-						data: this.mapData,
-						mapData: geojson.json(),
-						joinBy: ['code_hasc', 'code'],
-						name: 'Random data',
-						states: {
-							hover: {
-								color: '#BADA55'
-							}
-						},
-						dataLabels: {
-							enabled: true,
-							format: '{point.properties.postal}'
-						}
-					}]
-				};
-			},
-			(err: any) => {
-				console.error('Somethin went wrong', err);
-			}
-		);
+
+    this.http.get('../../../assets/winLoss.json').subscribe(
+     (winLoss: any) => {
+       this.winLoss = {
+         chart: {
+           type: 'columnrange'
+         },
+         rangeSelector: {
+           selected: 2
+         },
+         title: {
+           text: 'Win/Loss'
+         },
+         tooltip: {
+              valueSuffix: '$'
+         },
+         series: [{
+           name: 'Win/Loss',
+           data: winLoss.json()
+          //  tooltip: {
+          //    valueDecimals: 2
+          //  }
+         }]
+       };
+     },
+     (err: any) => {
+       console.error('WinLoss graph broken', err);
+     }
+   );
+
+
+   this.http.get('../../../assets/winLoss.json').subscribe(
+    (vol: any) => {
+      this.vot = {
+        chart: {
+            alignTicks: false
+        },
+
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: 'Volume of Transactions'
+        },
+
+        series: [{
+            type: 'column',
+            name: 'Volume',
+            data: vol.json(),
+            dataGrouping: {
+                units: [[
+                    'day', // unit name
+                    [1] // allowed multiples
+                ], [
+                    'month',
+                    [1, 2, 3, 4, 6]
+                ]]
+            }
+        }]
+      };
+    },
+    (err: any) => {
+      console.error('WinLoss graph broken', err);
+    }
+  );
+
+
+
 
 }
-  seriesOptions = [];
-  seriesCounter = 0;
-  names = ['MSFT', 'AAPL', 'GOOG'];
-
-  bot = {
-    rangeSelector: {
-        selected: 4
-    },
-
-    yAxis: {
-        labels: {
-            formatter: function () {
-                return (this.value > 0 ? ' + ' : '') + this.value + '%';
-            }
-        },
-        plotLines: [{
-            value: 0,
-            width: 2,
-            color: 'silver'
-        }]
-    },
-
-    title: {
-        text: 'Balance Over Time'
-    },
-
-    plotOptions: {
-        series: {
-            compare: 'percent',
-            showInNavigator: true
-        }
-    },
-
-    tooltip: {
-        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
-        valueDecimals: 2,
-        split: true
-    },
-
-    ele: 'https://www.highcharts.com/samples/data/jsonp.php?filename=range.json&callback=?',
-
-    series: this.seriesOptions
-  }
 
   ttpc = {
     chart: {
