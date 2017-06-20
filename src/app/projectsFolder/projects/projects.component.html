@@ -7,10 +7,24 @@
 </div>
 
 <div class=all-projects>
-
     <project-box *ngFor="let project of projects"
       [project]="project">
     </project-box>
 </div>
+<button type="button" style="padding: 10px 16px;" class="btn btn-lg btn-success btn-block"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
 
-    <button style="margin-top:20%" class="btn btn-default">Add New</button>
+<div class="row" style="margin-top:20px;">
+    <div class="col-md-12">
+        <h5>RUNNING PROJECTS</h5>
+                    <table class="table borderless">
+                        <tbody>
+                            <tr>
+                                <th>Algorithm</th>
+                            </tr>
+                            <tr>
+                                <td>You have no running algorithms.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+    </div>
+</div>

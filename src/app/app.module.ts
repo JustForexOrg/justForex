@@ -40,7 +40,7 @@ import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.compo
 export const appRoutes: Routes = [
   {
     path: '',
-    component: AuthenticationComponent
+    component: DashboardComponent
   },
   {
     path: 'myprojects',

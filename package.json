@@ -23,7 +23,7 @@
     "@angular/forms": "^4.0.0",
     "@angular/http": "^4.0.0",
     "@angular/material": "^2.0.0-beta.6",
-    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser": "^4.2.3",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/platform-server": "^4.2.3",
     "@angular/router": "^4.0.0",
@@ -51,8 +51,8 @@
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
-    "@angular/cli": "^1.1.1",
-    "@angular/compiler-cli": "^4.0.0",
+    "@angular/cli": "^1.1.2",
+    "@angular/compiler-cli": "^4.2.3",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "@types/socket.io-client": "^1.4.29",
@@ -70,7 +70,7 @@
     "protractor": "~5.1.0",
     "should": "^11.2.1",
     "supertest": "^3.0.0",
-    "ts-node": "^2.0.0",
+    "ts-node": "^2.1.2",
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
   }

@@ -1,5 +1,5 @@
 .type {
-  margin-top: -1.4vh;
+  margin-top: -10px;
   position: fixed;
   width: 100vw;
   margin-left: -11%;
@@ -9,6 +9,7 @@
 }
 
 .all-projects {
+    margin-top: 52px;
   width: 80%;
   float: right;
 }
@@ -81,4 +82,22 @@ input:checked + label {
   label {
     padding: 15px;
   }
+}
+
+h5 {
+  color: var(--dark);
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+td {
+    background-color: white;
+    color: var(--dark);
+    height: 10vh;
+}
+
+table {
+    border-collapse: separate;
+    text-align: center;
+    border-spacing:0 1rem;
 }

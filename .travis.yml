@@ -25,7 +25,7 @@ services:
 before_install:
   - docker build -t justforexwa/justforex-main .
   - docker run -d -p 80:4200 justforexwa/justforex-main
- 
+
 after_success:
    - docker login -u="justforexwa" -p="ahdgmypnd20"
    - docker push justforexwa/justforex-main

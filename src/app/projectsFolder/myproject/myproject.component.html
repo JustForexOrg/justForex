@@ -1,3 +1,4 @@
+
 <div class="project-box">
   <div class="col-sm-3">
     <div class="project-box panel panel-default">
@@ -5,8 +6,8 @@
         <h4><b>{{ project.name }}</b></h4>
         <p>{{ project.language }}</p>
         <p>Last modified: {{ project.last_edited }}</p>
-        <button class="btn btn-default">Test</button>
-        <button class="btn btn-default" [routerLink]="['../editor', project._id]">Edit</button>
+        <button class="btn btn-primary btn-default">Test</button>
+        <button class="btn btn-default btn-warning" [routerLink]="['../editor', project._id]">Edit</button>
       </div>
     </div>
   </div>
