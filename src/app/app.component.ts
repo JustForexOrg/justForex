@@ -9,12 +9,14 @@ import 'rxjs/add/operator/toPromise';
 })
 
 export class AppComponent implements OnInit {
-    text: string[];
+
+    ngOnInit() {
+    }
 
     constructor(private http: Http) {}
 
-    ngOnInit() {
-        // this.http.get("http://justforex.xyz:3020/userapi-backend/economicIndicator/interestRate?indicator=JPN&time=2007-12-03T10:15:30").toPromise()
-        //     .then(r => r.json()).then(r => this.text = r);
-    }
+    // ngOnInit() {
+    //     this.http.get("http://justforex.xyz:3020/userapi-backend/economicIndicator/interestRate?indicator=JPN&time=2007-12-03T10:15:30").toPromise()
+    //         .then(r => r.json()).then(r => this.text = r);
+    // }
 }

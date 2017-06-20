@@ -17,9 +17,12 @@ export class MessageComponent implements OnInit {
   pending: boolean = false;
   sender: string;
 
-  constructor(private messageService: MessageService, private userService: UserService) {  }
+  constructor(private messageService: MessageService, private userService: UserService) {
+  }
 
   ngOnInit() {
+    //find the sender by using sender_id in the message
+    // this.sender = JSON.stringify(this.userService.getById(this.message.sender_id));
   }
 
   @Input() message: Message;
@@ -34,6 +37,8 @@ export class MessageComponent implements OnInit {
         this.tick = true;
         this.pending = false;
         this.visibility = true;
+
+        this.accept();
       } else if(str === 'decline') {
         this.visibility = false;
         this.tick = false;
@@ -47,7 +52,15 @@ export class MessageComponent implements OnInit {
   }
 
   findSender() {
-    // this.sender = JSON.stringify(this.userService.getById(this.message.sender_id));
     this.userService.getById(this.message.sender_id).subscribe(data => this.sender = data.name);
+  }
+
+  /* Accepting the offer will:
+    - Add up the lifetime investment of the sender
+    - Find the sender's new profit split
+    - Put a waiting parameter on how much profit made by the investor
+  */
+  accept() {
+
   }
 }
