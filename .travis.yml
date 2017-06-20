@@ -12,8 +12,6 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm install -g @angular/cli
   - npm install
-  - npm install socket.io-mongodb
-  - npm install
 
 script:
   - ng build
