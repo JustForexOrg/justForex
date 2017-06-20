@@ -46,7 +46,7 @@
     "ng2-highcharts": "^1.0.0",
     "ng2-smart-table": "^1.2.1",
     "rxjs": "^5.1.0",
-    "socket-io": "0.9.x",
+    "socket.io": "^2.0.3",
     "socket.io-client": "^2.0.3",
     "zone.js": "^0.8.12"
   },
