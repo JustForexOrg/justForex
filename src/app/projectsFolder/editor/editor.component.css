@@ -1,6 +1,7 @@
 .ace {
-  width:80vw;
+  width:100%;
   height: 80vh;
+  max-width: 650px;
   /*margin-top: -1%;
   overflow: auto;
   position: fixed;*/
@@ -26,7 +27,7 @@
 }
 
 button {
-  color: var(--green);
+  /*color: var(--green);*/
 }
 
 button:hover {

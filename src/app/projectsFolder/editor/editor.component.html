@@ -1,49 +1,194 @@
 <div class="code-editor container">
-  <!-- Navbar to select language options -->
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Navbar to select language options -->
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">{{lang}}</a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="navbar-brand" href="#">{{lang}}</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Languages
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item"  (click)="changeLanguage('ruby')">Ruby</a>
-            <a class="dropdown-item" (click)="changeLanguage('javascript')">JavaScript</a>
-            <a class="dropdown-item" (click)="changeLanguage('python')">Python</a>
-          </div>
-        </li>
-      </ul>
-        <form class="form-inline">
-          <button class="btn btn-outline-success" (click)="addTask($event)" type="button">Save</button>
-          <button routerLink="/graphs" class="btn btn-sm align-middle btn-outline-secondary" type="button">Run Backtest</button>
-        </form>
-    </div>
-  </nav>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" (click)="changeLanguage('ruby')">Ruby</a>
+                        <a class="dropdown-item" (click)="changeLanguage('javascript')">JavaScript</a>
+                        <a class="dropdown-item" (click)="changeLanguage('python')">Python</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-info" (click)="addTask($event)" type="button">Save</button>
+                <button routerLink="/graphs" class="btn btn-primary" type="button">Backtest</button>
+                <button routerLink="/dashboard" class="btn btn-success" type="button">Run Live!</button>
+            </div>
+        </div>
+    </nav>
     <!-- The ace editor -->
     <div class="container">
-      <div class="form-group" *ngIf="!isSaved">
-        <input type="text" [(ngModel)]="title" class="form-control">
-        <button class="btn btn-default" (click)="isSaved=true">Save</button>
-      </div>
-      <h4 *ngIf="isSaved" (click)="isSaved=false">{{title}}</h4>
-      <ace-editor id="editor" class="ace"
-       [(text)]="text"
-       #editor></ace-editor>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group" *ngIf="!isSaved">
+                  <input type="text" [(ngModel)]="title" class="form-control">
+                  <button class="btn btn-default" (click)="isSaved=true">Save</button>
+                </div>
+                <h4 *ngIf="isSaved" (click)="isSaved=false">{{title}}</h4>
+                <ace-editor id="editor" class="ace"
+                 [(text)]="text"
+                 #editor></ace-editor>
+            </div>
+            <div class="col-lg-4">
+                <h3>Python API Reference</h3>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+            Currency Prices</a>
+          </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+            Economic Indicator Data</a>
+          </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+            The Current State</a>
+          </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+            Buying and Selling</a>
+          </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+
+                                <p>
+                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                                </p>
+                                <p>
+                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-  <!-- Buttons that allow saving and running the tests -->
+    <!-- Buttons that allow saving and running the tests -->
 </div>
 <form>
-<textarea id="yourcode">
+    <textarea id="yourcode">
 </textarea><br />
-<button class="btn btn-default" type="button" onclick="aceToText()">Run</button>
+    <button class="btn btn-default" type="button" onclick="aceToText()">Run</button>
 </form>
-<pre id="output" ></pre>
+<pre id="output"></pre>
 <!-- If you want turtle graphics include a canvas -->
 <div id="mycanvas"></div>
