@@ -22,7 +22,7 @@ export class MessageComponent implements OnInit {
 
   ngOnInit() {
     //find the sender by using sender_id in the message
-    // this.sender = JSON.stringify(this.userService.getById(this.message.sender_id));
+    this.userService.getById(this.message.sender_id).subscribe(data => this.sender = data.name);
   }
 
   @Input() message: Message;

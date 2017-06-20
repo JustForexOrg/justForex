@@ -1,8 +1,8 @@
-<div class="row card col-md-12 container" (click)="findSender()" data-toggle="modal" data-target="#exampleModalLong" (click)="hasNotRead()">
+<div class="row card col-md-12 container" onload="findSender()" data-toggle="modal" data-target="#exampleModalLong" (click)="hasNotRead()">
   <div class="col-md-2">
     <img class="lib-img-show" src="http://images.all-free-download.com/images/graphiclarge/harry_potter_icon_6825007.jpg">
   </div>
-  <h1 class="col-md-10">{{sender}}</h1>
+  <h1 class="col-md-10">{{ sender }} wants to invest {{ message.proposed_amount | currency:'USD':true }}</h1>
   <div *ngIf="tick">
     <i class="fa fa-check" aria-hidden="true"></i>
   </div>

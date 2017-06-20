@@ -1,9 +1,6 @@
-.profile {
-  clip-path: inset(30% 20px 20% 40px);
-  margin-top: -10%;
-  margin-bottom: -5%;
-  width: 20%;
-  height: 20%;
+image {
+  width: 8vw;
+  height: 8vw;
 }
 
 h2 {

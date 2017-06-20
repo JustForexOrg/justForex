@@ -7,4 +7,5 @@ export class User{
   risk: number;
   city: string;
   returns: number;
+  profile_pic: string;
 }
