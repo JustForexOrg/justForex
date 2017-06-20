@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { MessageService } from '../chat/message.service'
 import { Message } from '../chat/message/message'
+import { UserService } from '../authentication/services/user.service'
 
 declare var $:any;
 
@@ -25,8 +26,9 @@ export class LeaderboardsComponent {
    recipient_id: string;
    proposed_split:number = 50;
    proposed_amount: number;
+   profile_pic: string;
 
-   constructor(private http: Http, private messageService: MessageService) {
+   constructor(private http: Http, private messageService: MessageService, private userService: UserService) {
    }
 
    ngOnInit(): void {
@@ -35,6 +37,8 @@ export class LeaderboardsComponent {
                setTimeout(()=> {
                    this.data = data.json();
                }, 1000);
+               this.data.picture = this.userService.getById(item._id).profile_pic;
+
            });
    }
 

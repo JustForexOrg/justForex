@@ -24,7 +24,7 @@
     <tr *ngFor="let item of mf.data; let i = index" id="data">
         <td class="align-middle">{{i + 1}}</td>
         <td class="align-middle">
-          <i class="fa fa-user big-icon" aria-hidden="true"></i>
+          <span style="width:2vw; height:2vw;"><img src="{{'../../assets/images/' + item.picture}}"></span>
         </td>
         <td class="information align-middle">
           {{item.name}}

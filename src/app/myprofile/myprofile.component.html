@@ -1,10 +1,10 @@
 <div class="container row">
   <!-- <img src="../../assets/images/neil.jpg" class="profile col-md-4"/> -->
   <div *ngIf="hasPic" class="profile col-md-4">
-    <img src="{{'../../assets/images/' + currentUser.profile_pic }}">
+    <img id="myImage" src="{{'../../assets/images/' + currentUser.profile_pic }}">
   </div>
   <div *ngIf="!hasPic" class="profile col-md-4">
-    <img src="../../assets/images/default.png">
+    <img id="myImage" src="../../assets/images/default.png">
   </div>
   <h2 class="align-middle">{{currentUser.username}}</h2>
 
