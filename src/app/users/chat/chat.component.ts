@@ -2,6 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { Message } from './message/message';
 import { MessageService } from './message.service'
 
+declare var $:any;
+
 @Component({
   selector: 'chat-app',
   templateUrl: './chat.component.html',
@@ -9,6 +11,7 @@ import { MessageService } from './message.service'
 })
 export class ChatComponent {
   messages: Message[];
+  private socket: SocketIOClient.Socket; // The client instance of socket.io
 
   numMsg: number = 0;
 

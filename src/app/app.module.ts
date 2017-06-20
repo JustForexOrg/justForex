@@ -185,4 +185,8 @@ export const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private appSocketIoService: AppSocketIoService) {
+    this.appSocketIoService.consumeEventOnMessageSaved();
+  }
+}

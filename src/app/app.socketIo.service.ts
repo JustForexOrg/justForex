@@ -1,7 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Message } from './users/chat/message/message';
 import * as io from 'socket.io-client';
+import { MessageService } from './users/chat/message.service';
 import { ToasterService } from 'angular2-toaster';
+
+declare var $:any;
 
 @Injectable()
 export class AppSocketIoService {
@@ -26,15 +29,15 @@ export class AppSocketIoService {
   consumeEventOnMessageSaved(){
     var self = this;
     this.socket.on('messageSaved', function(message: Message){
-      // console.log("hi");
-      self.toasterService.pop('success', 'NEW GIST SAVED',
-          message.recipient_id + ' have received an offer from ' + message.sender_id);
-      if(message.recipient_id === JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id) {
-        console.log("hi");
-        var msg = document.getElementById("msg");
-        msg.insertAdjacentHTML('afterbegin', '<app-message [message]=' + message +'></app-message>');
-      }
+      // this.toasterService.pop('success', 'NEW MESSAGE SENT',
+      //       message.recipient_id + ' have received an offer from ' + message.sender_id);
+        if(message.recipient_id == JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id) {
+          console.log("hihihih");
+          location.reload();
+        }
     });
+
+
   }
 
   // // Consume on gist updated
