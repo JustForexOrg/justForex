@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var tasks = require('./routes/tasks');
 // var users = require('./routes/users');
+var photos = require('./routes/photos');
 var data  = require('./routes/data');
 var authenticate = require('./routes/authenticate');
 var chat = require('./routes/chat');
@@ -29,6 +30,7 @@ app.use('/api', tasks);
 app.use('/data', data);
 // app.use('/api/users', users);
 app.use('/api/chat', chat);
+app.use('/upload', photos);
 app.use('/api/authenticate', authenticate);
 app.use('*', index);
 
@@ -36,36 +38,23 @@ app.listen(port, function(){
     console.log('Server started on port '+port);
 });
 
-// var mongo = require('mongodb').MongoClient;
-// var http = require('http');
-// var server = http.createServer(app);
-// var io = require('socket.io').listen(server);
-// let clientListNames = [];
-// server.listen(8000);
-// io.set("origins", "*:*");
-//
-// io.on('connection', function (socket) {
-//     console.log('a user connected');
-//
-//     // hook up to the “disconnect” event for each socket
-//     socket.on('disconnect', function () {
-//         console.log('user disconnected');
-//     });
-//
-//     // any message received on the “chat” channel will be broadcasted it to all the other connections on this socket.
-//     // listen to the “chat” channel and call emit with the broadcast flag in the callback for the “connection” event.
-//     socket.on('chat', function (msg) {
-//         socket.broadcast.emit('chat', msg);
-//     });
-// });
+// SocketIO for real time chat update
+var mongo = require('mongodb').MongoClient;
+var http = require('http');
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+let clientListNames = [];
+server.listen(8000);
+io.set("origins", "*:*");
 
-var io = require('socket.io')(3000),
-MongoClient = require('mongodb').MongoClient,
-mongoAdapter = require('socket.io-mongodb'),
-client;
+io.sockets.on('connection', function(socket) {
+    console.log('Socket connected');
 
-MongoClient.connect('mongodb://justforex:ahdgmypnd20@ds157631.mlab.com:57631/justforex', function(err, db) {
-    io.adapter(mongoAdapter({
-        mongoClient: db
-    }))
+    //Socket event for message created
+    socket.on('messageSaved', function(messageSaved) {
+        io.broadcast.emit('messageSaved', messageSaved);
+    });
+
+    //Socket event for gist updated
 })
+// SocketIO for real time chat update

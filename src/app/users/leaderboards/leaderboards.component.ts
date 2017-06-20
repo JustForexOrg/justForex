@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { MessageService } from '../chat/message.service'
 import { Message } from '../chat/message/message'
 
-import { films } from './leaderboards.data';
-
 declare var $:any;
 
 @Component({

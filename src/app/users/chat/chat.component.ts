@@ -8,7 +8,7 @@ import { MessageService } from './message.service'
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-  messages: Message[] = [];
+  messages: Message[];
 
   numMsg: number = 0;
 

@@ -14,7 +14,7 @@ export class ProjectsComponent {
   projects: Project[] = [];
 
    constructor(private projectsService: ProjectsService) {
-     // Retrieve posts from the API
+     // Retrieve projects from the API
      this.projectsService.getProjectbyUser().subscribe(projects => {
        this.projects = projects;
      });

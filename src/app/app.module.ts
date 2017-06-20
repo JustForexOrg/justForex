@@ -23,6 +23,9 @@ import { LeaderboardsComponent } from './users/leaderboards/leaderboards.compone
 import { AuthenticationComponent } from './users/authentication/authentication.component'
 import { InvestorGuideComponent } from './tutorials/investor-guide/investor-guide.component';
 import { ProgrammerGuideComponent } from './tutorials/programmer-guide/programmer-guide.component';
+import { ToasterModule, ToasterService } from 'angular2-toaster';
+import { AppSocketIoService } from './app.socketIo.service';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 import { EditorService } from './projectsFolder/editor/editor.service';
 import { ProjectsService } from './projectsFolder/projects/projects.service';
@@ -37,7 +40,7 @@ import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.compo
 export const appRoutes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: AuthenticationComponent
   },
   {
     path: 'myprojects',
@@ -156,7 +159,8 @@ export const appRoutes: Routes = [
     InvestorGuideComponent,
     ProgrammerGuideComponent,
     AuthenticationComponent,
-    ApiGuidesComponent
+    ApiGuidesComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'justForex'}),
@@ -167,6 +171,7 @@ export const appRoutes: Routes = [
     BrowserAnimationsModule,
     Ng2HighchartsModule,
     DataTableModule,
+    ToasterModule
     // authenticationRouting
   ],
   providers: [
@@ -174,7 +179,9 @@ export const appRoutes: Routes = [
     ProjectsService,
     UserService,
     AuthenticationService,
-    MessageService
+    MessageService,
+    ToasterService,
+    AppSocketIoService
   ],
   bootstrap: [AppComponent]
 })
