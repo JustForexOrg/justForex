@@ -102,7 +102,7 @@ export class GraphsComponent implements OnInit {
    );
 
 
-   this.http.get('../../../assets/winLoss.json').subscribe(
+   this.http.get('../../../assets/vot.json').subscribe(
     (vol: any) => {
       this.vot = {
         chart: {
