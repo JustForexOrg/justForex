@@ -5,7 +5,7 @@
   margin-top: -10px;
   position: fixed;
   width: 100vw;
-  margin-left: -15%;
+  margin-left: -11%;
   z-index: 10;
   /*opacity: 0.9;*/
   background-color: white;
@@ -44,7 +44,7 @@ label {
 }
 
 #l1 {
-  margin-left: 42%;
+  margin-left: 35%;
 }
 
 label:before {

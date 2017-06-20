@@ -83,3 +83,21 @@ input:checked + label {
     padding: 15px;
   }
 }
+
+h5 {
+  color: var(--dark);
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+td {
+    background-color: white;
+    color: var(--dark);
+    height: 10vh;
+}
+
+table {
+    border-collapse: separate;
+    text-align: center;
+    border-spacing:0 1rem;
+}
