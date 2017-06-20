@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from './project'
 
+
 @Component({
   selector: 'project-box',
   templateUrl: './myproject.component.html',
@@ -15,5 +16,4 @@ export class MyprojectComponent implements OnInit {
   }
 
   @Input() project: Project
-
 }
