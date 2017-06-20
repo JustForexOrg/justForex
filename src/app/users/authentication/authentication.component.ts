@@ -47,7 +47,8 @@ export class AuthenticationComponent implements OnInit {
       split: 0,
       risk: 0,
       city: "London",
-      returns: 0
+      returns: 0,
+      profile_pic: "http://imgur.com/Eri6H6V"
     }
     this.userService.create(model)
         .subscribe(

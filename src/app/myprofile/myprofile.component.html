@@ -1,6 +1,11 @@
 <div class="container row">
   <!-- <img src="../../assets/images/neil.jpg" class="profile col-md-4"/> -->
-  <img id="myImage" src="../../assets/images/neil.jpg" class="profile col-md-4">
+  <div *ngIf="hasPic" class="profile col-md-4">
+    <img src="{{'../../assets/images/' + currentUser.profile_pic }}">
+  </div>
+  <div *ngIf="!hasPic" class="profile col-md-4">
+    <img src="../../assets/images/default.png">
+  </div>
   <h2 class="align-middle">{{currentUser.username}}</h2>
 
   <!-- File input for the file-upload plugin, with special ng2-file-upload directive called ng2FileSelect -->

@@ -18,7 +18,7 @@ export class MyProfileComponent {
 
   currentUser;
   isSent: boolean = false;
-  image_url;
+  hasPic: boolean = false;
 
   constructor(private element: ElementRef) {
 
@@ -26,6 +26,9 @@ export class MyProfileComponent {
 
   ngOnInit() {
     this.currentUser = JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body);
+    if (this.currentUser.profile_pic) {
+        this.hasPic = true;
+    }
     // console.log(this.currentUser);
     //override the onAfterAddingfile property of the uploader so it doesn't authenticate with //credentials.
     this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = false; };
@@ -45,7 +48,7 @@ export class MyProfileComponent {
         var src = e.target.result;
         image.src = src;
     };
-    
+
     reader.readAsDataURL(event.target.files[0]);
   }
 
