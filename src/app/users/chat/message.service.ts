@@ -44,5 +44,4 @@ export class MessageService {
     return this.http.get('/api/chat/recipient/' + JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id)
             .map(res => res.json());
   }
-
 }

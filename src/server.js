@@ -52,7 +52,7 @@ io.sockets.on('connection', function(socket) {
 
     //Socket event for message created
     socket.on('messageSaved', function(messageSaved) {
-        io.broadcast.emit('messageSaved', messageSaved);
+        socket.broadcast.emit('messageSaved', messageSaved);
     });
 
     //Socket event for gist updated

@@ -40,7 +40,7 @@ import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.compo
 export const appRoutes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: AuthenticationComponent
   },
   {
     path: 'myprojects',
@@ -185,4 +185,8 @@ export const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private appSocketIoService: AppSocketIoService) {
+    this.appSocketIoService.consumeEventOnMessageSaved();
+  }
+}
