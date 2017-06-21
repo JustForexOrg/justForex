@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { Message } from './message/message';
-import { MessageService } from './message.service'
+import { MessageService } from './message.service';
+import * as SocketIOClient from 'socket.io-client';
 
 declare var $:any;
 

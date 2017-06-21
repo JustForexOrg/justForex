@@ -26,15 +26,6 @@
   margin-top: 0.8%;
 }
 
-button {
-  /*color: var(--green);*/
-}
-
-button:hover {
-  color: white;
-  border: none;
-  background-color: var(--green);
-}
 
 .navbar-brand {
   text-transform: uppercase;

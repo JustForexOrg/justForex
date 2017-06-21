@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { Message } from './users/chat/message/message';
-import * as io from 'socket.io-client';
+import * as SocketIOClient from 'socket.io-client';
 import { MessageService } from './users/chat/message.service';
 import { ToasterService } from 'angular2-toaster';
 
@@ -12,7 +12,7 @@ export class AppSocketIoService {
 
   // Constructor with an injection of ToastService
   constructor(private toasterService: ToasterService) {
-    this.socket = io('http://localhost:8000');
+    this.socket = SocketIOClient('http://localhost:8000');
   }
 
   // Emit: message saved event
