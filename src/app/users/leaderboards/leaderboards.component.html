@@ -1,6 +1,8 @@
 <table class="table table-striped borderless" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
     <thead>
     <tr>
+        <th style="width: 10%"></th>
+        <th style="width: 10%"></th>
         <th style="width: 10%">
             <mfDefaultSorter by="name">Name</mfDefaultSorter>
         </th>
@@ -19,19 +21,21 @@
     </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of mf.data; let i = index" id="data">
+      <tr *ngFor="let datum of data; let i = index" id="data">
 
           <td class="align-middle">{{i + 1}}</td>
-          <leaderboard-item [item]="item"></leaderboard-item>
-          <td class="information align-middle">
-            {{item.name}}
-          </td>
-          <td class="information align-middle">{{item.country}}</td>
-          <td class="information align-middle">{{item.split}} : {{100-item.split}}</td>
-          <td class="align-middle">{{item.returns | currency:'USD':true:'1.2-2' }}</td>
-          <td class="align-middle">{{item.risk}}</td>
           <td class="align-middle">
-            <button class="btn btn-success" data-toggle="modal" [attr.data-target]="'#' + item._id" (click)="resetSentData()">Make offer</button>
+            <span style="width:2vw; height:2vw;"><img src="{{'../../assets/images/' + datum.profile_pic}}"></span>
+          </td>
+          <td class="information align-middle">
+            {{datum.name}}
+          </td>
+          <td class="information align-middle">{{datum.country}}</td>
+          <td class="information align-middle">{{datum.split}} : {{100-datum.split}}</td>
+          <td class="align-middle">{{datum.returns | currency:'USD':true:'1.2-2' }}</td>
+          <td class="align-middle">{{datum.risk}}</td>
+          <td class="align-middle">
+            <button class="btn btn-success" data-toggle="modal" [attr.data-target]="'#' + datum._id" (click)="resetSentData()">Make offer</button>
             <button class="btn btn-info"  routerLink="/graphs">Results</button>
           </td>
       </tr>

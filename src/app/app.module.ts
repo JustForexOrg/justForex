@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -37,12 +36,11 @@ import { AuthGuard } from './users/authentication/guards/auth.guard';
 import { MessageComponent } from './users/chat/message/message.component';
 import { MessageService } from './users/chat/message.service';
 import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.component';
-import { LeaderboardItemComponent } from './users/leaderboards/leaderboard-item/leaderboard-item.component';
 
 export const appRoutes: Routes = [
   {
     path: '',
-    component: LeaderboardsComponent
+    component: AuthenticationComponent
   },
   {
     path: 'myprojects',
@@ -163,7 +161,6 @@ export const appRoutes: Routes = [
     AuthenticationComponent,
     ApiGuidesComponent,
     FileSelectDirective,
-    LeaderboardItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'justForex'}),

@@ -9,4 +9,5 @@ export class Project{
   returns: number;
   split: number;
   user_id: string;
+  profile_pic: string
 }
