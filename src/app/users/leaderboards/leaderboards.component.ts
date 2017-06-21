@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
-import { MessageService } from '../chat/message.service'
-import { Message } from '../chat/message/message'
-import { UserService } from '../authentication/services/user.service'
+import { MessageService } from '../chat/message.service';
+import { Message } from '../chat/message/message';
+import { UserService } from '../authentication/services/user.service';
+import { Project } from '../../projectsFolder/myproject/project';
 
 declare var $:any;
 
@@ -14,7 +15,7 @@ declare var $:any;
 })
 
 export class LeaderboardsComponent {
-   public data;
+   public data: Project[];
    public filterQuery = "";
    public rowsOnPage = 10;
    public sortBy = "position";
@@ -26,7 +27,6 @@ export class LeaderboardsComponent {
    recipient_id: string;
    proposed_split:number = 50;
    proposed_amount: number;
-   profile_pic: string;
 
    constructor(private http: Http, private messageService: MessageService, private userService: UserService) {
    }
@@ -37,8 +37,6 @@ export class LeaderboardsComponent {
                setTimeout(()=> {
                    this.data = data.json();
                }, 1000);
-               this.data.picture = this.userService.getById(item._id).profile_pic;
-
            });
    }
 
@@ -90,6 +88,34 @@ export class LeaderboardsComponent {
        return Number(a.risk);
    }
 
+   public abs(num: number) {
+       return Math.abs(num);
+   }
+
+  //  public makeSplit(num: number) {
+  //      var n1 = this.roundToTwo(num %= 100);
+  //      var n2 = this.roundToTwo(100 - num);
+  //      return String(n1) + " : " + String(n2);
+  //  }
+   //
+  //  public makeRisk(n: number) {
+  //      var NewMax = 10;
+  //      var NewMin = 1;
+  //      var OldMax = 90;
+  //      var OldMin = -90;
+  //      this.risk = this.roundToTwo((((n - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin);
+  //      return this.risk;
+  //  }
+   //
+  //  public makeTotal(splitFor: number, risk: number) {
+  //      splitFor %= 100;
+  //      return this.roundToTwo((risk*1000)/(100-splitFor) * Math.pow(splitFor, risk/10));
+  //  }
+
+   public roundToTwo(n: number) {
+       return n.toFixed(2);
+   }
+
    public saveMessage(id) {
      if(!this.isSent) {
        var m: Message = {
@@ -105,33 +131,5 @@ export class LeaderboardsComponent {
 
    public resetSentData() {
      this.isSent = false;
-   }
-
-   public abs(num: number) {
-       return Math.abs(num);
-   }
-
-   public makeSplit(num: number) {
-       var n1 = this.roundToTwo(num %= 100);
-       var n2 = this.roundToTwo(100 - num);
-       return String(n1) + " : " + String(n2);
-   }
-
-   public makeRisk(n: number) {
-       var NewMax = 10;
-       var NewMin = 1;
-       var OldMax = 90;
-       var OldMin = -90;
-       this.risk = this.roundToTwo((((n - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin);
-       return this.risk;
-   }
-
-   public makeTotal(splitFor: number, risk: number) {
-       splitFor %= 100;
-       return this.roundToTwo((risk*1000)/(100-splitFor) * Math.pow(splitFor, risk/10));
-   }
-
-   public roundToTwo(n: number) {
-       return n.toFixed(2);
    }
 }
