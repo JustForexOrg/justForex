@@ -23,3 +23,29 @@ img {
 .modal-title, h1 {
 
 }
+
+button, html [type=button] {
+    -webkit-appearance: button;
+    font-size: x-large;
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+  }
+
+.leftB {
+}
+
+p.f {
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+.bold, .boldRight {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.boldRight {
+  float: right;
+}

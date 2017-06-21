@@ -16,6 +16,7 @@ export class MessageComponent implements OnInit {
   visibility: boolean = true;
   tick: boolean = false;
   pending: boolean = false;
+  cross: boolean = false;
   sender;
 
   constructor(private messageService: MessageService, private userService: UserService, private router: Router) {
@@ -38,16 +39,18 @@ export class MessageComponent implements OnInit {
         this.tick = true;
         this.pending = false;
         this.visibility = true;
-
+        this.cross = false;
         this.accept();
       } else if(str === 'decline') {
         this.visibility = false;
         this.tick = false;
         this.pending = false;
+        this.cross = true;
       } else if(str === 'counter') {
         this.pending = true;
         this.visibility = true;
         this.tick = false;
+        this.cross = false;
       }
     }
   }
@@ -62,6 +65,7 @@ export class MessageComponent implements OnInit {
     - Put a waiting parameter on how much profit made by the investor
   */
   accept() {
+    console.log("got to this mofo")
     this.router.navigate(['/contract/' + this.message._id]);
   }
 }
