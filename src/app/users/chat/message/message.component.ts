@@ -34,24 +34,29 @@ export class MessageComponent implements OnInit {
   }
 
   choose(str: string) {
-    if(this.visibility && !this.tick && !this.pending) {
+    console.log(this.tick);
+    console.log(this.pending);
+    console.log(this.cross);
       if(str === 'accept') {
         this.tick = true;
         this.pending = false;
         this.visibility = true;
         this.cross = false;
+        console.log("tick");
+        // reset();
         this.accept();
       } else if(str === 'decline') {
         this.visibility = false;
         this.tick = false;
         this.pending = false;
         this.cross = true;
+        console.log("cross");
       } else if(str === 'counter') {
         this.pending = true;
         this.visibility = true;
         this.tick = false;
         this.cross = false;
-      }
+        console.log("pending");
     }
   }
 
@@ -65,7 +70,7 @@ export class MessageComponent implements OnInit {
     - Put a waiting parameter on how much profit made by the investor
   */
   accept() {
-    console.log(this.message._id);
-    this.router.navigate(['/contract/' + String(this.message._id)]);
+    // console.log(this.message._id);
+    // this.router.navigate(['/contract/' + String(this.message._id)]);
   }
 }

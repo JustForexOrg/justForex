@@ -3,15 +3,11 @@
     <img class="lib-img-show" src="{{'../../assets/images/' + sender.profile_pic}}">
   </div>
   <h3 class="col-md-10">{{ sender.name }} wants to invest {{ message.proposed_amount | currency:'USD':true }}</h3>
-  <div *ngIf="tick">
-    <i class="fa fa-check" aria-hidden="true"></i>
-  </div>
-  <div *ngIf="pending">
-    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-  </div>
-  <div *ngIf="cross">
-    <i class="fa fa-times" aria-hidden="true"></i>
-  </div>
+
+  <div *ngIf="(message.isSuccess === "tick")"> <i class="fa fa-check" aria-hidden="true"></i> </div>
+  <!-- <div *ngIf="pending"> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </div>
+  <div *ngIf="cross"> <i class="fa fa-times" aria-hidden="true"></i> </div> -->
+
 </div>
 
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
