@@ -5,4 +5,5 @@ export class Message{
   proposed_amount: number;
   algorithm_name: string
   _id: string;
+  isSuccess: string;
 }

@@ -4,9 +4,17 @@
   </div>
   <h3 class="col-md-10">{{ sender.name }} wants to invest {{ message.proposed_amount | currency:'USD':true }}</h3>
 
-  <div *ngIf="(message.isSuccess === "tick")"> <i class="fa fa-check" aria-hidden="true"></i> </div>
-  <!-- <div *ngIf="pending"> <i class="fa fa-ellipsis-h" aria-hidden="true"></i> </div>
-  <div *ngIf="cross"> <i class="fa fa-times" aria-hidden="true"></i> </div> -->
+  <div *ngIf="message.isSuccess=='tick'">
+    <i class="fa fa-check" aria-hidden="true"> </i>
+  </div>
+  <div *ngIf="message.isSuccess=='pending'">
+    <i class="fa fa-ellipsis-h" aria-hidden="true"> </i>
+  </div>
+  <div *ngIf="message.isSuccess=='cross'">
+    <i class="fa fa-times" aria-hidden="true"> </i>
+  </div>
+  <!-- <i *ngIf="message.isSuccess=="pending"" class="fa fa-ellipsis-h" aria-hidden="true"/> -->
+  <!-- <div *ngIf="message.isSuccess=="cross""> <i class="fa fa-times" aria-hidden="true"></i></div> -->
 
 </div>
 

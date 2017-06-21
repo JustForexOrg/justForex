@@ -42,6 +42,8 @@ export class MessageComponent implements OnInit {
         this.pending = false;
         this.visibility = true;
         this.cross = false;
+
+        this.message.isSuccess="tick";
         console.log("tick");
         // reset();
         this.accept();
@@ -50,12 +52,16 @@ export class MessageComponent implements OnInit {
         this.tick = false;
         this.pending = false;
         this.cross = true;
+
+        this.message.isSuccess="cross";
         console.log("cross");
       } else if(str === 'counter') {
         this.pending = true;
         this.visibility = true;
         this.tick = false;
         this.cross = false;
+
+        this.message.isSuccess="pending";
         console.log("pending");
     }
   }
