@@ -1,8 +1,8 @@
 <div class="row card col-md-12 container" onload="findSender()" data-toggle="modal" data-target="#exampleModalLong" (click)="hasNotRead()">
   <div class="col-md-2">
-    <img class="lib-img-show" src="http://images.all-free-download.com/images/graphiclarge/harry_potter_icon_6825007.jpg">
+    <img class="lib-img-show" src="{{'../../assets/images/' + sender.profile_pic}}">
   </div>
-  <h1 class="col-md-10">{{ sender }} wants to invest {{ message.proposed_amount | currency:'USD':true }}</h1>
+  <h3 class="col-md-10">{{ sender.name }} wants to invest {{ message.proposed_amount | currency:'USD':true }}</h3>
   <div *ngIf="tick">
     <i class="fa fa-check" aria-hidden="true"></i>
   </div>
@@ -15,15 +15,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">YOU HAVE AN OFFER FROM {{sender}}</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">YOU HAVE AN OFFER FROM {{sender.name}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div id="normal" *ngIf="!pending">
-          <h4>Algorithm Name: {{message._id}}</h4>
-          <h4>Proposed Split {{ message.proposed_split }}</h4>
+          <h4>Algorithm Name: {{message.algorithm_name}}</h4>
+          <h4>Proposed Split {{ message.proposed_split }} : {{ 100 - message.proposed_split}}</h4>
           <h4>Proposed Investment Amount {{ message.proposed_amount }}</h4>
           <h4>Proposed End Date</h4>
         </div>

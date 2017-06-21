@@ -48,7 +48,8 @@ export class AuthenticationComponent implements OnInit {
       risk: 10,
       city: "London",
       returns: 0,
-      profile_pic: "http://imgur.com/Eri6H6V"
+      profile_pic: "http://imgur.com/Eri6H6V",
+      isInvestor: true
     }
     this.userService.create(model)
         .subscribe(
@@ -67,8 +68,12 @@ export class AuthenticationComponent implements OnInit {
         this.authenticationService.login(this.username, this.password)
             .subscribe(result => {
                 if (result === true) {
-                    // login successful
-                    this.router.navigate(['/dashboard']);
+                    if(JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body).isInvestor) {
+                      // login successful
+                      this.router.navigate(['/dashboard/investor']);
+                    } else {
+                      this.router.navigate(['/dashboard/developer']);
+                    }
                 } else {
                     // login failed
                     this.error = 'Username or password is incorrect';

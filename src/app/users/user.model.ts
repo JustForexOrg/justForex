@@ -8,4 +8,5 @@ export class User{
   city: string;
   returns: number;
   profile_pic: string;
+  isInvestor: boolean;
 }

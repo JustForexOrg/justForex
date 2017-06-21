@@ -3,6 +3,10 @@
   margin-top: 3%;
 }
 
+.row:hover {
+  cursor: pointer;
+}
+
 img {
   height: 13vh;
   margin-top: 0.5vh;
@@ -17,5 +21,5 @@ img {
 }
 
 .modal-title, h1 {
-  
+
 }

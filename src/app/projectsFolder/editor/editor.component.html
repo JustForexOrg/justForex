@@ -19,7 +19,7 @@
             <div class="btn-group">
                 <button class="btn btn-info" (click)="updateStatus()" type="button">Save</button>
                 <button [routerLink]="['../../graphs', id]" class="btn btn-primary" type="button">Backtest</button>
-                <button routerLink="/dashboard" class="btn btn-success" type="button" data-toggle="modal" data-target="#runModal">Run Live!</button>
+                <button routerLink="/dashboard/investor" class="btn btn-success" type="button" data-toggle="modal" data-target="#runModal">Run Live!</button>
             </div>
 
             <!-- Modal -->
@@ -49,7 +49,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Run another algorithm</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal" routerLink="/myprojects">Go to your projects dashboard</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" routerLink="/dashboard/developer">Go to your projects dashboard</button>
                             <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <button type="button" class="btn btn-default" routerLink="/myprojects"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to your projects dashboard</button>
+                <button type="button" class="btn btn-default" routerLink="/dashboard/developer"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to your projects dashboard</button>
             </div>
         </div>
         <div class="row">

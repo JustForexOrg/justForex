@@ -3,4 +3,6 @@ export class Message{
   recipient_id: string;
   proposed_split: number;
   proposed_amount: number;
+  algorithm_name: string
+  _id: string;
 }

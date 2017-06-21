@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Message } from './message';
 import { MessageService } from '../message.service'
 import { UserService } from '../../authentication/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-message',
@@ -15,14 +16,14 @@ export class MessageComponent implements OnInit {
   visibility: boolean = true;
   tick: boolean = false;
   pending: boolean = false;
-  sender: string;
+  sender;
 
-  constructor(private messageService: MessageService, private userService: UserService) {
+  constructor(private messageService: MessageService, private userService: UserService, private router: Router) {
   }
 
   ngOnInit() {
     //find the sender by using sender_id in the message
-    this.userService.getById(this.message.sender_id).subscribe(data => this.sender = data.name);
+    this.userService.getById(this.message.sender_id).subscribe(data => this.sender = data);
   }
 
   @Input() message: Message;
@@ -52,7 +53,7 @@ export class MessageComponent implements OnInit {
   }
 
   findSender() {
-    this.userService.getById(this.message.sender_id).subscribe(data => this.sender = data.name);
+    this.userService.getById(this.message.sender_id).subscribe(data => this.sender = data);
   }
 
   /* Accepting the offer will:
@@ -61,6 +62,6 @@ export class MessageComponent implements OnInit {
     - Put a waiting parameter on how much profit made by the investor
   */
   accept() {
-
+    this.router.navigate(['/contract/' + this.message._id]);
   }
 }

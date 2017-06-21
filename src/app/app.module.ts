@@ -36,6 +36,7 @@ import { AuthGuard } from './users/authentication/guards/auth.guard';
 import { MessageComponent } from './users/chat/message/message.component';
 import { MessageService } from './users/chat/message.service';
 import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.component';
+import { ContractComponent } from './users/contract/contract.component';
 
 export const appRoutes: Routes = [
   {
@@ -43,7 +44,7 @@ export const appRoutes: Routes = [
     component: AuthenticationComponent
   },
   {
-    path: 'myprojects',
+    path: 'dashboard/developer',
     children: [
       { path: '', component: ProjectsComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
@@ -99,6 +100,14 @@ export const appRoutes: Routes = [
     ]
   },
   {
+    path: 'contract',
+    children: [
+      { path: ':id', component: ContractComponent },
+      { path: '', component: TopHeaderComponent, outlet: 'topheader' },
+      { path: '', component: SideBarComponent, outlet: 'sidebar'}
+    ]
+  },
+  {
     path: 'graphs',
     children: [
       { path: ':id', component: GraphsComponent },
@@ -131,7 +140,7 @@ export const appRoutes: Routes = [
     ]
   },
   {
-    path: 'dashboard',
+    path: 'dashboard/investor',
     children: [
       { path: '', component: DashboardComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
@@ -161,6 +170,7 @@ export const appRoutes: Routes = [
     AuthenticationComponent,
     ApiGuidesComponent,
     FileSelectDirective,
+    ContractComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'justForex'}),

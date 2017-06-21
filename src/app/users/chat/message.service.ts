@@ -18,6 +18,11 @@ export class MessageService {
         .map(res => res.json(), res => this.hasNotRead = res.length);
   }
 
+  getMessage(id) {
+    return this.http.get('/api/chat/'+id)
+        .map(res => res.json());
+  }
+
   saveMessage(msg) {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');

@@ -18,7 +18,7 @@ router.get('/all', function(req, res, next){
 
 // Get Single Chat
 router.get('/:id', function(req, res, next){
-db.chat.findOne({_id: mongojs.ObjectsId(req.params.id)}, function(err, chat){
+db.chat.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, chat){
         if(err){
             res.send(err);
         }

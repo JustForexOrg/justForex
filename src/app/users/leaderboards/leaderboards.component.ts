@@ -24,6 +24,7 @@ export class LeaderboardsComponent {
 
    isSent: boolean = false;
    risk;
+   algorithm_name: string;
 
    recipient_id: string;
    proposed_split:number = 50;
@@ -111,11 +112,12 @@ export class LeaderboardsComponent {
 
    public saveMessage(id) {
      if(!this.isSent) {
-       var m: Message = {
+       var m = {
          sender_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id,
          recipient_id: id,
          proposed_split: this.proposed_split,
-         proposed_amount: this.proposed_amount
+         proposed_amount: this.proposed_amount,
+         algorithm_name: this.algorithm_name,
        }
        this.messageService.saveMessage(m);
        this.isSent = true;
@@ -123,7 +125,7 @@ export class LeaderboardsComponent {
    }
 
    public resetSentData() {
-     this.isSent = false;
+     this.isSent = true;
    }
 
    public abs(num: number) {
