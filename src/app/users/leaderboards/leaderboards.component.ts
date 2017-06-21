@@ -125,7 +125,7 @@ export class LeaderboardsComponent {
    }
 
    public resetSentData() {
-     this.isSent = true;
+     this.isSent = false;
    }
 
    public abs(num: number) {

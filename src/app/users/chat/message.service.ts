@@ -46,7 +46,6 @@ export class MessageService {
   }
 
   getMessagesFromRecipient() {
-    return this.http.get('/api/chat/recipient/' + JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id)
-            .map(res => res.json());
+    return this.http.get('/api/chat/recipient/' + JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id);
   }
 }
