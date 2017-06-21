@@ -37,6 +37,7 @@ import { AuthGuard } from './users/authentication/guards/auth.guard';
 import { MessageComponent } from './users/chat/message/message.component';
 import { MessageService } from './users/chat/message.service';
 import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.component';
+import { LeaderboardItemComponent } from './users/leaderboards/leaderboard-item/leaderboard-item.component';
 
 export const appRoutes: Routes = [
   {
@@ -161,7 +162,8 @@ export const appRoutes: Routes = [
     ProgrammerGuideComponent,
     AuthenticationComponent,
     ApiGuidesComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    LeaderboardItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'justForex'}),

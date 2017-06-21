@@ -3,6 +3,11 @@ image {
   height: 8vw;
 }
 
+#myImage {
+  width: 8vw;
+  height: 8vw;
+}
+
 h2 {
   position: $position;
   top: 50%;
