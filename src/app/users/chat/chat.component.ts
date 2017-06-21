@@ -1,3 +1,4 @@
+
 import { Component, Inject } from '@angular/core';
 import { Message } from './message/message';
 import { MessageService } from './message.service';
@@ -22,6 +23,12 @@ export class ChatComponent {
       this.messages = messages;
       // this.numMsg = this.messageService.hasNotRead;
     });
+  }
+
+  // Emit: message saved event
+  emitEventOnMessageSaved(messageSaved){
+      this.socket.emit('messageSaved', messageSaved);
+      this.messages.push(messageSaved);
   }
 
 }

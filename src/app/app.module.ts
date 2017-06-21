@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -40,7 +41,7 @@ import { ApiGuidesComponent } from './projectsFolder/api-guides/api-guides.compo
 export const appRoutes: Routes = [
   {
     path: '',
-    component: AuthenticationComponent
+    component: LeaderboardsComponent
   },
   {
     path: 'myprojects',

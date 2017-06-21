@@ -15,14 +15,14 @@ export class AppSocketIoService {
     this.socket = SocketIOClient('http://localhost:8000');
   }
 
-  // Emit: message saved event
-  emitEventOnMessageSaved(messageSaved){
-      this.socket.emit('messageSaved', messageSaved);
-  }
-
   // Emit: message updated event
   emitEventOnMessageUpdated(messageUpdated){
     this.socket.emit('messageUpdated', messageUpdated);
+  }
+
+  // Emit: message saved event
+  emitEventOnMessageSaved(messageSaved){
+      this.socket.emit('messageSaved', messageSaved);
   }
 
   // Consume: on message saved then append the changes to the recipient's chat list
