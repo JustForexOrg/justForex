@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Http, Headers } from "@angular/http";
+import { ActivatedRoute } from '@angular/router';
 import { Ng2Highstocks } from 'ng2-highcharts';
 import { ProjectsService } from '../projects/projects.service';
 
@@ -9,47 +10,23 @@ import { ProjectsService } from '../projects/projects.service';
   styleUrls: ['./graphs.component.css']
 })
 
-export class GraphsComponent implements OnInit {
+export class GraphsComponent {
 
-  // private jData: String[];
-
-	// chartOptions = {
-	// 	chart: {
-	// 		type: 'line'
-	// 	},
-	// 	title: {
-	// 		text: 'Fruit Consumption'
-	// 	},
-	// 	xAxis: {
-	// 		categories: ['Apples', 'Bananas', 'Oranges']
-	// 	},
-	// 	yAxis: {
-	// 		title: {
-	// 			text: 'Fruit eaten'
-	// 		}
-	// 	},
-	// 	series: [{
-	// 		name: 'Jane',
-	// 		data: [1, 0, 4]
-	// 	}, {
-	// 			name: 'John',
-	// 			data: [5, 7, 3]
-	// 		}]
-	// };
-
+  id;
   chartStock = {};
   winLoss = {};
   vot = {};
 
-	constructor(private http: Http, private projectsService: ProjectsService) { }
-
-	ngOnInit(): any {
+	constructor(private http: Http, private projectsService: ProjectsService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.id = params['id'] //set value of id (field variable) to the value of id extracted from the URL
+    });
 
     //Balance over time
-		 this.http.get('../../../assets/aapl-c.json').subscribe(
-      // this.http.get('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?').subscribe(
+		//  this.http.get('../../../assets/aapl-c.json').subscribe(
+      this.http.get('/data/' + this.id).map(res => res.json()).subscribe(
 			// this.jsonp.request('https://www.doc.ic.ac.uk/~dsg115/test.php?callback=?').subscribe(
-			(bot: any) => {
+			(data: any) => {
 				this.chartStock = {
 					rangeSelector: {
 						selected: 1
@@ -59,88 +36,68 @@ export class GraphsComponent implements OnInit {
 					},
 					series: [{
 						name: 'Balance',
-						data: bot.json(),
+						data: data.bot,
 						tooltip: {
 							valueDecimals: 2
 						}
 					}]
 				};
+
+        this.winLoss = {
+          chart: {
+            type: 'columnrange'
+          },
+          rangeSelector: {
+            selected: 2
+          },
+          title: {
+            text: 'Win/Loss'
+          },
+          tooltip: {
+               valueSuffix: '$'
+          },
+          series: [{
+            name: 'Win/Loss',
+            data: data.winLoss,
+           //  tooltip: {
+           //    valueDecimals: 2
+           //  }
+          }]
+        };
+
+        this.vot = {
+          chart: {
+              alignTicks: false
+          },
+
+          rangeSelector: {
+              selected: 1
+          },
+
+          title: {
+              text: 'Volume of Transactions'
+          },
+
+          series: [{
+              type: 'column',
+              name: 'Volume',
+              data: data.vot,
+              dataGrouping: {
+                  units: [[
+                      'day', // unit name
+                      [1] // allowed multiples
+                  ], [
+                      'month',
+                      [1, 2, 3, 4, 6]
+                  ]]
+              }
+          }]
+        };
 			},
 			(err: any) => {
 				console.error('BOT broken', err);
 			}
 		);
-
-
-    this.http.get('../../../assets/winLoss.json').subscribe(
-     (winLoss: any) => {
-       this.winLoss = {
-         chart: {
-           type: 'columnrange'
-         },
-         rangeSelector: {
-           selected: 2
-         },
-         title: {
-           text: 'Win/Loss'
-         },
-         tooltip: {
-              valueSuffix: '$'
-         },
-         series: [{
-           name: 'Win/Loss',
-           data: winLoss.json()
-          //  tooltip: {
-          //    valueDecimals: 2
-          //  }
-         }]
-       };
-     },
-     (err: any) => {
-       console.error('WinLoss graph broken', err);
-     }
-   );
-
-
-   this.http.get('../../../assets/vot.json').subscribe(
-    (vol: any) => {
-      this.vot = {
-        chart: {
-            alignTicks: false
-        },
-
-        rangeSelector: {
-            selected: 1
-        },
-
-        title: {
-            text: 'Volume of Transactions'
-        },
-
-        series: [{
-            type: 'column',
-            name: 'Volume',
-            data: vol.json(),
-            dataGrouping: {
-                units: [[
-                    'day', // unit name
-                    [1] // allowed multiples
-                ], [
-                    'month',
-                    [1, 2, 3, 4, 6]
-                ]]
-            }
-        }]
-      };
-    },
-    (err: any) => {
-      console.error('WinLoss graph broken', err);
-    }
-  );
-
-
-
-
 }
 
   ttpc = {

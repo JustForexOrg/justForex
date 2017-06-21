@@ -18,14 +18,11 @@ export class ProjectsService {
   }
 
   getProject(id) {
-      console.log(id);
       return this.http.get('/api/tasks/'+id)
               .map(res => res.json());
   }
 
   public getProjectbyUser() {
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
     return this.http.get('/api/users/' + JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id).map(res => res.json());
   }
 
@@ -41,10 +38,10 @@ export class ProjectsService {
           .map(res => res.json());
   }
 
-  updateStatus(task){
+  updateStatus(task, id){
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      return this.http.put('/api/task/'+task._id, JSON.stringify(task), {headers: headers})
+      return this.http.put('/api/tasks/'+id, JSON.stringify(task), {headers: headers})
           .map(res => res.json());
   }
 

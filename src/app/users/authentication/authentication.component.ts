@@ -44,8 +44,8 @@ export class AuthenticationComponent implements OnInit {
       email: this.email,
       username: this.username,
       password: this.password,
-      split: 0,
-      risk: 0,
+      split: 50,
+      risk: 10,
       city: "London",
       returns: 0,
       profile_pic: "http://imgur.com/Eri6H6V"

@@ -4,5 +4,9 @@ export class Project{
   last_edited: string;
   _id: string;
   text: string;
+  risk: number;
+  country: string;
+  returns: number;
+  split: number;
   user_id: string;
 }

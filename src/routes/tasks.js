@@ -60,7 +60,7 @@ router.post('/task', function(req, res, next) {
 
 //Delete a task
 router.delete('/tasks/:id', function(req, res, next){
-    db.tasks.remove({_id: mongojs.ObjectsId(req.params.id)}, function(err, tasks){
+    db.tasks.remove({_id: mongojs.ObjectId(req.params.id)}, function(err, tasks){
         if(err){
             res.send(err);
         }
@@ -69,13 +69,9 @@ router.delete('/tasks/:id', function(req, res, next){
 });
 
 //Update a task
-router.delete('/tasks/:id', function(req, res, next){
-    db.tasks.remove({_id: mongojs.ObjectsId(req.params.id)}, function(err, tasks){
-        if(err){
-            res.send(err);
-        }
-        res.json(tasks);
-    });
+router.put('/tasks/:id', function(req, res, next){
+    var task = req.body;
+    db.tasks.update({_id: mongojs.ObjectId(req.params.id)}, task);
 });
 
 module.exports = router;

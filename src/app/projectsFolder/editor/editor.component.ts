@@ -41,30 +41,25 @@ export class EditorComponent {
       )
     }
 
-    addTask(event){
-        event.preventDefault();
-        var t = {
-          language: "python",
-          name: this.title,
-          last_edited: "01/01/17",
-          text: this.text,
-          //get the current user's id
-          user_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id
+    updateStatus(){
+        if(!this.title) {
+          this.title = this.project.name;
+          this.isSaved = true;
         }
 
-        this.projectsService.addProject(t);
-    }
-
-    updateStatus(task){
         var _task = {
-            _id:task._id,
-            title: task.title,
-            isDone: !task.isDone
+            language: this.project.language,
+            name: this.title,
+            last_edited: "01/01/17",
+            text: this.text,
+            risk: this.project.risk,
+            country: this.project.country,
+            returns: this.project.returns,
+            split: this.project.split,
+            user_id: this.project.user_id
         };
 
-        this.projectsService.updateStatus(_task).subscribe(data => {
-            task.isDone = !task.isDone;
-        });
+        this.projectsService.updateStatus(_task, this.id).subscribe();
     }
 
     ngAfterViewInit() {

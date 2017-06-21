@@ -102,7 +102,7 @@ export const appRoutes: Routes = [
   {
     path: 'graphs',
     children: [
-      { path: '', component: GraphsComponent },
+      { path: ':id', component: GraphsComponent },
       { path: '', component: TopHeaderComponent, outlet: 'topheader' },
       { path: '', component: SideBarComponent, outlet: 'sidebar'}
     ]

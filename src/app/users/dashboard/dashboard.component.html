@@ -20,7 +20,10 @@
                     <div class="carousel-item active">
                         <h5 style="text-align: center">Your overall statistics <br /></h5>
                         <br />
-                        <img class="d-block img-fluid" src="../../../assets/images/graph.png" alt="First slide">
+                        <div class="col-md-12">
+<!--                            <div [ng2-highstocks]="chartStock" class="graph"></div> -->
+                        </div>
+                        <!--<img class="d-block img-fluid" src="../../../assets/images/graph.png" alt="First slide">-->
                     </div>
                     <div class="carousel-item">
                         <h5 style="text-align: center">"IndexWatcher" algorithm <br /></h5>
@@ -161,84 +164,84 @@
                         </table>
                     </div>
                     <div class="carousel-item">
-                    <table class="table borderless">
-                        <tbody>
-                            <tr>
-                                <th>
-                                    Algorithm
-                                </th>
-                                <th>
-                                    Developer
-                                </th>
-                                <th>
-                                    Invested
-                                </th>
-                                <th>
-                                    P/L
-                                </th>
-                                <th>
-                                    Split
-                                </th>
-                                <th>
-                                    Value
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span style="font-size:16px"><strong>Floater</strong></span></td>
-                                <td>Wark Mealhouse<br /><small>(mjw02)</small></td>
-                                <td>$100</td>
-                                <td class="green">$6.70<br /><small>(6.7%)</small></td>
-                                <td>40:60</td>
-                                <td class="green">$102.68</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span style="font-size:16px"><strong>MarksAndSparks</strong></span></td>
-                                <td>Jacob RM<br /><small>(moggianmemes)</small></td>
-                                <td>$100</td>
-                                <td class="red">-$2.20<br /><small>(-2.2%)</small></td>
-                                <td>68:32</td>
-                                <td class="red">$97.80</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span style="font-size:16px"><strong>WittyAlgoName</strong></span></td>
-                                <td>Bob Messagely<br /><small>(imnotrob)</small></td>
-                                <td>$350</td>
-                                <td class="green">$4.20<br /><small>(1.2%)</small></td>
-                                <td>52:48</td>
-                                <td class="green">$352.18</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span style="font-size:16px"><strong>TheAttenborough</strong></span></td>
-                                <td>James Smith<br /><small>(cjs343)</small></td>
-                                <td>$50</td>
-                                <td class="green">$0.90<br /><small>(1.8%)</small></td>
-                                <td>55:45</td>
-                                <td class="green">$50.50</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span style="font-size:16px"><strong>AlgoWalksIntoABar</strong></span></td>
-                                <td>Rowan Ramsey<br /><small>(rowannnn)</small></td>
-                                <td>$600</td>
-                                <td class="green">$13.80<br /><small>(2.3%)</small></td>
-                                <td>50:50</td>
-                                <td class="green">$606.90</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span style="font-size:16px"><strong>ElectionNightAlg</strong></span></td>
-                                <td>Kate McHockley<br /><small>(katieh99)</small></td>
-                                <td>$200</td>
-                                <td class="green">$1<br /><small>(0.5%)</small></td>
-                                <td>60:40</td>
-                                <td class="green">$200.60</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <table class="table borderless">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        Algorithm
+                                    </th>
+                                    <th>
+                                        Developer
+                                    </th>
+                                    <th>
+                                        Invested
+                                    </th>
+                                    <th>
+                                        P/L
+                                    </th>
+                                    <th>
+                                        Split
+                                    </th>
+                                    <th>
+                                        Value
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span style="font-size:16px"><strong>Floater</strong></span></td>
+                                    <td>Wark Mealhouse<br /><small>(mjw02)</small></td>
+                                    <td>$100</td>
+                                    <td class="green">$6.70<br /><small>(6.7%)</small></td>
+                                    <td>40:60</td>
+                                    <td class="green">$102.68</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span style="font-size:16px"><strong>MarksAndSparks</strong></span></td>
+                                    <td>Jacob RM<br /><small>(moggianmemes)</small></td>
+                                    <td>$100</td>
+                                    <td class="red">-$2.20<br /><small>(-2.2%)</small></td>
+                                    <td>68:32</td>
+                                    <td class="red">$97.80</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span style="font-size:16px"><strong>WittyAlgoName</strong></span></td>
+                                    <td>Bob Messagely<br /><small>(imnotrob)</small></td>
+                                    <td>$350</td>
+                                    <td class="green">$4.20<br /><small>(1.2%)</small></td>
+                                    <td>52:48</td>
+                                    <td class="green">$352.18</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span style="font-size:16px"><strong>TheAttenborough</strong></span></td>
+                                    <td>James Smith<br /><small>(cjs343)</small></td>
+                                    <td>$50</td>
+                                    <td class="green">$0.90<br /><small>(1.8%)</small></td>
+                                    <td>55:45</td>
+                                    <td class="green">$50.50</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span style="font-size:16px"><strong>AlgoWalksIntoABar</strong></span></td>
+                                    <td>Rowan Ramsey<br /><small>(rowannnn)</small></td>
+                                    <td>$600</td>
+                                    <td class="green">$13.80<br /><small>(2.3%)</small></td>
+                                    <td>50:50</td>
+                                    <td class="green">$606.90</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span style="font-size:16px"><strong>ElectionNightAlg</strong></span></td>
+                                    <td>Kate McHockley<br /><small>(katieh99)</small></td>
+                                    <td>$200</td>
+                                    <td class="green">$1<br /><small>(0.5%)</small></td>
+                                    <td>60:40</td>
+                                    <td class="green">$200.60</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="carousel-item">
                         <table class="table borderless">
