@@ -65,7 +65,7 @@ export class MessageComponent implements OnInit {
     - Put a waiting parameter on how much profit made by the investor
   */
   accept() {
-    console.log("got to this mofo")
-    this.router.navigate(['/contract/' + this.message._id]);
+    console.log(this.message._id);
+    this.router.navigate(['/contract/' + String(this.message._id)]);
   }
 }

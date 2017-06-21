@@ -22,9 +22,13 @@ export class ContractComponent implements OnInit {
       this.id = params['id'] //set value of id (field variable) to the value of id extracted from the URL
     });
 
-    this.messageService.getMessage(this.id).subscribe(data => this.message = data);
-    this.userService.getById(this.message.sender_id).subscribe(sender => this.sender = sender);
-    this.userService.getById(this.message.recipient_id).subscribe(recipient => this.recipient = recipient);
+    this.messageService.getMessage(this.id).subscribe(data => {
+      this.message = data;
+
+      this.userService.getById(this.message.recipient_id).subscribe(recipient => this.recipient = recipient);
+      this.userService.getById(this.message.sender_id).subscribe(sender => this.sender = sender);
+
+    });
   }
 
 
