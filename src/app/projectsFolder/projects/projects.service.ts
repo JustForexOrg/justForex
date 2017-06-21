@@ -23,8 +23,6 @@ export class ProjectsService {
   }
 
   public getProjectbyUser() {
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/json');
     return this.http.get('/api/users/' + JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id).map(res => res.json());
   }
 

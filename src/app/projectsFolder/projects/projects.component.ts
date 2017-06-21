@@ -26,12 +26,12 @@ export class ProjectsComponent {
      var project = {
        language: "python",
        name: "new project",
-       last_edited: "01/01/17",
-       text: "class MyAlgorithm(Algorithm):\ndef __init__(self, start_datetime, end_datetime):\n# Change the start_datetime and end_datetime to run test over\n# a custom period\nsuper().__init__(start_datetime, end_datetime)\nself.counter = 0\ndef act(self):\n# Add your main algorithm code here\npass",
-       risk: 0,
+       last_edited: "22/06/17",
+       text: "class MyAlgorithm(Algorithm):\n    \n    def __init__(self, start_datetime, end_datetime):\n        # Change the start_datetime and end_datetime to run test over\n        # a custom period\n        super().__init__(start_datetime, end_datetime)\n        self.counter = 0\n    \n    def act(self):\n        # Add your main algorithm code here\n        pass",
+       risk: 10,
        country: "UK",
        returns: 0,
-       split: 0,
+       split: 50,
        //get the current user's id
        user_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id
      }
