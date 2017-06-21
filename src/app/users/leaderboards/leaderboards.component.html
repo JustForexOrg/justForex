@@ -42,7 +42,7 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Transaction</h5>
+                  <h4 class="modal-title" id="exampleModalLabel">Transaction</h4>
                 </div>
                 <div class="modal-body">
                   <div class="form-group row">
@@ -50,9 +50,11 @@
                       <div class="col-4">
                           <input class="form-control has-feedback" type="range" id="split" step="5"  [(ngModel)]="proposed_split" placeholder="Split" required/>
                           <!-- <small *ngIf="!example-number-input.valid">Required</small> -->
+
                       </div>
                       <div class="col-4">
                           {{ proposed_split }} : {{ 100 - proposed_split }}
+                          <small class="text-muted">(Investor : Developer)</small>
                       </div>
                   </div>
                   <div class="form-group row">
@@ -61,7 +63,9 @@
                           <span class="input-group-addon">$</span>
                           <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2"
                             data-number-stepfactor="100" class="form-control currency" [(ngModel)]="proposed_amount" id="amount" placeholder="Amount to Invest" required />
+
                       </div>
+                      <small class="text-muted" *ngIf="proposed_amount < 0"> Invalid Number. Please enter a positive number</small>
                   </div>
                   <div class="form-group row">
                     <label for="example-date-input" class="col-2 col-form-label">Cutoff Date</label>
