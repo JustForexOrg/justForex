@@ -1,4 +1,4 @@
-
+import {Observable} from 'rxjs/Observable';
 import { Component, Inject } from '@angular/core';
 import { Message } from './message/message';
 import { MessageService } from './message.service';
@@ -12,22 +12,27 @@ declare var $:any;
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-  messages: Message[];
+  messages: Message[] = [];
   private socket: SocketIOClient.Socket; // The client instance of socket.io
 
   numMsg: number = 0;
 
   constructor(private messageService: MessageService) {
     // Retrieve posts from the API
-    this.messageService.getMessagesFromRecipient().subscribe(messages => {
-      this.messages = messages;
+    // this.messageService.getMessagesFromRecipient().subscribe(messages => {
+    //   this.messages = messages;
       // this.numMsg = this.messageService.hasNotRead;
-    });
+    // });
+
+    Observable.timer(0, 10000) // Run every 10 seconds
+              .flatMap(() => this.messageService.getMessagesFromRecipient())
+              .subscribe(messages => {
+                  this.messages = messages.json();
+              });
   }
 
   // Emit: message saved event
-  emitEventOnMessageSaved(messageSaved){
-      this.socket.emit('messageSaved', messageSaved);
+  saveMessage(messageSaved){
       this.messages.push(messageSaved);
   }
 
