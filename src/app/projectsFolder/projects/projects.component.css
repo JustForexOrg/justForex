@@ -9,7 +9,7 @@
 }
 
 .all-projects {
-    margin-top: 52px;
+  margin-top: 70px;
   width: 80%;
   float: right;
 }
@@ -33,13 +33,22 @@ label {
   margin: 0 0 -1px;
   padding: 15px 25px;
   font-weight: 600;
+  font-size: 1.5em;
   text-align: center;
-  color: #bbb;
+  /*color: #white;*/
   border: 1px solid transparent;
 }
 
 #l1 {
+  /*color: white;*/
   margin-left: 35%;
+  background-color: var(--green);
+}
+
+#l2 {
+  color: white;
+  /*margin-left: 35%;*/
+  background-color: orange;
 }
 
 label:before {
@@ -57,10 +66,14 @@ label:hover {
 }
 
 input:checked + label {
-  color: #555;
-  border: 1px solid #ddd;
-  border-top: 2px solid orange;
-  border-bottom: 1px solid #fff;
+  color: white;
+  /*border: 1px solid #ddd;*/
+  background-color: orange;
+  /*border-top: 2px solid orange;*/
+  /*border-bottom: 1px solid #fff;*/
+  border-bottom: solid;
+  border-bottom-width: thick;
+  border-bottom-color: black;
 }
 
 #tab1:checked ~ #content1,
