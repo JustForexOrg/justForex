@@ -38,13 +38,20 @@ label {
   margin: 0 0 -1px;
   padding: 15px 25px;
   font-weight: 600;
+  font-size: 1.5em;
   text-align: center;
-  color: #bbb;
+  background-color: orange;
+  /*color: white;*/
   border: 1px solid transparent;
 }
 
 #l1 {
+  color: #white;
   margin-left: 35%;
+  background-color: var(--green);
+  border-bottom: solid;
+  border-bottom-width: thick;
+  border-bottom-color: black;
 }
 
 label:before {
@@ -62,9 +69,10 @@ label:hover {
 }
 
 input:checked + label {
-  color: #555;
-  border: 1px solid #ddd;
-  border-top: 2px solid orange;
+  color: white;
+  /*border: 1px solid #ddd;*/
+  background-color: orange;
+  /*border-top: 2px solid orange;*/
   border-bottom: 1px solid #fff;
 }
 
