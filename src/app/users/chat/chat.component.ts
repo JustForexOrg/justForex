@@ -19,16 +19,16 @@ export class ChatComponent {
 
   constructor(private messageService: MessageService) {
     // Retrieve posts from the API
-    // this.messageService.getMessagesFromRecipient().subscribe(messages => {
-    //   this.messages = messages;
+    this.messageService.getMessagesFromRecipient().subscribe(messages => {
+      this.messages = messages.json();
       // this.numMsg = this.messageService.hasNotRead;
-    // });
+    });
 
-    Observable.timer(0, 10000) // Run every 10 seconds
-              .flatMap(() => this.messageService.getMessagesFromRecipient())
-              .subscribe(messages => {
-                  this.messages = messages.json();
-              });
+    // Observable.timer(0, 10000) // Run every 10 seconds
+    //           .flatMap(() => this.messageService.getMessagesFromRecipient())
+    //           .subscribe(messages => {
+    //               this.messages = messages.json();
+    //           });
   }
 
   // Emit: message saved event

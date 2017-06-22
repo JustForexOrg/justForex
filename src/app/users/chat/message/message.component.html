@@ -13,12 +13,10 @@
   <div *ngIf="message.isSuccess=='cross'">
     <i class="fa fa-times" aria-hidden="true"> </i>
   </div>
-  <!-- <i *ngIf="message.isSuccess=="pending"" class="fa fa-ellipsis-h" aria-hidden="true"/> -->
-  <!-- <div *ngIf="message.isSuccess=="cross""> <i class="fa fa-times" aria-hidden="true"></i></div> -->
 
 </div>
 
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div *ngIf="visibility" class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -68,7 +66,7 @@
         </div>
         <div id="counter" *ngIf="pending">
           <div *ngIf="isSent"><h5>Your request has been sent</h5></div>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="pending=false">Cancel</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary" (click)="saveMessage(item.user_id)">Send offer</button>
         </div>

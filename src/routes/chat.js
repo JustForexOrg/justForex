@@ -64,4 +64,10 @@ router.delete('/delete/:id', function(req, res, next){
     });
 });
 
+//Update a chat
+router.put('/update/:id', function(req, res, next){
+    var c = req.body;
+    db.chat.update({_id: mongojs.ObjectId(req.params.id)}, c);
+});
+
 module.exports = router;

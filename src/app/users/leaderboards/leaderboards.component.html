@@ -25,7 +25,7 @@
 
           <td class="align-middle">{{i + 1}}</td>
           <td class="align-middle">
-            <span style="width:2vw; height:2vw;"><img src="{{'../../assets/images/' + datum.profile_pic}}"></span>
+            <span style="width:2vw; height:2vw; background-color:white"><img src="{{'../../assets/images/' + datum.profile_pic}}"></span>
           </td>
           <td class="information align-middle" >
             {{datum.name}}
@@ -71,7 +71,7 @@
                   <div class="form-group row">
                     <label for="example-date-input" class="col-2 col-form-label">Cutoff Date</label>
                     <div class="col-10">
-                      <input class="form-control" type="date" value="2011-08-19" placeholder="Date" id="example-date-input" required />
+                      <input class="form-control" type="date" value="2011-08-19" placeholder="Date" id="example-date-input" required [(ngModel)]="end_date" />
                     </div>
                   </div>
                 </div>

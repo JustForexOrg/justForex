@@ -34,9 +34,9 @@ export class MessageComponent implements OnInit {
   }
 
   choose(str: string) {
-    console.log(this.tick);
-    console.log(this.pending);
-    console.log(this.cross);
+    // console.log(this.tick);
+    // console.log(this.pending);
+    // console.log(this.cross);
       if(str === 'accept') {
         this.tick = true;
         this.pending = false;
@@ -44,7 +44,7 @@ export class MessageComponent implements OnInit {
         this.cross = false;
 
         this.message.isSuccess="tick";
-        console.log("tick");
+        // console.log("tick");
         // reset();
         this.accept();
       } else if(str === 'decline') {
@@ -54,7 +54,7 @@ export class MessageComponent implements OnInit {
         this.cross = true;
 
         this.message.isSuccess="cross";
-        console.log("cross");
+        // console.log("cross");
       } else if(str === 'counter') {
         this.pending = true;
         this.visibility = true;
@@ -62,7 +62,7 @@ export class MessageComponent implements OnInit {
         this.cross = false;
 
         this.message.isSuccess="pending";
-        console.log("pending");
+        // console.log("pending");
     }
   }
 
@@ -76,7 +76,16 @@ export class MessageComponent implements OnInit {
     - Put a waiting parameter on how much profit made by the investor
   */
   accept() {
-    // console.log(this.message._id);
-    // this.router.navigate(['/contract/' + String(this.message._id)]);
+    var newChat = {
+      sender_id: this.message.sender_id,
+      recipient_id: this.message.recipient_id,
+      proposed_split: this.message.proposed_split,
+      proposed_amount: this.message.proposed_amount,
+      algorithm_name: this.message.algorithm_name,
+      isSuccess: this.message.isSuccess
+    }
+    this.messageService.updateChat(newChat,this.message._id);
+
+    this.router.navigate(['/contract/' + String(this.message._id)]);
   }
 }

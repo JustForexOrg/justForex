@@ -29,6 +29,7 @@ export class LeaderboardsComponent {
    recipient_id: string;
    proposed_split:number = 50;
    proposed_amount: number;
+   end_date: string;
 
    constructor(private http: Http, private messageService: MessageService, private userService: UserService) {
    }
@@ -118,6 +119,7 @@ export class LeaderboardsComponent {
          proposed_split: this.proposed_split,
          proposed_amount: this.proposed_amount,
          algorithm_name: this.algorithm_name,
+         proposed_end_date: this.end_date
        }
        this.messageService.saveMessage(m);
        this.isSent = true;

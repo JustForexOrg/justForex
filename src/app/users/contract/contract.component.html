@@ -1,3 +1,30 @@
-<p>
-  contract works!
-</p>
+<div class="card" style="padding-right:5%;padding-left:5%">
+  <h1 style="text-align: center">CONTRACT</h1>
+  <h4>
+    The following is a contract between the {{ sender.name }} (hereafter known as the Investor), {{ recipient.name }} (hereafter the Developer) and the creators of this website and its subsidiaries (hereafter justForex).
+  </h4>
+
+  <h4>Upon agreeing to this contract, the Investor will pay the sum of {{ message.proposed_amount }} to justForex. justForex are contractually obliged to run the algorithm {{ message.algorithm_name }} written by the Developer using the full sum of {{ message.proposed_amount }} until the end date {{ message.proposed_end_date }}. When the end date has been reached:
+
+  <ul>
+    <li>
+      if a profit has been made, justForex will keep a 5% cut of the profits. The remaining profit will be split in a ratio of {{ message.proposed_split }} between the Investor and the Developer. The profits will be deposited into the accounts of the Investor and the Developer (according to their provided bank account details) within the next 30 business days of {{ message.proposed_end_date }}.
+
+    </li>
+    <li>
+      if no profit has been made, any remaining balance from the initial investment will be deposited back into the account of the Investor within the next 30 business days of {{ message.proposed_end_date }}.
+    </li>
+  </ul>
+
+  <h4>
+    From the time that the contract is accepted until the agreed upon end date, the Developer will not be permitted to change the algorithm in any way. This is to ensure that the backtest data displayed in the graphs for the algorithm are as representative as possible. Additionally, justForex agrees to run the algorithm with the same hardware as it did when running the backtests.
+  </h4>
+
+  </h4>
+
+  <h4>
+    By clicking accept below, the Investor and Developer agree to the terms of this contract.
+  </h4>
+  <br />
+  <button class="btn btn-success" routerLink="/chat">Accept</button>
+</div>

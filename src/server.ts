@@ -6,7 +6,6 @@ import { AppServerModuleNgFactory } from '../dist/ngfactory/src/app/app.server.m
 import * as express from 'express';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-var index = require('./routes/index.js');
 
 const PORT = 4000;
 
@@ -17,24 +16,21 @@ const app = express();
 let template = readFileSync(join(__dirname, '..', 'dist', 'index.html')).toString();
 
 app.engine('html', (_, options, callback) => {
-const opts = { document: template, url: options.req.url };
+  const opts = { document: template, url: options.req.url };
 
-renderModuleFactory(AppServerModuleNgFactory, opts)
+  renderModuleFactory(AppServerModuleNgFactory, opts)
     .then(html => callback(null, html));
 });
 
-//View Engine
-app.set('views', __dirname);
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.set('views', 'src')
 
-// Set Static Folder
-app.use(express.static(join(__dirname, '..', 'dist')));
-app.use(express.static(join(__dirname, 'app')));
+app.get('*.*', express.static(join(__dirname, '..', 'dist')));
 
-
-app.get('*', index);
+app.get('*', (req, res) => {
+  res.render('index', { req });
+});
 
 app.listen(PORT, () => {
-console.log(`listening on http://localhost:${PORT}!`);
+  console.log(`listening on http://localhost:${PORT}!`);
 });

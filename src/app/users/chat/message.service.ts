@@ -48,4 +48,14 @@ export class MessageService {
   getMessagesFromRecipient() {
     return this.http.get('/api/chat/recipient/' + JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id);
   }
+
+  updateChat(newChat, id) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    // console.log('/api/chat/update/'+newChat._id);
+    return this.http.put('/api/chat/update/'+ id, JSON.stringify(newChat), {headers: headers})
+        .map(res => res.json())
+        .subscribe(data => console.log(data));
+
+  }
 }
