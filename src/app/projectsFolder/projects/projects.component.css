@@ -40,9 +40,15 @@ label {
 }
 
 #l1 {
-  color: #white;
+  /*color: white;*/
   margin-left: 35%;
   background-color: var(--green);
+}
+
+#l2 {
+  color: white;
+  /*margin-left: 35%;*/
+  background-color: orange;
 }
 
 label:before {

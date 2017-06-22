@@ -14,6 +14,10 @@
   background-color: white;
 }
 
+div.container {
+  margin-top: 50px;
+}
+
 h1 {
   margin-top: 1.5vh;
   text-align: center;
@@ -45,12 +49,19 @@ label {
   padding: 15px 25px;
   font-weight: 600;
   text-align: center;
-  color: #bbb;
+  color: black;
   border: 1px solid transparent;
+  font-size: 1.5em;
 }
 
 #l1 {
-  margin-left: 71vh;
+  margin-left: 35%;
+  background-color: var(--green);
+}
+
+#l2 {
+  /*margin-left: 71vh;*/
+  background-color: orange;
 }
 
 label:before {
@@ -68,10 +79,14 @@ label:hover {
 }
 
 input:checked + label {
-  color: #555;
+  /*color: #555;
   border: 1px solid #ddd;
-  border-top: 2px solid orange;
-  border-bottom: 1px solid #fff;
+  border-top: 2px solid var(--green);
+  border-bottom: 1px solid #fff;*/
+  color: white;
+  border-bottom: solid;
+  border-bottom-width: thick;
+  border-bottom-color: black;
 }
 
 #tab1:checked ~ #content1,
@@ -176,7 +191,7 @@ img {
 }*/
 
 .carousel {
-  margin-top: 2vh;
+  margin-top: 7vh;
   height: 80vh;
   /*border: 1px solid black;*/
 }

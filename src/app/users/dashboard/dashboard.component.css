@@ -46,12 +46,12 @@ label {
 }
 
 #l1 {
-  color: #white;
+  /*color: #white;*/
   margin-left: 35%;
   background-color: var(--green);
-  border-bottom: solid;
+  /*border-bottom: solid;
   border-bottom-width: thick;
-  border-bottom-color: black;
+  border-bottom-color: black;*/
 }
 
 label:before {
@@ -70,10 +70,10 @@ label:hover {
 
 input:checked + label {
   color: white;
-  /*border: 1px solid #ddd;*/
   background-color: orange;
-  /*border-top: 2px solid orange;*/
-  border-bottom: 1px solid #fff;
+  border-bottom: solid;
+  border-bottom-width: thick;
+  border-bottom-color: black;
 }
 
 #tab1:checked ~ #content1,
