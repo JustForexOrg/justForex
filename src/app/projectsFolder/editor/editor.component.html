@@ -55,7 +55,6 @@
                     </div>
 
                 </div>
->>>>>>> a8a35fb3844dad6fb423d440b8967ef46d3fed45
             </div>
         </div>
     </nav>
@@ -78,145 +77,620 @@
                 <h4 *ngIf="isSaved" (click)="isSaved=false">{{title}}</h4>
                 <ace-editor id="editor" class="ace" [(text)]="text" #editor></ace-editor>
             </div>
-            <div class="col-lg-4">
+            <div class="col-xl-4">
                 <h3>Python API Reference</h3>
                 <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-            Currency Prices</a>
-          </h4>
-                        </div>
-                        <div id="collapse1" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Currency Prices</a></h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <p>
+                            The following currencies are supported:
+                        </p>
+                        <table class="table-striped table">
+                            <tr>
+                                <th>
+                                    Currency
+                                </th>
+                                <th>
+                                    Indentifier string
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    United States Dollar
+                                </td>
+                                <td>
+                                    USD
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    United Kingdom Pound Sterling
+                                </td>
+                                <td>
+                                    GBP
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Euro
+                                </td>
+                                <td>
+                                    EUR
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Swiss Franc
+                                </td>
+                                <td>
+                                    CHF
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Japanese Yen
+                                </td>
+                                <td>
+                                    JPY
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <p>
+                            <strong><code>get_price(target_curr, base_curr, time)</code></strong>
+                        </p>
+                        <p>
+                            Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> at <code>time</code>.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>target_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>base_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>time</code> - datetime.datetime
+                            </li>
+                        </ul>
+                        <br />
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+                        <p>
+                            <strong><code>get_prices_in_period(target_curr, base_curr, now, period_length)</code></strong>
+                        </p>
+                        <p>
+                            Returns a list of exchange rates of <code>target_curr</code> in <code>base_curr</code> in the <code>time_period</code> before <code>now</code>.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>target_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>base_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>now</code> - datetime.datetime, usually from <code>self.current_time</code>
+                            </li>
+                            <li>
+                                <code>period_length</code> - datetime.timedelta
+                            </li>
+                        </ul>
+                        <br />
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+                        <p>
+                            <strong><code>self.get_price_period_high(self, target_curr, base_curr, period_length)</code></strong>
+                        </p>
+                        <p>
+                            Returns the highest exchange rate of <code>target_curr</code> in <code>base_curr</code> in the <code>time_period</code> before now.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>target_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>base_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>period_length</code> - datetime.timedelta
+                            </li>
+                        </ul>
+                        <br />
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
-                            </div>
-                        </div>
+                        <p>
+                            <strong><code>self.get_price_period_low(self, target_curr, base_curr, period_length)</code></strong>
+                        </p>
+                        <p>
+                            Returns the lowest exchange rate of <code>target_curr</code> in <code>base_curr</code> in the <code>time_period</code> before now.
+                        </p>
+
+                        <ul>
+                            <li>
+                                <code>target_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>base_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>period_length</code> - datetime.timedelta
+                            </li>
+                        </ul>
+                        <br />
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-            Economic Indicator Data</a>
-          </h4>
-                        </div>
-                        <div id="collapse2" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Economic Indicator Data</a></h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            Data is provided by the <a href="http://stats.oecd.org/">OECD</a>.
+                        </p>
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+                        <table class="table-striped table">
+                            <tr>
+                                <th>
+                                    Country
+                                </th>
+                                <th>
+                                    Indentifier string
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>Australia</td>
+                                <td>AUS</td>
+                            </tr>
+                            <tr>
+                                <td>Austria</td>
+                                <td>AUT</td>
+                            </tr>
+                            <tr>
+                                <td>Belgium</td>
+                                <td>BEL</td>
+                            </tr>
+                            <tr>
+                                <td>Canada</td>
+                                <td>CAN</td>
+                            </tr>
+                            <tr>
+                                <td>Chile</td>
+                                <td>CHL</td>
+                            </tr>
+                            <tr>
+                                <td>Czech Republic</td>
+                                <td>CZE</td>
+                            </tr>
+                            <tr>
+                                <td>Denmark</td>
+                                <td>DNK</td>
+                            </tr>
+                            <tr>
+                                <td>Estonia</td>
+                                <td>EST</td>
+                            </tr>
+                            <tr>
+                                <td>Finland</td>
+                                <td>FIN</td>
+                            </tr>
+                            <tr>
+                                <td>France</td>
+                                <td>FRA</td>
+                            </tr>
+                            <tr>
+                                <td>Germany</td>
+                                <td>DEU</td>
+                            </tr>
+                            <tr>
+                                <td>Greece</td>
+                                <td>GRC</td>
+                            </tr>
+                            <tr>
+                                <td>Hungary</td>
+                                <td>HUN</td>
+                            </tr>
+                            <tr>
+                                <td>Iceland</td>
+                                <td>ISL</td>
+                            </tr>
+                            <tr>
+                                <td>Ireland</td>
+                                <td>IRL</td>
+                            </tr>
+                            <tr>
+                                <td>Israel</td>
+                                <td>ISR</td>
+                            </tr>
+                            <tr>
+                                <td>Italy</td>
+                                <td>ITA</td>
+                            </tr>
+                            <tr>
+                                <td>Japan</td>
+                                <td>JPN</td>
+                            </tr>
+                            <tr>
+                                <td>South Korea</td>
+                                <td>KOR</td>
+                            </tr>
+                            <tr>
+                                <td>Latvia</td>
+                                <td>LVA</td>
+                            </tr>
+                            <tr>
+                                <td>Luxembourg</td>
+                                <td>LUX</td>
+                            </tr>
+                            <tr>
+                                <td>Mexico</td>
+                                <td>MEX</td>
+                            </tr>
+                            <tr>
+                                <td>The Netherlands</td>
+                                <td>NLD</td>
+                            </tr>
+                            <tr>
+                                <td>New Zealand</td>
+                                <td>NZL</td>
+                            </tr>
+                            <tr>
+                                <td>Norway</td>
+                                <td>NOR</td>
+                            </tr>
+                            <tr>
+                                <td>Poland</td>
+                                <td>POL</td>
+                            </tr>
+                            <tr>
+                                <td>Portugal</td>
+                                <td>PRT</td>
+                            </tr>
+                            <tr>
+                                <td>Slovakia</td>
+                                <td>SVK</td>
+                            </tr>
+                            <tr>
+                                <td>Slovenia</td>
+                                <td>SVN</td>
+                            </tr>
+                            <tr>
+                                <td>Spain</td>
+                                <td>ESP</td>
+                            </tr>
+                            <tr>
+                                <td>Sweden</td>
+                                <td>SWE</td>
+                            </tr>
+                            <tr>
+                                <td>Switzerland</td>
+                                <td>CHE</td>
+                            </tr>
+                            <tr>
+                                <td>Turkey</td>
+                                <td>TUR</td>
+                            </tr>
+                            <tr>
+                                <td>United Kingdom</td>
+                                <td>GBR</td>
+                            </tr>
+                            <tr>
+                                <td>United States</td>
+                                <td>USA</td>
+                            </tr>
+                            <tr>
+                                <td>Euro Area</td>
+                                <td>EA19</td>
+                            </tr>
+                            <tr>
+                                <td>Brazil</td>
+                                <td>BRA</td>
+                            </tr>
+                            <tr>
+                                <td>China</td>
+                                <td>CHN</td>
+                            </tr>
+                            <tr>
+                                <td>Colombia</td>
+                                <td>COL</td>
+                            </tr>
+                            <tr>
+                                <td>India</td>
+                                <td>IND</td>
+                            </tr>
+                            <tr>
+                                <td>Indonesia</td>
+                                <td>IDN</td>
+                            </tr>
+                            <tr>
+                                <td>Russia</td>
+                                <td>RUS</td>
+                            </tr>
+                            <tr>
+                                <td>South Africa</td>
+                                <td>ZAF</td>
+                            </tr>
+                        </table>
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+                        <p>
+                            <strong><code>get_interest_rate(indicator, time)</code></strong>
+                        </p>
+                        <p>
+                            Returns the annual base interest rate percentage of the <code>indicator</code> country at <code>time</code>.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>indicator</code> - string (country identifier)
+                            </li>
+                            <li>
+                                <code>time</code> - datetime.datetime, usually from <code>self.get_time()</code>
+                            </li>
+                        </ul>
+                        <br />
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+                        <p>
+                            <strong><code>get_inflation_rate(indicator, time)</code></strong>
+                        </p>
+                        <p>
+                            Returns the annual consumer inflation rate percentage of the <code>indicator</code> country at <code>time</code>.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>indicator</code> - string (country identifier)
+                            </li>
+                            <li>
+                                <code>time</code> - datetime.datetime, usually from <code>self.get_time()</code>
+                            </li>
+                        </ul>
+                        <br />
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
-                            </div>
-                        </div>
+                        <p>
+                            <strong><code>get_quarterly_growth_rate(indicator, time)</code></strong>
+                        </p>
+                        <p>
+                            Returns the projected quarterly growth rate of the <code>indicator</code> country at <code>time</code>. This is updated at midnight on 1st January, 1st April, 1st July and 1st October.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>indicator</code> - string (country identifier)
+                            </li>
+                            <li>
+                                <code>time</code> - datetime.datetime, usually from <code>self.get_time()</code>
+                            </li>
+                        </ul>
+                        <br />
+
+                        <p>
+                            <strong><code>get_fitch_credit_rating(indicator, time)</code></strong>
+                        </p>
+                        <p>
+                            Returns the soverign credit rating of the <code>indicator</code> country at <code>time</code> as reported by Fitch Ratings. The return value is an integer between 1 and 24, each representing the following ratings:
+                        </p>
+                        <table class="table-striped table table-bordered">
+                            <tr>
+                                <th>Return value</th>
+                                <th>Rating</th>
+                                <th>Rating description</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>AAA</td>
+                                <td>Prime</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>AA+</td>
+                                <td rowspan="3">High Grade</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>AA</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>AA-</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>A+</td>
+                                <td rowspan="3">Upper Medium Grade</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>A</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>A-</td>
+                            </tr>
+
+                            <tr>
+                                <td>8</td>
+                                <td>BBB+</td>
+                                <td rowspan="3">Lower Medium Grade</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>BBB</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>BBB-</td>
+                            </tr>
+
+                            <tr>
+                                <td>11</td>
+                                <td>BB+</td>
+                                <td rowspan="3">Non-investment grade speculative
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>BB</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>BB-</td>
+                            </tr>
+
+                            <tr>
+                                <td>14</td>
+                                <td>B+</td>
+                                <td rowspan="3">Highly speculative</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>B</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>B-</td>
+                            </tr>
+
+                            <tr>
+                                <td>17</td>
+                                <td>CCC+</td>
+                                <td rowspan="3">Substantial risks
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>CCC</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>CCC-</td>
+                            </tr>
+
+                            <tr>
+                                <td>20</td>
+                                <td>CC</td>
+                                <td>Extremely speculative</td>
+                            </tr>
+
+                            <tr>
+                                <td>21</td>
+                                <td>C</td>
+                                <td>Default imminent</td>
+                            </tr>
+
+                            <tr>
+                                <td>22</td>
+                                <td>DDD</td>
+                                <td rowspan="3">In default</td>
+                            </tr>
+                            <tr>
+                                <td>23</td>
+                                <td>DD</td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td>D</td>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>
+                                <code>indicator</code> - string (country identifier)
+                            </li>
+                            <li>
+                                <code>time</code> - datetime.datetime, usually from <code>self.get_time()</code>
+                            </li>
+                        </ul>
+                        <br />
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-            The Current State</a>
-          </h4>
-                        </div>
-                        <div id="collapse3" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3">The Current State</a></h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            <strong><code>self.get_wallet()</code></strong>
+                        </p>
+                        <p>
+                            Returns the current state of the wallet as a dictionary object, with currency identifier-to-value mappings.
+                        </p>
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
-                            </div>
-                        </div>
+                        <p>
+                            <strong><code>self.get_wallet_in(base_curr)</code></strong>
+                        </p>
+                        <p>
+                            Returns the current values of each currency in your wallet in <code>base_curr</code> as a dictionary object, with currency identifier-to-value mappings.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>base_curr</code> - string (currency identifier)
+                            </li>
+                        </ul>
+                        <br />
+
+                        <p>
+                            <strong><code>self.get_time()</code></strong>
+                        </p>
+                        <p>
+                            Returns the current time as a datetime object.
+                        </p>
+
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
             Buying and Selling</a>
           </h4>
-                        </div>
-                        <div id="collapse4" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>
+                            <strong><code>self.buy(target_curr, base_curr, target_curr_volume)</code></strong>
+                        </p>
+                        <p>
+                            Buy <code>target_curr_volume</code> worth of <code>target_curr</code> using <code>base_curr</code>, if enough <code>base_curr</code> funds are available.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>target_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>base_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>target_curr_volume</code> - float
+                            </li>
+                        </ul>
+                        <br />
 
-                                <p>
-                                    <strong><code>get_price(target_curr, base_curr, time)</code></strong>
-                                </p>
-                                <p>
-                                    Returns the exchange rate of <code>target_curr</code> in <code>base_curr</code> and <code>time</code>.
-                                </p>
-                            </div>
-                        </div>
+                        <p>
+                            <strong><code>self.sell(base_curr, target_curr, target_curr_volume)</code></strong>
+                        </p>
+                        <p>
+                            Sell <code>base_curr_volume</code> worth of <code>base_curr</code> in return for <code>target_curr</code>, if enough <code>base_curr</code> funds are available.
+                        </p>
+                        <ul>
+                            <li>
+                                <code>target_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>base_curr</code> - string (currency identifier)
+                            </li>
+                            <li>
+                                <code>target_curr_volume</code> - float
+                            </li>
+                        </ul>
+                        <br />
                     </div>
                 </div>
+            </div>
+        </div>
             </div>
         </div>
     </div>
@@ -226,234 +700,7 @@
 </div>
 <form>
     <textarea id="yourcode">
-    </textarea><!-- from abc import ABC, abstractmethod
-    from datetime import datetime, timedelta
-    import http.client
-
-    API_BASE_URL = 'justforex.xyz:3020'
-    step = timedelta(seconds=3600)  # hour step
-    conn = http.client.HTTPConnection(API_BASE_URL)
-
-
-    def format_datetime_string(dt):
-        return dt.isoformat()
-
-
-    def get_price(target_curr, base_curr, time):
-        prices = {
-            'GBP': 50.0,
-            'EUR': 37.0,
-            'JPY': 1.0,
-            'USD': 31.0,
-            'CHF': 0.5,
-            }
-        return prices[target_curr] / prices[base_curr]
-        '''
-        http://justforex.xyz:3020/userapi-backend/currency_price?target_curr=EUR&base_curr=GBP&time=2012-04-05T21:04:09
-        http_request_str = '/userapi-backend/currency_price?'
-        http_request_str += 'target_curr=' + target_curr
-        http_request_str += '&base_curr=' + base_curr
-        http_request_str += '&time=' + format_datetime_string(time)
-        conn.request('GET', http_request_str)
-        resp = conn.getresponse()
-        data = resp.read()
-        return data
-        '''
-
-
-    def get_prices_in_period(
-        target_curr,
-        base_curr,
-        now,
-        period_length,
-        ):
-        start_of_period = now - period_length
-        prices = []
-        dt = start_of_period
-        while dt - start_of_period < period_length:
-            prices.append(get_price(target_curr, base_curr, dt))
-            dt += step
-        return prices
-
-
-    def get_economic_indicator(indicatorType, indicator, time):
-        http_request_str = '/userapi-backend/economicIndicator/' \
-            + indicatorType + '?'
-        http_request_str += 'indicator=' + indicator
-        http_request_str += '&time=' + format_datetime_string(time)
-        conn.request('GET', http_request_str)
-        resp = conn.getresponse()
-        data = resp.read()
-        return data
-
-
-    def get_economic_indicators_in_period(
-        indicatorType,
-        indicator,
-        now,
-        period_length,
-        ):
-        start_of_period = now - period_length
-        values = []
-        dt = start_of_period
-        while dt - start_of_period < period_length:
-            values.append(get_economic_indicator(indicatorType, indicator,
-                          dt))
-            dt += step
-        return values
-
-    class Algorithm(ABC):
-
-        def __init__(self, start_datetime, end_datetime):
-            self.start_datetime = start_datetime
-            self.end_datetime = end_datetime
-            self.current_time = self.start_datetime
-
-        # Wallet of different currencies - all start off at 1000 US Dollars
-
-            self.wallet = {
-                'USD': 1000.0,
-                'GBP': 0,
-                'EUR': 0,
-                'CHF': 0,
-                'JPY': 0,
-                }
-
-        # List of transactions - (is_buy, target_curr, base_curr, volume, time, wallet state after)
-
-            self.successful_transactions = []
-
-        # List of transactions - (is_buy, target_curr, base_curr, volume, time, deficit in base_curr)
-
-            self.unsuccessful_transactions = []
-
-        # List of values of the wallet over time in USD - time-float pairs
-
-            self.wallet_value_usd_list = []
-
-        def parse_wallet_values_to_json(self):
-            s = '?(\n'
-            s+= '['
-            for [time, value] in self.wallet_value_usd_list:
-                s += '[' + str(time.timestamp()) + ',' + str(value) + '],\n'
-            s = s[:-1]
-            s += '\n]);'
-            print(s)
-            return s
-
-        def wallet_state(self):
-            return list(self.wallet.values())
-
-        def record_wallet_value_usd(self):
-            value_usd = 0
-            for pair in self.wallet:
-                value_usd += get_price(pair, 'USD', self.current_time) * self.wallet[pair]
-            self.wallet_value_usd_list.append([self.current_time, value_usd])
-
-        def get_price_period_high(
-            self,
-            target_curr,
-            base_curr,
-            period_length,
-            ):
-            return max(get_prices_in_period(target_curr, base_curr,
-                       self.current_time, period_length))
-
-        def get_price_period_low(
-            self,
-            target_curr,
-            base_curr,
-            period_length,
-            ):
-            return min(get_prices_in_period(target_curr, base_curr,
-                       self.current_time, period_length))
-
-        @abstractmethod
-        def act(self):
-            pass
-
-        def run(self):
-            while self.current_time < self.end_datetime:
-                self.act()
-                self.current_time += step
-            conn.close()
-            f = open('wallet_value_over_time.json','w')
-            f.write(self.parse_wallet_values_to_json())
-            f.close()
-
-        def get_time(self):
-            return self.current_time
-
-        def get_inventory(self):
-            return self.wallet
-
-
-      # buy target_curr_volume worth of target_curr using base_curr
-        def buy(
-            self,
-            target_curr,
-            base_curr,
-            target_curr_volume,
-            ):
-            exchange_rate = get_price(target_curr, base_curr,
-                                      self.current_time)
-            price_in_base_curr = target_curr_volume * exchange_rate
-            if price_in_base_curr > self.wallet[base_curr]:
-                deficit = price_in_base_curr - self.wallet[base_curr]
-                self.unsuccessful_transactions.append([
-                    True,
-                    target_curr,
-                    base_curr,
-                    target_curr_volume,
-                    self.current_time,
-                    deficit,
-                    ])
-                return
-            self.wallet[base_curr] -= price_in_base_curr
-            self.wallet[target_curr] += target_curr_volume
-            self.successful_transactions.append([
-                True,
-                target_curr,
-                base_curr,
-                target_curr_volume,
-                self.current_time,
-                self.wallet_state(),
-                ])
-            self.record_wallet_value_usd()
-
-
-      # sell base_curr_volume worth of base_curr for target_curr
-        def sell(
-            self,
-            base_curr,
-            target_curr,
-            base_curr_volume,
-            ):
-            if base_curr_volume > self.wallet[base_curr]:
-                deficit = base_curr_volume - self.wallet[base_curr]
-                self.unsuccessful_transactions.append([
-                    False,
-                    target_curr,
-                    base_curr,
-                    base_curr_volume,
-                    self.current_time,
-                    deficit,
-                    ])
-                return
-            exchange_rate = get_price(base_curr, target_curr,
-                                      self.current_time)
-            amount_in_target_curr = base_curr_volume * exchange_rate
-            self.wallet[base_curr] -= base_curr_volume
-            self.wallet[target_curr] += amount_in_target_curr
-            self.successful_transactions.append([
-                False,
-                target_curr,
-                base_curr,
-                base_curr_volume,
-                self.current_time,
-                self.wallet_state(),
-                ])
-            self.record_wallet_value_usd() --><br />
+</textarea><br />
     <button class="btn btn-default" type="button" onclick="aceToText()">Run</button>
 </form>
 <pre id="output"></pre>
