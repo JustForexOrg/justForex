@@ -3,6 +3,7 @@ export class User{
   email: string;
   username: string;
   password: string;
+  name: string;
   split: number;
   risk: number;
   city: string;
