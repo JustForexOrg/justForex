@@ -26,6 +26,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div id="normal" *ngIf="!pending">
           <p class="f">Algorithm Name: </p> <p class="boldRight"> {{message.algorithm_name}}</p> <br>
@@ -33,6 +34,7 @@
           <p class="f">Proposed Investment Amount: </p> <p class="boldRight"> {{ message.proposed_amount }}</p> <br>
           <p class="f">Proposed End Date: </p> <p class="boldRight"> {{ message.proposed_end_date }}</p>
         </div>
+        
         <div id="counter" *ngIf="pending">
           <div class="form-group row">
               <label for="example-number-input" class="col-2 col-form-label">Split</label>
