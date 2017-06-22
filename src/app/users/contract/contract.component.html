@@ -1,14 +1,14 @@
 <div class="card" style="padding-right:5%;padding-left:5%">
   <h1 style="text-align: center">CONTRACT</h1>
   <h4>
-    The following is a contract between the {{ sender.name }} (hereafter known as the Investor), {{ recipient.name }} (hereafter the Developer) and the creators of this website and its subsidiaries (hereafter justForex).
+    The following is a contract between {{ sender.name }} (hereafter known as the Investor), {{ recipient.name }} (hereafter the Developer) and the creators of this website and its subsidiaries (hereafter justForex).
   </h4>
 
-  <h4>Upon agreeing to this contract, the Investor will pay the sum of {{ message.proposed_amount }} to justForex. justForex are contractually obliged to run the algorithm {{ message.algorithm_name }} written by the Developer using the full sum of {{ message.proposed_amount }} until the end date {{ message.proposed_end_date }}. When the end date has been reached:
+  <h4>Upon agreeing to this contract, the Investor will pay the sum of {{ message.proposed_amount | currency:'USD':true }} to justForex. justForex are contractually obliged to run the algorithm '{{ message.algorithm_name }}' written by the Developer using the full sum of {{ message.proposed_amount | currency:'USD':true }} until the end date {{ message.proposed_end_date }}. When the end date has been reached:
 
   <ul>
     <li>
-      if a profit has been made, justForex will keep a 5% cut of the profits. The remaining profit will be split in a ratio of {{ message.proposed_split }} between the Investor and the Developer. The profits will be deposited into the accounts of the Investor and the Developer (according to their provided bank account details) within the next 30 business days of {{ message.proposed_end_date }}.
+      if a profit has been made, justForex will keep a 5% cut of the profits. The remaining profit will be split in a ratio of {{ message.proposed_split }} : {{ 100 - message.proposed_split }} between the Investor and the Developer. The profits will be deposited into the accounts of the Investor and the Developer (according to their provided bank account details) within the next 30 business days of {{ message.proposed_end_date }}.
 
     </li>
     <li>
