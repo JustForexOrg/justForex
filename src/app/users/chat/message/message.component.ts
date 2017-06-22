@@ -102,7 +102,7 @@ export class MessageComponent implements OnInit {
   }
 
   public saveMessage(id) {
-    console.log(this.isSent);
+    console.log("hello");
     if(!this.isSent) {
       var m = {
         sender_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id,

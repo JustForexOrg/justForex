@@ -73,7 +73,7 @@
           <div *ngIf="isSent"><h5>Your request has been sent</h5></div>
             <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="pending=false">Cancel</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="saveMessage(item.user_id)">Send offer</button>
+            <button type="button" class="btn btn-primary" (click)="saveMessage(sender._id)">Send offer</button>
           </div>
       </div>
     </div>
