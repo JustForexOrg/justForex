@@ -55,7 +55,7 @@ export class AuthenticationComponent implements OnInit {
         .subscribe(
             data => {
                 this.isRegister = false;
-                this.router.navigate(['/']);
+                this.router.navigate(['/getting-started']);
             },
             error => {
                 this.loading = false;
