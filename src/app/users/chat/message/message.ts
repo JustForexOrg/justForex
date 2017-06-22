@@ -3,7 +3,7 @@ export class Message{
   recipient_id: string;
   proposed_split: number;
   proposed_amount: number;
-  proposed_end: string;
+  proposed_end_date: string;
   algorithm_name: string
   _id: string;
   isSuccess: string;

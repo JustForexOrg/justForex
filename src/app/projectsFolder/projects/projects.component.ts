@@ -21,7 +21,7 @@ export class ProjectsComponent {
      });
    }
 
-   addNewProject() {
+   addNewProject(event) {
      event.preventDefault();
      var project = {
        language: "python",
