@@ -46,7 +46,6 @@ export class MessageComponent implements OnInit {
         this.message.isSuccess="tick";
         // console.log("tick");
         // reset();
-        this.accept();
       } else if(str === 'decline') {
         this.visibility = false;
         this.tick = false;
@@ -64,6 +63,10 @@ export class MessageComponent implements OnInit {
         this.message.isSuccess="pending";
         // console.log("pending");
     }
+    this.update();
+    if (str === 'accept') {
+      this.router.navigate(['/contract/' + String(this.message._id)]);
+    }
   }
 
   findSender() {
@@ -75,7 +78,7 @@ export class MessageComponent implements OnInit {
     - Find the sender's new profit split
     - Put a waiting parameter on how much profit made by the investor
   */
-  accept() {
+  update() {
     var newChat = {
       sender_id: this.message.sender_id,
       recipient_id: this.message.recipient_id,
@@ -86,6 +89,5 @@ export class MessageComponent implements OnInit {
     }
     this.messageService.updateChat(newChat,this.message._id);
 
-    this.router.navigate(['/contract/' + String(this.message._id)]);
   }
 }

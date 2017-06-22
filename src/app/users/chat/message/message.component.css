@@ -49,3 +49,16 @@ p.f {
 .boldRight {
   float: right;
 }
+
+i.big-icon, i.cross, i.pending {
+  font-size: 2em;
+  vertical-align: middle;
+}
+
+i.cross {
+  color: red;
+}
+
+i.pending {
+  color: orange;
+}
