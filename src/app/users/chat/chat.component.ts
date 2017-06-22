@@ -24,7 +24,7 @@ export class ChatComponent {
     //   // this.numMsg = this.messageService.hasNotRead;
     // });
 
-    Observable.timer(0, 10000) // Run every 10 seconds
+    Observable.timer(0, 30000) // Run every 10 seconds
               .flatMap(() => this.messageService.getMessagesFromRecipient())
               .subscribe(messages => {
                   this.messages = messages.json();

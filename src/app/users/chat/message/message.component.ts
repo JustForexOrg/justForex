@@ -19,6 +19,16 @@ export class MessageComponent implements OnInit {
   cross: boolean = false;
   sender;
 
+  //For counter offer
+  isSent: boolean = false;
+  risk;
+  algorithm_name: string;
+
+  recipient_id: string;
+  proposed_split:number = 50;
+  proposed_amount: number;
+  end_date: string;
+
   constructor(private messageService: MessageService, private userService: UserService, private router: Router) {
   }
 
@@ -89,5 +99,25 @@ export class MessageComponent implements OnInit {
     }
     this.messageService.updateChat(newChat,this.message._id);
 
+  }
+
+  public saveMessage(id) {
+    console.log("hello");
+    if(!this.isSent) {
+      var m = {
+        sender_id: JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id,
+        recipient_id: id,
+        proposed_split: this.proposed_split,
+        proposed_amount: this.proposed_amount,
+        algorithm_name: this.algorithm_name,
+        proposed_end_date: this.end_date
+      }
+      this.messageService.saveMessage(m);
+      this.isSent = true;
+    }
+  }
+
+  public resetSentData() {
+    this.isSent = false;
   }
 }
