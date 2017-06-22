@@ -32,7 +32,7 @@ export class AppSocketIoService {
       // this.toasterService.pop('success', 'NEW MESSAGE SENT',
       //       message.recipient_id + ' have received an offer from ' + message.sender_id);
         if(message.recipient_id == JSON.parse(JSON.parse(localStorage.getItem('currentUser'))._body)._id) {
-          location.reload();
+          // location.reload();
         }
     });
 
