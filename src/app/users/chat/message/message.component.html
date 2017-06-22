@@ -1,10 +1,10 @@
 <div class="row card col-md-12 container" onload="findSender()" data-toggle="modal" data-target="#exampleModalLong" (click)="hasNotRead()">
-  <div class="col-md-2">
+  <!-- <div class="col-md-2"> -->
     <img class="lib-img-show" src="{{'../../assets/images/' + sender.profile_pic}}">
-  </div>
-  <h3 class="col-md-10">{{ sender.name }} wants to invest {{ message.proposed_amount | currency:'USD':true }}</h3>
+    <h3 class="col-md-10">{{ sender.name }} wants to invest {{ message.proposed_amount | currency:'USD':true }}</h3>
+  <!-- </div> -->
 
-  <div *ngIf="message.isSuccess=='tick'">
+  <!-- <div *ngIf="message.isSuccess=='tick'">
     <i class="fa fa-check" aria-hidden="true"> </i>
   </div>
   <div *ngIf="message.isSuccess=='pending'">
@@ -12,7 +12,19 @@
   </div>
   <div *ngIf="message.isSuccess=='cross'">
     <i class="fa fa-times" aria-hidden="true"> </i>
-  </div>
+  </div> -->
+
+  <ng-container [ngSwitch]="message.isSuccess">          <!-- <- Not a Dom Element-->
+    <ng-container *ngSwitchCase="'tick'">      <!-- <- Not a Dom Element-->
+      <i class="fa fa-check" aria-hidden="true"> </i> <!-- <- Dom Element-->
+    </ng-container>                         <!-- <- Not a Dom Element-->
+    <ng-container *ngSwitchCase="'pending'">      <!-- <- Not a Dom Element-->
+      <i class="fa fa-ellipsis-h" aria-hidden="true"> </i> <!-- <- Dom Element-->
+    </ng-container>
+    <ng-container *ngSwitchCase="'cross'">      <!-- <- Not a Dom Element-->
+      <i class="fa fa-times" aria-hidden="true"> </i> <!-- <- Dom Element-->
+    </ng-container>                         <!-- <- Not a Dom Element-->
+  </ng-container>
 
 </div>
 
@@ -30,7 +42,7 @@
           <p class="f">Algorithm Name: </p> <p class="boldRight"> {{message.algorithm_name}}</p> <br>
           <p class="f">Proposed Split: </p> <p class="boldRight"> {{ message.proposed_split }} : {{ 100 - message.proposed_split}}</p> <br>
           <p class="f">Proposed Investment Amount: </p> <p class="boldRight"> {{ message.proposed_amount }}</p> <br>
-          <p class="f">Proposed End Date: </p>
+          <p class="f">Proposed End Date: </p> <p class="boldRight"> {{ message.proposed_end_date }}</p>
         </div>
         <div id="counter" *ngIf="pending">
           <div class="form-group row">
